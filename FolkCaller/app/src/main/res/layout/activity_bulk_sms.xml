@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BulkSmsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_bulk_sms"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ToolbarTheme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_bulk_sms">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/tv_filename"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Enter File Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_filename"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_filename" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Category"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_filename" />
+
+            <EditText
+                android:id="@+id/et_category"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_category" />
+
+            <TextView
+                android:id="@+id/tv_telecaller"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Tele-Caller"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_category" />
+
+            <EditText
+                android:id="@+id/et_telecaller"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_telecaller" />
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Day"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_telecaller" />
+
+            <EditText
+                android:id="@+id/et_day"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_day" />
+
+            <TextView
+                android:id="@+id/tv_program"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Program"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_day" />
+
+            <EditText
+                android:id="@+id/et_program"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_program" />
+
+            <TextView
+                android:id="@+id/tv_message_prefix"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Enter SMS Message Prefix"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_program" />
+
+            <EditText
+                android:id="@+id/et_message_prefix"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_message_prefix" />
+
+            <TextView
+                android:id="@+id/tv_message_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Message for Comunication Calls"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switch_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_message_prefix" />
+
+            <Switch
+                android:id="@+id/switch_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_message_1"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toEndOf="@+id/tv_message_1" />
+
+            <EditText
+                android:id="@+id/et_message_1"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_message_1" />
+
+            <TextView
+                android:id="@+id/tv_message_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Message for A4 Calls"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switch_2"
+                app:layout_constraintStart_toStartOf="@+id/et_message_2"
+                app:layout_constraintTop_toBottomOf="@+id/et_message_1" />
+
+            <Switch
+                android:id="@+id/switch_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_message_2"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_2"
+                app:layout_constraintStart_toEndOf="@+id/tv_message_2" />
+
+            <EditText
+                android:id="@+id/et_message_2"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_message_2" />
+
+            <TextView
+                android:id="@+id/tv_message_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Message for Inactive Calls"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switch_3"
+                app:layout_constraintStart_toStartOf="@+id/et_message_3"
+                app:layout_constraintTop_toBottomOf="@+id/et_message_2" />
+
+            <Switch
+                android:id="@+id/switch_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_message_3"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_3"
+                app:layout_constraintStart_toEndOf="@+id/tv_message_3" />
+
+            <EditText
+                android:id="@+id/et_message_3"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_message_3" />
+
+            <TextView
+                android:id="@+id/tv_create_event_invited_people"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="0 contacts added for bulk messaging"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/et_message_3" />
+
+            <Button
+                android:id="@+id/btn_create_event_invite_people"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="+ Add Contacts"
+                android:textColor="@color/colorLightBlue"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/et_message_1"
+                app:layout_constraintStart_toStartOf="@+id/et_message_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_create_event_invited_people" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
