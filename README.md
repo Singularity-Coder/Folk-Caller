@@ -1,2 +1,2 @@
-# MVP
-Simple App using MVP
+# Folk Caller
+ISKCON Folk Caller App!
