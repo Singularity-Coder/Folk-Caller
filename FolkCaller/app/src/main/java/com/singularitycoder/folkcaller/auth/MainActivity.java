@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.singularitycoder.folkcaller.HomeActivity;
 import com.singularitycoder.folkcaller.R;
 
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         // Set Toolbar
         final Toolbar toolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
+//        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
 
 
         // Set ViewPager
@@ -69,12 +70,27 @@ public class MainActivity extends AppCompatActivity {
         final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_main);
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorTransparent));
 
-//        collapsingToolbarLayout.setTitle("Your Title");
-//        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorTransparent)); // transperent color = #00000000
-//        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0));
+        AppBarLayout appBarLayout = findViewById(R.id.appbar_main);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = true;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
+                    isShow = true;
+                } else if (isShow) {
+                    if (getSupportActionBar() != null) getSupportActionBar().setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
 
         // Set color of CollaspongToolbar when collapsing
-//        collapsingToolbarLayout.setExpandedTitleColor(Color.argb(255,0,0,0));
         collapsingToolbarLayout.setContentScrimColor(getResources().getColor(R.color.colorPrimary));
         collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.colorPrimary));
 
