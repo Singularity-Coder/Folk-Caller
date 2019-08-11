@@ -30,14 +30,15 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".DetailViewContactCallerAdmin"
-            android:theme="@style/AppTheme"/>
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".BulkSmsActivity"
             android:parentActivityName=".HomeActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".auth.MainActivity"
             android:theme="@style/AppTheme">

@@ -31,4 +31,11 @@
         android:title="Send Bulk SMS"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:orderInCategory="5"
+        android:title="About"
+        app:showAsAction="never" />
+
 </menu>

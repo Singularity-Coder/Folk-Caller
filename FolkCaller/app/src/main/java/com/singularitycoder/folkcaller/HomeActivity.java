@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,14 +18,19 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -132,8 +139,70 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_bulk_sms:
                 startActivity(new Intent(HomeActivity.this, BulkSmsActivity.class));
                 return true;
+            case R.id.action_about:
+                aboutDialog(this);
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void aboutDialog(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.dialog_about);
+
+        Rect displayRectangle = new Rect();
+        Window window = this.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
+        TextView tvContactUs = dialog.findViewById(R.id.tv_contact_us);
+        tvContactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","name@emailaddress.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Us");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Feedback, Help, Report Bugs etc.");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+            }
+        });
+        TextView tvRateUs = dialog.findViewById(R.id.tv_rate_us);
+        tvRateUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.srilaprabhupadalila&hl=en")));
+            }
+        });
+        TextView tvVolunteer = dialog.findViewById(R.id.tv_volunteer_appdev);
+        tvVolunteer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/forms/about/")));
+            }
+        });
+        TextView tvDedicated = dialog.findViewById(R.id.tv_dedicated_to);
+        tvDedicated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.srilaprabhupadalila.org/who-is-srila-prabhupada")));
+            }
+        });
+        TextView tvShareApk = dialog.findViewById(R.id.tv_share_app_apk);
+        tvShareApk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        TextView tvShareLink = dialog.findViewById(R.id.tv_share_app_link);
+        tvShareLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.srilaprabhupadalila&hl=en")));
+            }
+        });
+        dialog.show();
     }
 
     private static class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -171,7 +240,8 @@ public class HomeActivity extends AppCompatActivity {
     public static Activity getActivity(Context context) {
         if (context == null) return null;
         if (context instanceof Activity) return (Activity) context;
-        if (context instanceof ContextWrapper) return getActivity(((ContextWrapper)context).getBaseContext());
+        if (context instanceof ContextWrapper)
+            return getActivity(((ContextWrapper) context).getBaseContext());
         return null;
     }
 
