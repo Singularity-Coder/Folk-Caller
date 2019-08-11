@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 return true;
             case R.id.action_admin_filter:
-
+                contactFilterDialog(this);
                 return true;
             case R.id.action_admin_add:
 
@@ -202,6 +202,34 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.srilaprabhupadalila&hl=en")));
             }
         });
+        dialog.show();
+    }
+
+    public void contactFilterDialog(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.dialog_filter_contacts);
+
+        Rect displayRectangle = new Rect();
+        Window window = this.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
+        dialog.show();
+    }
+
+    public void callerFilterDialog(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.dialog_filter_callers);
+
+        Rect displayRectangle = new Rect();
+        Window window = this.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
         dialog.show();
     }
 
