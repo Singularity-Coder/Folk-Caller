@@ -4,8 +4,209 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:nestedScrollingEnabled="true"
     tools:context=".DetailViewContactCallerAdmin">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/bg_light"
+                app:layout_constraintBottom_toTopOf="@+id/divider"
+                app:layout_constraintTop_toBottomOf="@+id/tv_share"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/img_view_event_header"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="40dp"
+                android:elevation="5dp"
+                android:src="@drawable/face1"
+                app:civ_border_color="@color/colorGrey"
+                app:civ_border_width="0.5dp"
+                app:civ_shadow="false"
+                app:civ_shadow_color="#3f51b5"
+                app:civ_shadow_radius="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_view_event_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Gauranga Das"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_view_event_header" />
+
+            <TextView
+                android:id="@+id/tv_view_event_created_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Folk Guide"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_view_event_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_view_event_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_view_event_title" />
+
+
+            <ImageView
+                android:id="@+id/img_call"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_call_black_24dp"
+                android:tint="@color/colorSkyBlue"
+                app:layout_constraintEnd_toStartOf="@+id/img_whatsapp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_view_event_created_date" />
+
+            <TextView
+                android:id="@+id/tv_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Call"
+                android:textAlignment="center"
+                android:textColor="@color/colorSkyBlue"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_call"
+                app:layout_constraintStart_toStartOf="@+id/img_call"
+                app:layout_constraintTop_toBottomOf="@+id/img_call" />
+
+
+            <ImageView
+                android:id="@+id/img_whatsapp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_whatsapp_logo"
+                android:tint="@color/colorSkyBlue"
+                app:layout_constraintEnd_toStartOf="@+id/img_sms"
+                app:layout_constraintStart_toEndOf="@+id/img_call"
+                app:layout_constraintTop_toBottomOf="@+id/tv_view_event_created_date" />
+
+            <TextView
+                android:id="@+id/tv_whatsapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="WhatsApp"
+                android:textAlignment="center"
+                android:textColor="@color/colorSkyBlue"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_whatsapp"
+                app:layout_constraintStart_toStartOf="@+id/img_whatsapp"
+                app:layout_constraintTop_toBottomOf="@+id/img_whatsapp" />
+
+            <ImageView
+                android:id="@+id/img_sms"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_sms_black_24dp"
+                android:tint="@color/colorSkyBlue"
+                app:layout_constraintEnd_toStartOf="@+id/img_share"
+                app:layout_constraintStart_toEndOf="@+id/img_whatsapp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_view_event_created_date" />
+
+            <TextView
+                android:id="@+id/tv_sms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="SMS"
+                android:textAlignment="center"
+                android:textColor="@color/colorSkyBlue"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_sms"
+                app:layout_constraintStart_toStartOf="@+id/img_sms"
+                app:layout_constraintTop_toBottomOf="@+id/img_sms" />
+
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_share_black_24dp"
+                android:tint="@color/colorSkyBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_sms"
+                app:layout_constraintTop_toBottomOf="@+id/tv_view_event_created_date" />
+
+            <TextView
+                android:id="@+id/tv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Share"
+                android:textAlignment="center"
+                android:textColor="@color/colorSkyBlue"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_share"
+                app:layout_constraintStart_toStartOf="@+id/img_share"
+                app:layout_constraintTop_toBottomOf="@+id/img_share" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorGrey"
+                app:layout_constraintTop_toBottomOf="@+id/tv_share" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_create_event"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:alpha="0.3"
+        android:background="@drawable/fade_reverse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ToolbarTransparentTheme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

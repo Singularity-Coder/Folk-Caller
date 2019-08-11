@@ -284,6 +284,7 @@ public class HomeActivity extends AppCompatActivity {
                 public void onItemClick(View view, int position) {
                     Toast.makeText(getContext(), position + " got clicked", Toast.LENGTH_LONG).show();
                     // Start activity
+                    startActivity(new Intent(getContext(), DetailViewContactCallerAdmin.class));
                 }
             });
             recyclerView.setAdapter(sAdapterContactCallerAdminChatNotif);

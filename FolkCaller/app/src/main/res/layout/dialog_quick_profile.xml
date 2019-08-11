@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorTransparent"
-    android:clipToPadding="true"
     android:clipChildren="true"
+    android:clipToPadding="true"
     app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="true"
+        android:background="@color/colorWhite"
         android:clipChildren="true"
-        android:background="@color/colorWhite">
+        android:clipToPadding="true">
 
         <ImageView
             android:id="@+id/img_profile_image"
@@ -56,16 +56,29 @@
 
 
         <ImageView
-            android:id="@+id/img_quick_whatsapp"
+            android:id="@+id/img_quick_call"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_call_black_24dp"
+            android:tint="@color/colorSkyBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_quick_whatsapp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile_image" />
+
+        <ImageView
+            android:id="@+id/img_quick_whatsapp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:src="@drawable/ic_whatsapp_logo"
             android:tint="@color/colorSkyBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_quick_message"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_quick_call"
             app:layout_constraintTop_toBottomOf="@+id/img_profile_image" />
 
 
@@ -78,22 +91,10 @@
             android:src="@drawable/ic_sms_black_24dp"
             android:tint="@color/colorSkyBlue"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img_quick_call"
+            app:layout_constraintEnd_toStartOf="@+id/img_quick_info"
             app:layout_constraintStart_toEndOf="@+id/img_quick_whatsapp"
             app:layout_constraintTop_toBottomOf="@+id/img_profile_image" />
 
-        <ImageView
-            android:id="@+id/img_quick_call"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/ic_call_black_24dp"
-            android:tint="@color/colorSkyBlue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img_quick_info"
-            app:layout_constraintStart_toEndOf="@+id/img_quick_message"
-            app:layout_constraintTop_toBottomOf="@+id/img_profile_image" />
 
         <ImageView
             android:id="@+id/img_quick_info"
@@ -101,11 +102,11 @@
             android:layout_height="25dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:src="@drawable/ic_info_black_24dp"
+            android:src="@drawable/ic_info_outline_black_24dp"
             android:tint="@color/colorSkyBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_quick_call"
+            app:layout_constraintStart_toEndOf="@+id/img_quick_message"
             app:layout_constraintTop_toBottomOf="@+id/img_profile_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
