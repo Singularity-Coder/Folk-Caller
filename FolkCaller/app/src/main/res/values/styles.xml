@@ -24,6 +24,11 @@
         <item name="actionMenuTextColor">@color/colorWhite</item>
     </style>
 
+    <style name="DetailToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/colorSkyBlue</item>
+        <item name="android:background">@color/colorTransparent</item>
+    </style>
+
     <style name="ToolbarTransparentTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/colorWhite</item>
         <item name="android:background">@color/colorTransparent</item>

@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
 
-
         // Set ViewPager
         final ViewPager viewPager = findViewById(R.id.viewpager_main);
         setupViewPager(viewPager);
