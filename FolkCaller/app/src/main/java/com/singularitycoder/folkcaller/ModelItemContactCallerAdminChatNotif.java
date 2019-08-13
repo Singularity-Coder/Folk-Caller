@@ -1,6 +1,6 @@
 package com.singularitycoder.folkcaller;
 
-public class ItemContactCallerAdminChatNotif {
+public class ModelItemContactCallerAdminChatNotif {
 
     int imgProfileImage;
     int imgGroupProfileImage;
@@ -11,7 +11,7 @@ public class ItemContactCallerAdminChatNotif {
     String strChatCount;
 
     // Contact, Caller, Admin
-    public ItemContactCallerAdminChatNotif(int imgProfileImage, String strName, String strSubTitle1, String strSubTitle2) {
+    public ModelItemContactCallerAdminChatNotif(int imgProfileImage, String strName, String strSubTitle1, String strSubTitle2) {
         this.imgProfileImage = imgProfileImage;
         this.strName = strName;
         this.strSubTitle1 = strSubTitle1;
@@ -19,7 +19,7 @@ public class ItemContactCallerAdminChatNotif {
     }
 
     // Group Chat
-    public ItemContactCallerAdminChatNotif(int imgGroupProfileImage, String strName, String strSubTitle1, String strSubTitle2, String strDate, String strChatCount) {
+    public ModelItemContactCallerAdminChatNotif(int imgGroupProfileImage, String strName, String strSubTitle1, String strSubTitle2, String strDate, String strChatCount) {
         this.imgGroupProfileImage = imgGroupProfileImage;
         this.strName = strName;
         this.strSubTitle1 = strSubTitle1;
@@ -29,7 +29,7 @@ public class ItemContactCallerAdminChatNotif {
     }
 
     // Chat
-    public ItemContactCallerAdminChatNotif(int imgProfileImage, String strName, String strSubTitle1, String strDate, String strChatCount) {
+    public ModelItemContactCallerAdminChatNotif(int imgProfileImage, String strName, String strSubTitle1, String strDate, String strChatCount) {
         this.imgProfileImage = imgProfileImage;
         this.strName = strName;
         this.strSubTitle1 = strSubTitle1;

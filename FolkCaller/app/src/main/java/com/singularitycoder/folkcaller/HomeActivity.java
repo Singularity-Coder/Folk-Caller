@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
 
-    static ArrayList<ItemContactCallerAdminChatNotif> adminList;
+    static ArrayList<ModelItemContactCallerAdminChatNotif> adminList;
     static AdapterContactCallerAdminChatNotif sAdapterContactCallerAdminChatNotif;
 
     @Override
@@ -120,8 +121,8 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CONTACTS");
         adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CALLERS");
         adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "ADMINS");
-        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
-        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");
+//        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
+//        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");
         viewPager.setAdapter(adapter);
     }
 
@@ -370,25 +371,25 @@ public class HomeActivity extends AppCompatActivity {
             recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
             adminList = new ArrayList<>();
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
-            adminList.add(new ItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
+            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Gauranga Das", "Folk Guide", "9 AM to 3 PM"));
 
             sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), adminList);
             sAdapterContactCallerAdminChatNotif.setHasStableIds(true);
@@ -404,6 +405,12 @@ public class HomeActivity extends AppCompatActivity {
 
             return view;
         }
+
+//        @Override
+//        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//            inflater.inflate(R.menu.menu_admin, menu);
+//            super.onCreateOptionsMenu(menu, inflater);
+//        }
     }
 
 }
