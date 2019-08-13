@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -67,6 +68,33 @@ public class HomeActivity extends AppCompatActivity {
         initToolBar();
         initViewPager();
         initTabLayout();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            // Home Menu
+            case R.id.action_add_admin:
+                return true;
+            case R.id.action_bulk_sms:
+                startActivity(new Intent(HomeActivity.this, BulkSmsActivity.class));
+                return true;
+            case R.id.action_about:
+                aboutDialog(this);
+                return true;
+            case R.id.action_my_profile:
+                return true;
+            case R.id.action_settings:
+                return true;
+
+            // Admin Menu
+            case R.id.action_search:
+                return true;
+            case R.id.action_filter:
+                contactFilterDialog(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initToolBar() {
@@ -124,42 +152,6 @@ public class HomeActivity extends AppCompatActivity {
 //        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
 //        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");
         viewPager.setAdapter(adapter);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_admin, menu);
-        // Find the menuItem to add your SubMenu
-        MenuItem myMenuItem = menu.findItem(R.id.action_settings);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_admin_search:
-
-                return true;
-            case R.id.action_admin_filter:
-                contactFilterDialog(this);
-                return true;
-            case R.id.action_admin_add:
-
-                return true;
-            case R.id.action_bulk_sms:
-                startActivity(new Intent(HomeActivity.this, BulkSmsActivity.class));
-                return true;
-            case R.id.action_about:
-                aboutDialog(this);
-                return true;
-            case R.id.action_my_profile:
-
-                return true;
-            case R.id.action_settings:
-
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     public void aboutDialog(Activity activity) {
@@ -355,6 +347,12 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_admin, container, false);
 
@@ -406,11 +404,12 @@ public class HomeActivity extends AppCompatActivity {
             return view;
         }
 
-//        @Override
-//        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//            inflater.inflate(R.menu.menu_admin, menu);
-//            super.onCreateOptionsMenu(menu, inflater);
-//        }
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_admin, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+
     }
 
 }
