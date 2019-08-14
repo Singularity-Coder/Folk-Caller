@@ -409,7 +409,6 @@ public class HomeActivity extends AppCompatActivity {
             inflater.inflate(R.menu.menu_admin, menu);
             super.onCreateOptionsMenu(menu, inflater);
         }
-
     }
 
 }

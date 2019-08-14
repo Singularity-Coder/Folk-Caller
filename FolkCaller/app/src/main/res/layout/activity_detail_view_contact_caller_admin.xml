@@ -53,7 +53,7 @@
                 android:id="@+id/tv_view_event_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
@@ -182,233 +182,329 @@
                 app:layout_constraintStart_toStartOf="@+id/img_share"
                 app:layout_constraintTop_toBottomOf="@+id/img_share" />
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="15dp"
-                android:background="@color/colorGrey"
-                app:layout_constraintTop_toBottomOf="@+id/tv_share" />
 
-            <LinearLayout
-                android:id="@+id/linear_lay_caller_details"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_caller_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="@+id/tv_view_event_title"
-                app:layout_constraintStart_toStartOf="@+id/tv_view_event_title"
-                app:layout_constraintTop_toBottomOf="@+id/divider">
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_share">
 
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <View
+                    android:id="@+id/divider_0"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tv_my_details"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="My Details"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/tv_my_details_edit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="EDIT"
-                        android:textColor="@color/colorSkyBlue"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_availability"
+                    android:id="@+id/tv_profile_my_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="My Details"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_my_details_edit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_0" />
+
+                <TextView
+                    android:id="@+id/tv_profile_my_details_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Availability"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:layout_marginEnd="15dp"
+                    android:text="EDIT"
+                    android:textColor="@color/colorSkyBlue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_availability_dialog"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_profile_availability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Availability"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_my_details" />
+
+                <TextView
+                    android:id="@+id/tv_profile_availability_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="July 9, 3019 - 9AM to 12 PM"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_availability" />
 
                 <TextView
-                    android:id="@+id/tv_folk_guide"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_folk_guide"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="Folk Guide"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_availability_dialog" />
 
                 <TextView
                     android:id="@+id/tv_folk_guide_dialog"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="Chaitanya Das"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_folk_guide" />
 
                 <TextView
-                    android:id="@+id/tv_college"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_college"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="College"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_folk_guide_dialog" />
 
                 <TextView
-                    android:id="@+id/tv_college_dialog"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_profile_college_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="Stanford University"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_college" />
 
                 <TextView
-                    android:id="@+id/tv_company"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_company"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="Company"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_college_dialog" />
+
 
                 <TextView
-                    android:id="@+id/tv_company_dialog"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_profile_company_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="Apple"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company" />
 
-            </LinearLayout>
+                <View
+                    android:id="@+id/divider_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company_dialog" />
 
-            <View
-                android:id="@+id/divider_2"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="15dp"
-                android:background="@color/colorGrey"
-                app:layout_constraintTop_toBottomOf="@+id/linear_lay_caller_details" />
+                <View
+                    android:id="@+id/divider_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_2" />
 
-            <View
-                android:id="@+id/divider_3"
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:background="@color/bg_light"
-                app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
-                android:id="@+id/divider_4"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorGrey"
-                app:layout_constraintTop_toBottomOf="@+id/divider_3" />
 
-            <LinearLayout
-                android:id="@+id/linear_lay_contact_details"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_contact_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="@+id/tv_view_event_title"
-                app:layout_constraintStart_toStartOf="@+id/tv_view_event_title"
-                app:layout_constraintTop_toBottomOf="@+id/divider_4">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_caller_details">
+
+                <View
+                    android:id="@+id/divider_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_my_details"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:text="Contact Details"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_my_details_edit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_4" />
 
                 <TextView
+                    android:id="@+id/tv_profile_my_details_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Availability"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:layout_marginEnd="15dp"
+                    android:text="EDIT"
+                    android:textColor="@color/colorSkyBlue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_profile_availability"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Added on"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_my_details" />
+
+                <TextView
+                    android:id="@+id/tv_profile_availability_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:hint="July 9, 3019 - 9AM to 12 PM"
+                    android:hint="July 9, 3019 - 9:15 AM"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_availability" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_folk_guide"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Folk Guide"
+                    android:text="Who Added"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_availability_dialog" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_folk_guide_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="Chaitanya Das"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_folk_guide" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_college"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="College"
+                    android:text="Folk Guide"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_folk_guide_dialog" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_profile_college_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="Stanford University"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_college" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_profile_company"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="Company"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_college_dialog" />
+
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_profile_company_dialog"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:hint="Apple"
                     android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company" />
 
-            </LinearLayout>
+                <View
+                    android:id="@+id/divider_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company_dialog" />
+
+                <View
+                    android:id="@+id/divider_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
