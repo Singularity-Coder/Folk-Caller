@@ -1,0 +1,15 @@
+<resources>
+
+    <!--Material Design Dimensions-->
+    <dimen name="button_medium_14sp">14sp</dimen>
+    <dimen name="caption_regular_12sp">12sp</dimen>
+    <dimen name="body_1_regular_14sp">14sp</dimen>
+    <dimen name="body_2_medium_14sp">14sp</dimen>
+    <dimen name="subheading_regular_16sp">16sp</dimen>
+    <dimen name="title_medium_20sp">20sp</dimen>
+    <dimen name="headline_regular_24sp">24sp</dimen>
+    <dimen name="display_1_regular_34sp">34sp</dimen>
+    <dimen name="display_2_regular_45sp">45sp</dimen>
+    <dimen name="display_3_regular_54sp">54sp</dimen>
+
+</resources>
