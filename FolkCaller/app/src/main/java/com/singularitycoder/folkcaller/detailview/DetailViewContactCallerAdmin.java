@@ -3,6 +3,8 @@ package com.singularitycoder.folkcaller.detailview;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.ActivityInfo;
 import android.os.Build;
@@ -15,9 +17,17 @@ import android.widget.TextView;
 
 import com.singularitycoder.folkcaller.R;
 
+import java.util.ArrayList;
+
 public class DetailViewContactCallerAdmin extends AppCompatActivity {
 
     Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnAssignCallingTask;
+
+    RecyclerView mRecyclerView, commentRecyclerView;
+    AdapterDetailViewCalledBy mAdapterDetailViewCalledBy;
+    AdapterDetailViewComments commentAdapter;
+    ArrayList<ModelDetailViewCalledBy> mArrayList;
+    ArrayList<ModelDetailViewComments> commentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +59,64 @@ public class DetailViewContactCallerAdmin extends AppCompatActivity {
                 }
             }
         });
+
+        mArrayList = new ArrayList<>();
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelDetailViewCalledBy(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mRecyclerView = findViewById(R.id.recycler_called_by_list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setItemViewCacheSize(20);
+        mRecyclerView.setDrawingCacheEnabled(true);
+        mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        mAdapterDetailViewCalledBy = new AdapterDetailViewCalledBy(mArrayList, this);
+        mAdapterDetailViewCalledBy.setHasStableIds(true);
+        mRecyclerView.setAdapter(mAdapterDetailViewCalledBy);
+
+
+        commentList = new ArrayList<>();
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelDetailViewComments(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentRecyclerView = findViewById(R.id.recycler_comments_list);
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+        commentRecyclerView.setLayoutManager(commentLayoutManager);
+        commentRecyclerView.setHasFixedSize(true);
+        commentRecyclerView.setItemViewCacheSize(20);
+        commentRecyclerView.setDrawingCacheEnabled(true);
+        commentRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        commentAdapter = new AdapterDetailViewComments(commentList, this);
+        commentAdapter.setHasStableIds(true);
+        commentRecyclerView.setAdapter(commentAdapter);
+
 
     }
 
