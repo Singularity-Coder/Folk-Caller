@@ -30,7 +30,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".DetailViewContactCallerAdmin"
+            android:name=".detailview.DetailViewContactCallerAdmin"
             android:parentActivityName=".HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
