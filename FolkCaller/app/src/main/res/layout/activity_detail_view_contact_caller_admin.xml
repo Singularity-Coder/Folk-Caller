@@ -260,8 +260,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_caller_details"
                 android:layout_width="0dp"
-                android:visibility="visible"
                 android:layout_height="wrap_content"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider_16">
@@ -303,6 +303,110 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tv_profile_member_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Member Type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_my_details" />
+
+                <TextView
+                    android:id="@+id/tv_profile_member_type_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Folk Boy"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_member_type"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_member_type"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_member_type" />
+
+                <TextView
+                    android:id="@+id/tv_profile_folk_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Folk ID"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_member_type_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_folk_id_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="AG17W38099W"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_member_type"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_member_type"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_folk_id" />
+
+                <TextView
+                    android:id="@+id/tv_profile_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Email"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_folk_id_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_email_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="gauranga@gmail.com"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_member_type"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_member_type"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_email" />
+
+                <TextView
+                    android:id="@+id/tv_profile_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Phone"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_email_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_phone_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="9550055007"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_member_type"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_member_type"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_phone" />
+
+                <TextView
                     android:id="@+id/tv_profile_availability"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -314,7 +418,7 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_my_details" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_phone_text" />
 
                 <TextView
                     android:id="@+id/tv_profile_availability_dialog"
@@ -401,13 +505,63 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_company" />
 
+                <TextView
+                    android:id="@+id/tv_profile_finger_print"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Finger Print"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company_dialog" />
+
+
+                <TextView
+                    android:id="@+id/tv_profile_finger_print_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Finger Print Exists"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_finger_print" />
+
+                <TextView
+                    android:id="@+id/tv_profile_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Password"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_finger_print_text" />
+
+
+                <TextView
+                    android:id="@+id/tv_profile_password_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="*********"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_password" />
+
                 <View
                     android:id="@+id/divider_2"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="15dp"
                     android:background="@color/colorGrey"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company_dialog" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_password_text" />
 
                 <View
                     android:id="@+id/divider_3"
