@@ -73,10 +73,6 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tablayout_main);
         tabLayout.setupWithViewPager(viewPager);
 
-        // Set CollapsingToolbar
-        final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_main);
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorTransparent));
-
         AppBarLayout appBarLayout = findViewById(R.id.appbar_main);
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = true;
@@ -97,9 +93,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set CollapsingToolbar
+        final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_main);
+
         // Set color of CollaspongToolbar when collapsing
         collapsingToolbarLayout.setContentScrimColor(getResources().getColor(R.color.colorPrimary));
-        collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.colorPrimary));
+        collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.colorTransparent));
 
         // Do something on selecting each tab of tab layout
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
