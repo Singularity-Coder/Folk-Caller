@@ -1,4 +1,4 @@
-package com.singularitycoder.folkcaller.detailview;
+package com.singularitycoder.folkcaller.profileview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,12 +14,12 @@ import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
 
-public class AdapterDetailViewComments extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AdapterProfileViewComments extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    ArrayList<ModelDetailViewComments> mArrayList;
+    ArrayList<ModelProfileView> mArrayList;
     Context mContext;
 
-    public AdapterDetailViewComments(ArrayList<ModelDetailViewComments> arrayList, Context context) {
+    public AdapterProfileViewComments(ArrayList<ModelProfileView> arrayList, Context context) {
         mArrayList = arrayList;
         mContext = context;
     }
@@ -33,17 +33,22 @@ public class AdapterDetailViewComments extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ModelDetailViewComments ModelDetailViewComments = mArrayList.get(position);
+        ModelProfileView modelProfileView = mArrayList.get(position);
 
-        ((ViewHolderDetailViewComments) holder).profilePic.setImageResource(ModelDetailViewComments.getProfileImage());
-        ((ViewHolderDetailViewComments) holder).name.setText(ModelDetailViewComments.getName());
-        ((ViewHolderDetailViewComments) holder).dateTime.setText(ModelDetailViewComments.getDateTime());
-        ((ViewHolderDetailViewComments) holder).comment.setText(ModelDetailViewComments.getComment());
+        ((ViewHolderDetailViewComments) holder).profilePic.setImageResource(modelProfileView.getProfileImage());
+        ((ViewHolderDetailViewComments) holder).name.setText(modelProfileView.getName());
+        ((ViewHolderDetailViewComments) holder).dateTime.setText(modelProfileView.getDateTime());
+        ((ViewHolderDetailViewComments) holder).comment.setText(modelProfileView.getComment());
     }
 
     @Override
     public int getItemCount() {
         return mArrayList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     class ViewHolderDetailViewComments extends RecyclerView.ViewHolder {

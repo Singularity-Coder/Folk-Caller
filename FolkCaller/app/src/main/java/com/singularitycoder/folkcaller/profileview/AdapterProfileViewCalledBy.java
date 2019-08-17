@@ -1,4 +1,4 @@
-package com.singularitycoder.folkcaller.detailview;
+package com.singularitycoder.folkcaller.profileview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,12 +14,12 @@ import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
 
-public class AdapterDetailViewCalledBy extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AdapterProfileViewCalledBy extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    ArrayList<ModelDetailViewCalledBy> mArrayList;
+    ArrayList<ModelProfileView> mArrayList;
     Context mContext;
 
-    public AdapterDetailViewCalledBy(ArrayList<ModelDetailViewCalledBy> arrayList, Context context) {
+    public AdapterProfileViewCalledBy(ArrayList<ModelProfileView> arrayList, Context context) {
         mArrayList = arrayList;
         mContext = context;
     }
@@ -33,16 +33,21 @@ public class AdapterDetailViewCalledBy extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ModelDetailViewCalledBy modelDetailViewCalledBy = mArrayList.get(position);
+        ModelProfileView modelProfileView = mArrayList.get(position);
 
-        ((ViewHolderDetailViewCalledBy) holder).profilePic.setImageResource(modelDetailViewCalledBy.getProfileImage());
-        ((ViewHolderDetailViewCalledBy) holder).name.setText(modelDetailViewCalledBy.getName());
-        ((ViewHolderDetailViewCalledBy) holder).dateTime.setText(modelDetailViewCalledBy.getDateTime());
+        ((ViewHolderDetailViewCalledBy) holder).profilePic.setImageResource(modelProfileView.getProfileImage());
+        ((ViewHolderDetailViewCalledBy) holder).name.setText(modelProfileView.getName());
+        ((ViewHolderDetailViewCalledBy) holder).dateTime.setText(modelProfileView.getDateTime());
     }
 
     @Override
     public int getItemCount() {
         return mArrayList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     class ViewHolderDetailViewCalledBy extends RecyclerView.ViewHolder {

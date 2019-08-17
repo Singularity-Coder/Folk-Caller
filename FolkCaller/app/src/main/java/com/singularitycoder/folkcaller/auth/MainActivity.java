@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     if (getSupportActionBar() != null)
-                        getSupportActionBar().setTitle("Folk Caller");
+                        getSupportActionBar().setTitle("FOLK Caller");
                     isShow = true;
                 } else if (isShow) {
                     if (getSupportActionBar() != null) getSupportActionBar().setTitle(" ");

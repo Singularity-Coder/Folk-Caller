@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:text="Folk Caller"
+                    android:text="FOLK Caller"
                     android:textColor="@color/colorBlack"
                     android:textSize="23sp"
                     android:textStyle="bold" />

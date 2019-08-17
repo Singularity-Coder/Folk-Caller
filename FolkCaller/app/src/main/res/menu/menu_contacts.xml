@@ -3,69 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/action_contact_search"
         android:icon="@drawable/ic_search_black_24dp"
         android:orderInCategory="1"
-        android:title="Search Admins"
+        android:title="Search Contacts"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
 
     <item
-        android:id="@+id/action_filter"
+        android:id="@+id/action__contact_filter"
         android:icon="@drawable/ic_filter_list_black_24dp"
         android:orderInCategory="2"
-        android:title="Filter Admins"
+        android:title="Filter Contacts"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/action_add_admin"
-        android:orderInCategory="3"
-        android:title="Add Admins"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_bulk_sms"
-        android:orderInCategory="4"
-        android:title="Send Bulk SMS"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_bulk_calls"
-        android:orderInCategory="5"
-        android:title="Make Bulk Calls"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_assign_calling_task"
-        android:orderInCategory="6"
-        android:title="Assign Calling Task"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_upload_contacts"
-        android:orderInCategory="7"
-        android:title="Upload Contacts"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="8"
-        android:title="Settings"
-        app:showAsAction="never">
-
-        <menu>
-            <item
-                android:id="@+id/action_my_profile"
-                android:orderInCategory="9"
-                android:title="My Profile"
-                app:showAsAction="never" />
-
-            <item
-                android:id="@+id/action_about"
-                android:orderInCategory="10"
-                android:title="About"
-                app:showAsAction="never" />
-        </menu>
-    </item>
 
 </menu>

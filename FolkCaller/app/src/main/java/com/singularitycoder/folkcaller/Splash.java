@@ -18,6 +18,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.singularitycoder.folkcaller.auth.MainActivity;
 
+// Contents
+// 1. Make activity fullscreen using LayoutParams
+// 2. Instantiate Layouts
+// 3. Use AnimationDrawable class to control fade duration of background view. Start the animation in onStart() method
+// 4. Use ObjectAnimator class to control alpha reveal and duration values
+// 5. Finally use Handler to delay the splash for 2 sec. Bad practice but looks good so whatever.
+
 public class Splash extends AppCompatActivity {
 
     private View bgSplash;
@@ -29,21 +36,21 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Set Full Screen
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        makeFullScreen();
         setContentView(R.layout.activity_splash);
-
-        instanstiations();
+        instantiations();
         animateGradientBackground();
         animateAppIcon();
         delaySplashFor2Sec();
     }
 
-    private void instanstiations() {
+    private void makeFullScreen() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    private void instantiations() {
         bgSplash = findViewById(R.id.bg_splash);
         appIcon = findViewById(R.id.iv_logo_splash_screen);
         mConstraintLayout = findViewById(R.id.con_lay_splash);
@@ -51,14 +58,14 @@ public class Splash extends AppCompatActivity {
 
     private void animateGradientBackground() {
         mAnimationDrawable = (AnimationDrawable) bgSplash.getBackground();
-        mAnimationDrawable.setEnterFadeDuration(1000);
-        mAnimationDrawable.setExitFadeDuration(1000);
+        mAnimationDrawable.setEnterFadeDuration(1000);  // milli seconds
+        mAnimationDrawable.setExitFadeDuration(1000);   // milli seconds
     }
 
     private void animateAppIcon() {
         ObjectAnimator alphaAnimation = ObjectAnimator.ofFloat(appIcon, "alpha", 0.0F, 1.0F);
-        alphaAnimation.setStartDelay(600);
-        alphaAnimation.setDuration(1000);
+        alphaAnimation.setStartDelay(600);  // milli seconds
+        alphaAnimation.setDuration(1000);   // milli seconds
         alphaAnimation.start();
         appIcon.setVisibility(View.VISIBLE);
     }

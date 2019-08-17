@@ -1,17 +1,25 @@
-package com.singularitycoder.folkcaller.detailview;
+package com.singularitycoder.folkcaller.profileview;
 
-public class ModelDetailViewComments {
+public class ModelProfileView {
 
     private int profileImage;
     private String name;
     private String dateTime;
     private String comment;
 
-    public ModelDetailViewComments(int profileImage, String name, String dateTime, String comment) {
+    // Comments
+    public ModelProfileView(int profileImage, String name, String dateTime, String comment) {
         this.profileImage = profileImage;
         this.name = name;
         this.dateTime = dateTime;
         this.comment = comment;
+    }
+
+    // Called By
+    public ModelProfileView(int profileImage, String name, String dateTime) {
+        this.profileImage = profileImage;
+        this.name = name;
+        this.dateTime = dateTime;
     }
 
     public int getProfileImage() {

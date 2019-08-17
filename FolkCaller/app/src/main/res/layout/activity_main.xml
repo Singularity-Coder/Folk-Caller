@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:paddingBottom="30dp"
-                android:text="Folk Caller"
+                android:text="FOLK Caller"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="25sp"
