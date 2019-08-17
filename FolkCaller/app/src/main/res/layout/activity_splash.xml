@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animation_list"
+    android:background="@color/colorPrimary"
     android:id="@+id/con_lay_splash"
     tools:context=".Splash">
 
-    <!--<View-->
-        <!--android:id="@+id/bg_splash"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:background="@drawable/animation_list" />-->
+    <View
+        android:id="@+id/bg_splash_view_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary" />
+
+    <View
+        android:id="@+id/bg_splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/animation_list" />
 
     <ImageView
         android:id="@+id/iv_logo_splash_screen"

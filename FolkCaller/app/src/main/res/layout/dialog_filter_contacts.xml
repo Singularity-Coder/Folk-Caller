@@ -424,7 +424,7 @@
                     android:layout_marginBottom="70dp"
                     android:backgroundTint="@color/colorSkyBlue"
                     android:text="APPLY"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorLightBlue"
                     android:textStyle="bold" />
             </LinearLayout>
 
