@@ -7,6 +7,13 @@ public class ModelProfileView {
     private String dateTime;
     private String comment;
 
+    public ModelProfileView() {
+    }
+
+    public ModelProfileView(String comment) {
+        this.comment = comment;
+    }
+
     // Comments
     public ModelProfileView(int profileImage, String name, String dateTime, String comment) {
         this.profileImage = profileImage;

@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.singularitycoder.folkcaller.BulkSmsActivity;
@@ -39,7 +41,9 @@ public class ProfileView extends AppCompatActivity {
     ArrayList<ModelProfileView> commentList;
 
     Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnAssignCallingTask;
-    TextView tvShowMoreActions, editMyDetails, editContactDetails;
+    TextView tvShowMoreActions, tvEditMyDetails, tvEditContactDetails;
+    EditText etEnterComment;
+    ImageView imgSendComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public class ProfileView extends AppCompatActivity {
         showMoreActions();
         setUpCalledByList();
         setUpCommentsList();
+        addComment();
         profileConditions();
     }
 
@@ -76,8 +81,10 @@ public class ProfileView extends AppCompatActivity {
         commentsContainer = findViewById(R.id.con_lay_contact_comments);
         profileActionsContainer = findViewById(R.id.con_lay_profile_action_icons);
 
-        editMyDetails = findViewById(R.id.tv_profile_my_details_edit);
-        editContactDetails = findViewById(R.id.tv_profile_contact_details_edit);
+        tvEditMyDetails = findViewById(R.id.tv_profile_my_details_edit);
+        tvEditContactDetails = findViewById(R.id.tv_profile_contact_details_edit);
+        etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
+        imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
     }
 
     private void setUpCalledByList() {
@@ -138,6 +145,18 @@ public class ProfileView extends AppCompatActivity {
         commentRecyclerView.setAdapter(commentAdapter);
     }
 
+    private void addComment() {
+        imgSendComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", etEnterComment.getText().toString()));
+                AdapterProfileViewComments adapterProfileViewComments = new AdapterProfileViewComments(commentList, getApplicationContext());
+                adapterProfileViewComments.notifyDataSetChanged();
+                etEnterComment.setText("");
+            }
+        });
+    }
+
     private void profileConditions() {
         Intent catchIntent = getIntent();
         String keyContact = catchIntent.getStringExtra("openContact");
@@ -152,7 +171,7 @@ public class ProfileView extends AppCompatActivity {
                 calledByContainer.setVisibility(View.GONE);
                 commentsContainer.setVisibility(View.GONE);
                 personActionsContainer.setVisibility(View.GONE);
-                editMyDetails.setVisibility(View.GONE);
+                tvEditMyDetails.setVisibility(View.GONE);
             }
         }
 
@@ -163,7 +182,7 @@ public class ProfileView extends AppCompatActivity {
                 calledByContainer.setVisibility(View.GONE);
                 commentsContainer.setVisibility(View.GONE);
                 personActionsContainer.setVisibility(View.GONE);
-                editMyDetails.setVisibility(View.GONE);
+                tvEditMyDetails.setVisibility(View.GONE);
 //                btnAddAdmins.setVisibility(View.GONE);
 //                btnUploadContacts.setVisibility(View.GONE);
 //                btnAssignCallingTask.setVisibility(View.GONE);
