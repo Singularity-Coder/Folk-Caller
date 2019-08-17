@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +30,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.palette.graphics.Palette;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -40,6 +43,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private CoordinatorLayout mCoordinatorLayout;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(viewPager);
 
         // Set TabLayout
-        TabLayout tabLayout = findViewById(R.id.tablayout_main);
+        tabLayout = findViewById(R.id.tablayout_main);
         tabLayout.setupWithViewPager(viewPager);
 
         AppBarLayout appBarLayout = findViewById(R.id.appbar_main);
@@ -84,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
+                    if (getSupportActionBar() != null)
+                        getSupportActionBar().setTitle("Folk Caller");
                     isShow = true;
                 } else if (isShow) {
                     if (getSupportActionBar() != null) getSupportActionBar().setTitle(" ");
@@ -93,12 +98,50 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
+                if (Math.abs(verticalOffset) - appBarLayout.getTotalScrollRange() == 0) {
+                    //  Collapsed
+//                    Toast.makeText(getApplicationContext(), "Collapsed", Toast.LENGTH_LONG).show();
+//                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+//                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorBlack));
+                    toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+                } else {
+                    //Expanded
+//                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhite));
+//                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorWhite));
+                    toolbar.setBackgroundColor(Color.TRANSPARENT);
+                    tabLayout.setBackgroundColor(Color.TRANSPARENT);
+//                    toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+                }
+            }
+        });
+
         // Set CollapsingToolbar
         final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_main);
 
         // Set color of CollaspongToolbar when collapsing
-        collapsingToolbarLayout.setContentScrimColor(getResources().getColor(R.color.colorPrimary));
-        collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.colorTransparent));
+        try {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.header);
+            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                @SuppressWarnings("ResourceType")
+                @Override
+                public void onGenerated(Palette palette) {
+//                    int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
+//                    int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimaryDark);
+                    collapsingToolbarLayout.setContentScrimColor(R.color.colorPrimary);
+                    collapsingToolbarLayout.setStatusBarScrimColor(R.color.colorTransparent);
+                }
+            });
+        } catch (Exception e) {
+            // if Bitmap fetch fails, fallback to primary colors
+            collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            collapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+        }
 
         // Do something on selecting each tab of tab layout
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
