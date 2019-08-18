@@ -96,13 +96,13 @@ public class HomeActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition());
                 switch (tab.getPosition()) {
                     case 0:
-                        toast("1");
+                        new Helper().toast("1", getApplicationContext(), 0);
                         break;
                     case 1:
-                        toast("2");
+                        new Helper().toast("2", getApplicationContext(), 0);
                         break;
                     case 2:
-                        toast("3");
+                        new Helper().toast("3", getApplicationContext(), 0);
                         break;
                 }
             }
@@ -156,9 +156,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    void toast(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -170,21 +168,17 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             // Home Menu
-//            case R.id.action_add_admin:
-//                return true;
-//            case R.id.action_bulk_sms:
-//                startActivity(new Intent(HomeActivity.this, BulkSmsActivity.class));
-//                return true;
-            case R.id.action_about:
-                aboutDialog(this);
-                return true;
             case R.id.action_my_profile:
                 Intent profileIntent = new Intent(this, ProfileView.class);
                 profileIntent.putExtra("openMyProfile", "MYPROFILE");
                 startActivity(profileIntent);
                 return true;
-//            case R.id.action_settings:
-//                return true;
+            case R.id.action_reports:
+                new Helper().comingSoonDialog(this);
+                return true;
+            case R.id.action_about:
+                aboutDialog(this);
+                return true;
 
             // Admin Menu
             case R.id.action_admin_search:

@@ -3,10 +3,13 @@ package com.singularitycoder.folkcaller.auth;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -227,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static class LoginFragment extends Fragment {
         int color;
+        Button btnUseFingerPrint;
 
         public LoginFragment() {
         }
@@ -248,7 +252,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            btnUseFingerPrint = view.findViewById(R.id.et_login_finger_print);
+            btnUseFingerPrint.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finderPrintDialog(getActivity());
+                }
+            });
+
             return view;
+        }
+
+        public void finderPrintDialog(Activity activity) {
+            final Dialog dialog = new Dialog(activity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(true);
+            dialog.setContentView(R.layout.dialog_finger_print);
+
+            Rect displayRectangle = new Rect();
+            Window window = activity.getWindow();
+            window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+            dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
+            dialog.show();
         }
     }
 

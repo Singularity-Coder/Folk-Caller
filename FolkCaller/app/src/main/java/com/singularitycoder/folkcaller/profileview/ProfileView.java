@@ -7,8 +7,11 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +21,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.singularitycoder.folkcaller.BulkSmsActivity;
+import com.singularitycoder.folkcaller.Helper;
 import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
@@ -40,10 +45,16 @@ public class ProfileView extends AppCompatActivity {
     ArrayList<ModelProfileView> mArrayList;
     ArrayList<ModelProfileView> commentList;
 
-    Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnAssignCallingTask;
+    Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnDownloadContacts, btnAssignCallingTask;
     TextView tvShowMoreActions, tvEditMyDetails, tvEditContactDetails;
     EditText etEnterComment;
     ImageView imgSendComment;
+
+    ImageView actionCall;
+    ImageView actionWhatsApp;
+    ImageView actionSms;
+    ImageView actionShare;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +81,7 @@ public class ProfileView extends AppCompatActivity {
         btnMakeBulkCalls = findViewById(R.id.btn_make_bulk_calls);
         btnAddAdmins = findViewById(R.id.btn_admin_add_admins);
         btnUploadContacts = findViewById(R.id.btn_profile_upload_contacts);
+        btnDownloadContacts = findViewById(R.id.btn_profile_download_contacts);
         btnAssignCallingTask = findViewById(R.id.btn_admin_assign_calling_task);
 
         // Constraint Layouts
@@ -85,6 +97,67 @@ public class ProfileView extends AppCompatActivity {
         tvEditContactDetails = findViewById(R.id.tv_profile_contact_details_edit);
         etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
         imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
+
+        actionCall = findViewById(R.id.img_call);
+        actionCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone = "9535509155";
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                callIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                startActivity(callIntent);
+            }
+        });
+        actionWhatsApp = findViewById(R.id.img_whatsapp);
+        actionWhatsApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PackageManager packageManager = getApplicationContext().getPackageManager();
+                try {
+                    // checks if such an app exists or not
+                    packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+                    String phone = "9535509155";
+                    Uri uri = Uri.parse("smsto:" + phone);
+                    Intent whatsAppIntent = new Intent(Intent.ACTION_SENDTO, uri);
+                    whatsAppIntent.setPackage("com.whatsapp");
+                    startActivity(Intent.createChooser(whatsAppIntent, "Dummy Title"));
+                } catch (PackageManager.NameNotFoundException e) {
+                    new Helper().toast("WhatsApp not found. Install from playstore.", getApplicationContext(), 1);
+                    Uri uri = Uri.parse("market://details?id=com.whatsapp");
+                    Intent openPlayStore = new Intent(Intent.ACTION_VIEW, uri);
+                    openPlayStore.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                    startActivity(openPlayStore);
+                }
+            }
+        });
+        actionSms = findViewById(R.id.img_sms);
+        actionSms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone = "9535509155";
+                Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                smsIntent.putExtra("address", phone);
+                smsIntent.putExtra("sms_body", "Message Body check");
+                smsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                if (smsIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(smsIntent);
+                }
+            }
+        });
+        actionShare = findViewById(R.id.img_share);
+        actionShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.singularitycoder.com");
+                shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                startActivity(Intent.createChooser(shareIntent, "Share to"));
+            }
+        });
+
     }
 
     private void setUpCalledByList() {
@@ -153,6 +226,7 @@ public class ProfileView extends AppCompatActivity {
                 AdapterProfileViewComments adapterProfileViewComments = new AdapterProfileViewComments(commentList, getApplicationContext());
                 adapterProfileViewComments.notifyDataSetChanged();
                 etEnterComment.setText("");
+                new Helper().toast("Comment Added: " + etEnterComment.getText().toString(), getApplicationContext(), 1);
             }
         });
     }
@@ -185,6 +259,7 @@ public class ProfileView extends AppCompatActivity {
                 tvEditMyDetails.setVisibility(View.GONE);
 //                btnAddAdmins.setVisibility(View.GONE);
 //                btnUploadContacts.setVisibility(View.GONE);
+//                btnDownloadContacts.setVisibility(View.GONE);
 //                btnAssignCallingTask.setVisibility(View.GONE);
 //                tvShowMoreActions.setVisibility(View.GONE);
             }
@@ -216,11 +291,13 @@ public class ProfileView extends AppCompatActivity {
                 if (tvShowMoreActions.getText().toString().toLowerCase().equals("show more")) {
                     btnAddAdmins.setVisibility(View.VISIBLE);
                     btnUploadContacts.setVisibility(View.VISIBLE);
+                    btnDownloadContacts.setVisibility(View.VISIBLE);
                     btnAssignCallingTask.setVisibility(View.VISIBLE);
                     tvShowMoreActions.setText("SHOW LESS");
                 } else if (tvShowMoreActions.getText().toString().toLowerCase().equals("show less")) {
                     btnAddAdmins.setVisibility(View.GONE);
                     btnUploadContacts.setVisibility(View.GONE);
+                    btnDownloadContacts.setVisibility(View.GONE);
                     btnAssignCallingTask.setVisibility(View.GONE);
                     tvShowMoreActions.setText("SHOW MORE");
                 }

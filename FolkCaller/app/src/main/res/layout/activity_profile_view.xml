@@ -239,45 +239,59 @@
                     app:layout_constraintStart_toEndOf="@+id/btn_send_bulk_sms"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_admin_add_admins"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="15dp"
-                    android:backgroundTint="@color/colorSkyBlue"
-                    android:text="Add Admins"
-                    android:textColor="@color/colorLightBlue"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_profile_upload_contacts"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_make_bulk_calls" />
 
                 <Button
                     android:id="@+id/btn_profile_upload_contacts"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
                     android:backgroundTint="@color/colorSkyBlue"
                     android:text="Upload Contacts"
                     android:textColor="@color/colorLightBlue"
                     android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_profile_download_contacts"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_make_bulk_calls" />
+
+                <Button
+                    android:id="@+id/btn_profile_download_contacts"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/colorSkyBlue"
+                    android:text="Download Contacts"
+                    android:textColor="@color/colorLightBlue"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btn_admin_add_admins"
+                    app:layout_constraintStart_toEndOf="@+id/btn_profile_upload_contacts"
                     app:layout_constraintTop_toBottomOf="@+id/btn_make_bulk_calls" />
 
                 <Button
                     android:id="@+id/btn_admin_assign_calling_task"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
                     android:backgroundTint="@color/colorSkyBlue"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="25dp"
                     android:text="Assign Calling Task"
                     android:textColor="@color/colorLightBlue"
                     android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_make_bulk_calls"
-                    app:layout_constraintStart_toStartOf="@+id/btn_send_bulk_sms"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_admin_add_admins"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_profile_upload_contacts" />
+
+                <Button
+                    android:id="@+id/btn_admin_add_admins"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/colorSkyBlue"
+                    android:text="Add Admins"
+                    android:textColor="@color/colorLightBlue"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_admin_assign_calling_task"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_profile_upload_contacts" />
+
 
                 <TextView
                     android:id="@+id/tv_show_more_actions"
@@ -285,9 +299,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal"
                     android:text="Show More"
                     android:textAllCaps="true"
-                    android:gravity="center_horizontal"
                     android:textColor="@color/colorSkyBlue"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -1098,8 +1112,8 @@
         android:background="@color/colorWhite"
         android:elevation="10dp"
         android:focusable="true"
-        android:visibility="visible"
         android:focusableInTouchMode="true"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

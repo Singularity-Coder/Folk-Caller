@@ -9,8 +9,14 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_about"
+        android:id="@+id/action_reports"
         android:orderInCategory="4"
+        android:title="Reports"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="5"
         android:title="About"
         app:showAsAction="never" />
 
