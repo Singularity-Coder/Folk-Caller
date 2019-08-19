@@ -236,7 +236,7 @@ public class HomeActivity extends AppCompatActivity {
         tvVolunteer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/forms/about/")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/WCBV2q4b1ZBgDf3B9")));
             }
         });
         TextView tvDedicated = dialog.findViewById(R.id.tv_dedicated_to);
@@ -257,7 +257,12 @@ public class HomeActivity extends AppCompatActivity {
         tvShareLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.srilaprabhupadalila&hl=en")));
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.singularitycoder.com");
+                shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                startActivity(Intent.createChooser(shareIntent, "Share to"));
             }
         });
         dialog.show();

@@ -53,6 +53,7 @@ public class ProfileView extends AppCompatActivity {
     ImageView actionCall;
     ImageView actionWhatsApp;
     ImageView actionSms;
+    ImageView actionEmail;
     ImageView actionShare;
 
 
@@ -143,6 +144,16 @@ public class ProfileView extends AppCompatActivity {
                 if (smsIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(smsIntent);
                 }
+            }
+        });
+        actionEmail = findViewById(R.id.img_email);
+        actionEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "name@emailaddress.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Follow Up");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Contact, this is telecaller...");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         });
         actionShare = findViewById(R.id.img_share);

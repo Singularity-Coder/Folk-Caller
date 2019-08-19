@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -25,6 +26,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -231,6 +233,8 @@ public class MainActivity extends AppCompatActivity {
     public static class LoginFragment extends Fragment {
         int color;
         Button btnUseFingerPrint;
+        TextView tvUsePasswordToLogin;
+        TextView tvNotAMember;
 
         public LoginFragment() {
         }
@@ -256,30 +260,48 @@ public class MainActivity extends AppCompatActivity {
             btnUseFingerPrint.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    finderPrintDialog(getActivity());
+                    fingerPrintDialogFunc(getActivity());
                 }
             });
+            tvNotAMember = view.findViewById(R.id.tv_login_create_account);
+            tvNotAMember.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+//                    new MainActivity().tabLayout.getTabAt(0);
+                }
+            });
+
 
             return view;
         }
 
-        public void finderPrintDialog(Activity activity) {
-            final Dialog dialog = new Dialog(activity);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setCancelable(true);
-            dialog.setContentView(R.layout.dialog_finger_print);
+        public void fingerPrintDialogFunc(Activity activity) {
+            final Dialog fingerPrintDialog = new Dialog(activity);
+            fingerPrintDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            fingerPrintDialog.setCancelable(true);
+            fingerPrintDialog.setContentView(R.layout.dialog_finger_print);
 
             Rect displayRectangle = new Rect();
             Window window = activity.getWindow();
             window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
-            dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+            fingerPrintDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), fingerPrintDialog.getWindow().getAttributes().height);
 
-            dialog.show();
+
+            tvUsePasswordToLogin =  fingerPrintDialog.findViewById(R.id.tv_use_password_login);
+            tvUsePasswordToLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    fingerPrintDialog.dismiss();
+                }
+            });
+
+            fingerPrintDialog.show();
         }
     }
 
     public static class SignUpFragment extends Fragment {
         int color;
+        TextView tvTermsPrivacy;
 
         public SignUpFragment() {
         }
@@ -292,6 +314,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_signup, container, false);
+
+            tvTermsPrivacy = view.findViewById(R.id.tv_signup_terms);
+            tvTermsPrivacy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.iskconbangalore.org/privacy-policy/")));
+                }
+            });
             return view;
         }
     }
