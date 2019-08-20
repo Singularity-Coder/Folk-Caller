@@ -271,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-
             return view;
         }
 
