@@ -8,8 +8,10 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -52,5 +54,37 @@ public class Helper extends AppCompatActivity {
 
     public void toast(String msg, Context context, int length) {
         Toast.makeText(context, msg, length).show();
+    }
+
+    private void dialogSingleChoice(final String[] stringArray, final String dialogTitle) {
+        final String[] single_choice_selected = {stringArray[0]};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(dialogTitle);
+        builder.setSingleChoiceItems(stringArray, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                single_choice_selected[0] = stringArray[i];
+            }
+        });
+
+        builder.setPositiveButton("okay", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Log.d("TAG", "selected language is-->>" + single_choice_selected[0]);
+                switch (dialogTitle) {
+                    case "con 1":
+                        TextView s1 = null;
+                        s1.setText(single_choice_selected[0]);
+                        break;
+                    case "con 2":
+                        TextView s2 = null;
+                        s2.setText(single_choice_selected[0]);
+                        break;
+                }
+            }
+        });
+
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
     }
 }

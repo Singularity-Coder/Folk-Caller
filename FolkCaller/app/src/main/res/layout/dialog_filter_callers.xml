@@ -17,7 +17,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_close_black_24dp"
-        android:tint="@color/colorSkyBlue"
+        android:tint="@color/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
         android:layout_marginRight="15dp"
         android:text="RESET"
         android:textAllCaps="true"
-        android:textColor="@color/colorSkyBlue"
+        android:textColor="@color/colorAccent"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,7 +176,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="15dp"
-                    android:backgroundTint="@color/colorSkyBlue"
+                    android:backgroundTint="@color/colorAccent"
                     android:text="APPLY"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold" />

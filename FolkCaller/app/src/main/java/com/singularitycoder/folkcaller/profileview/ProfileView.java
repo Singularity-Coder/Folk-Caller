@@ -182,7 +182,12 @@ public class ProfileView extends AppCompatActivity {
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
         mRecyclerView = findViewById(R.id.recycler_called_by_list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
+            @Override
+            public boolean canScrollVertically () {
+                return false;
+            }
+        };
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemViewCacheSize(20);
@@ -218,7 +223,12 @@ public class ProfileView extends AppCompatActivity {
         commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
 
         commentRecyclerView = findViewById(R.id.recycler_comments_list);
-        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         commentRecyclerView.setLayoutManager(commentLayoutManager);
         commentRecyclerView.setHasFixedSize(true);
         commentRecyclerView.setItemViewCacheSize(20);

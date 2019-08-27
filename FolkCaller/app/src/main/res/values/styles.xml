@@ -25,7 +25,7 @@
     </style>
 
     <style name="DetailToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorControlNormal">@color/colorSkyBlue</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
         <item name="android:background">@color/colorTransparent</item>
     </style>
 
