@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -86,5 +87,20 @@ public class Helper extends AppCompatActivity {
 
         builder.setNegativeButton("Cancel", null);
         builder.show();
+    }
+
+
+    public void customDialog(Activity activity, int layoutId) {
+        final Dialog fingerPrintDialog = new Dialog(activity);
+        fingerPrintDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        fingerPrintDialog.setCancelable(true);
+        fingerPrintDialog.setContentView(layoutId);
+
+        Rect displayRectangle = new Rect();
+        Window window = activity.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        fingerPrintDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), fingerPrintDialog.getWindow().getAttributes().height);
+
+        fingerPrintDialog.show();
     }
 }

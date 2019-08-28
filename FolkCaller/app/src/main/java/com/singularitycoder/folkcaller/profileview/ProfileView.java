@@ -7,10 +7,12 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ComponentName;
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +23,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.singularitycoder.folkcaller.BulkSmsActivity;
 import com.singularitycoder.folkcaller.Helper;
@@ -90,12 +91,24 @@ public class ProfileView extends AppCompatActivity {
         personInfoContainer = findViewById(R.id.con_lay_caller_details);
         enterCommentBoxContainer = findViewById(R.id.con_lay_contact_enter_comment);
         contactInfoContainer = findViewById(R.id.con_lay_contact_details);
-        calledByContainer = findViewById(R.id.con_lay_contact_called_by);
+        calledByContainer = findViewById(R.id.con_lay_contact_activity);
         commentsContainer = findViewById(R.id.con_lay_contact_comments);
         profileActionsContainer = findViewById(R.id.con_lay_profile_action_icons);
 
         tvEditMyDetails = findViewById(R.id.tv_profile_my_details_edit);
+        tvEditMyDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editMyDetailsDialogFunc(ProfileView.this);
+            }
+        });
         tvEditContactDetails = findViewById(R.id.tv_profile_contact_details_edit);
+        tvEditContactDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editContactDetailsDialogFunc(ProfileView.this);
+            }
+        });
         etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
         imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
 
@@ -168,7 +181,6 @@ public class ProfileView extends AppCompatActivity {
                 startActivity(Intent.createChooser(shareIntent, "Share to"));
             }
         });
-
     }
 
     private void setUpCalledByList() {
@@ -181,7 +193,7 @@ public class ProfileView extends AppCompatActivity {
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mRecyclerView = findViewById(R.id.recycler_called_by_list);
+        mRecyclerView = findViewById(R.id.recycler_activity_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
             @Override
             public boolean canScrollVertically () {
@@ -349,5 +361,33 @@ public class ProfileView extends AppCompatActivity {
             getSupportActionBar().setTitle("");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    public void editMyDetailsDialogFunc(Activity activity) {
+        final Dialog editMyDetailsDialog = new Dialog(activity);
+        editMyDetailsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        editMyDetailsDialog.setCancelable(true);
+        editMyDetailsDialog.setContentView(R.layout.dialog_edit_my_details);
+
+        Rect displayRectangle = new Rect();
+        Window window = activity.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        editMyDetailsDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), editMyDetailsDialog.getWindow().getAttributes().height);
+
+        editMyDetailsDialog.show();
+    }
+
+    public void editContactDetailsDialogFunc(Activity activity) {
+        final Dialog editContactDetailsDialog = new Dialog(activity);
+        editContactDetailsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        editContactDetailsDialog.setCancelable(true);
+        editContactDetailsDialog.setContentView(R.layout.dialog_edit_contact_details);
+
+        Rect displayRectangle = new Rect();
+        Window window = activity.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        editContactDetailsDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), editContactDetailsDialog.getWindow().getAttributes().height);
+
+        editContactDetailsDialog.show();
     }
 }

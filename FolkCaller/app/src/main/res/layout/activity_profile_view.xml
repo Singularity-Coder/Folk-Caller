@@ -667,7 +667,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_contact_details"
                 android:layout_width="0dp"
@@ -998,71 +997,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/con_lay_contact_called_by"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_details">
-
-                <View
-                    android:id="@+id/divider_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_called_by"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Called by"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_7" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_called_by_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_called_by" />
-
-                <View
-                    android:id="@+id/divider_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_called_by_list" />
-
-                <View
-                    android:id="@+id/divider_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:background="@color/bg_light"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_8" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_contact_comments"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_called_by">
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_details">
 
                 <View
                     android:id="@+id/divider_10"
@@ -1110,6 +1051,64 @@
                     android:layout_height="15dp"
                     android:background="@color/bg_light"
                     app:layout_constraintTop_toBottomOf="@+id/divider_11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_contact_activity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_comments">
+
+                <View
+                    android:id="@+id/divider_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_activity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Activity"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_7" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_activity_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_activity" />
+
+                <View
+                    android:id="@+id/divider_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_activity_list" />
+
+                <View
+                    android:id="@+id/divider_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_8" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
