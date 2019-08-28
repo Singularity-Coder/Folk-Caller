@@ -99,7 +99,7 @@
                     android:layout_marginBottom="15dp"
                     android:src="@drawable/ic_call_black_24dp"
                     android:tint="@color/colorAccent"
-                    app:layout_constraintEnd_toStartOf="@+id/img_whatsapp"
+                    app:layout_constraintEnd_toStartOf="@+id/img_sms"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,32 +116,6 @@
                     app:layout_constraintStart_toStartOf="@+id/img_call"
                     app:layout_constraintTop_toBottomOf="@+id/img_call" />
 
-
-                <ImageView
-                    android:id="@+id/img_whatsapp"
-                    android:layout_width="27dp"
-                    android:layout_height="27dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:src="@drawable/ic_whatsapp_logo"
-                    android:tint="@color/colorAccent"
-                    app:layout_constraintEnd_toStartOf="@+id/img_sms"
-                    app:layout_constraintStart_toEndOf="@+id/img_call"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_whatsapp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="WhatsApp"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="13sp"
-                    app:layout_constraintEnd_toEndOf="@+id/img_whatsapp"
-                    app:layout_constraintStart_toStartOf="@+id/img_whatsapp"
-                    app:layout_constraintTop_toBottomOf="@+id/img_whatsapp" />
-
                 <ImageView
                     android:id="@+id/img_sms"
                     android:layout_width="30dp"
@@ -150,8 +124,8 @@
                     android:layout_marginBottom="15dp"
                     android:src="@drawable/ic_sms_black_24dp"
                     android:tint="@color/colorAccent"
-                    app:layout_constraintEnd_toStartOf="@+id/img_email"
-                    app:layout_constraintStart_toEndOf="@+id/img_whatsapp"
+                    app:layout_constraintEnd_toStartOf="@+id/img_whatsapp"
+                    app:layout_constraintStart_toEndOf="@+id/img_call"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -168,6 +142,31 @@
                     app:layout_constraintTop_toBottomOf="@+id/img_sms" />
 
                 <ImageView
+                    android:id="@+id/img_whatsapp"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/ic_whatsapp_logo"
+                    android:tint="@color/colorAccent"
+                    app:layout_constraintEnd_toStartOf="@+id/img_email"
+                    app:layout_constraintStart_toEndOf="@+id/img_sms"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_whatsapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="WhatsApp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="@+id/img_whatsapp"
+                    app:layout_constraintStart_toStartOf="@+id/img_whatsapp"
+                    app:layout_constraintTop_toBottomOf="@+id/img_whatsapp" />
+
+                <ImageView
                     android:id="@+id/img_email"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -176,7 +175,7 @@
                     android:src="@drawable/ic_email_black_24dp"
                     android:tint="@color/colorAccent"
                     app:layout_constraintEnd_toStartOf="@+id/img_share"
-                    app:layout_constraintStart_toEndOf="@+id/img_sms"
+                    app:layout_constraintStart_toEndOf="@+id/img_whatsapp"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
