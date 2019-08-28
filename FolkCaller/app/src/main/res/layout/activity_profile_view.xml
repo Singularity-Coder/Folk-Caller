@@ -996,6 +996,80 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--android:id="@+id/con_lay_contact_program_status"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_details">-->
+
+            <!--<View-->
+            <!--android:id="@+id/divider_17"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0.5dp"-->
+            <!--android:background="@color/colorGrey"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_profile_contact_program_status"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:text="Comments"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="bold"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/divider_17" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_profile_member_type"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_marginEnd="15dp"-->
+            <!--android:text="Member Type"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textSize="16sp"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/tv_profile_my_details" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_profile_member_type_text"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:hint="Folk Boy"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textSize="16sp"-->
+            <!--app:layout_constraintEnd_toEndOf="@+id/tv_profile_member_type"-->
+            <!--app:layout_constraintStart_toStartOf="@+id/tv_profile_member_type"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/tv_profile_member_type" />-->
+
+            <!--<View-->
+            <!--android:id="@+id/divider_18"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0.5dp"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:background="@color/colorGrey"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/recycler_comments_list" />-->
+
+            <!--<View-->
+            <!--android:id="@+id/divider_19"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="15dp"-->
+            <!--android:background="@color/bg_light"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/divider_18" />-->
+            <!---->
+            <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_contact_comments"
                 android:layout_width="0dp"

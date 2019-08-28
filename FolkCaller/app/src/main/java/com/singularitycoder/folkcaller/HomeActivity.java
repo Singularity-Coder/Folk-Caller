@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -157,28 +158,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_home, menu);
+//        getMenuInflater().inflate(R.menu.menu_admin, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            // Home Menu
-            case R.id.action_my_profile:
-                Intent profileIntent = new Intent(this, ProfileView.class);
-                profileIntent.putExtra("openMyProfile", "MYPROFILE");
-                startActivity(profileIntent);
-                return true;
-            case R.id.action_reports:
-                new Helper().comingSoonDialog(this);
-                return true;
-            case R.id.action_about:
-                aboutDialog(this);
-                return true;
 
             // Admin Menu
             case R.id.action_admin_search:
@@ -204,8 +192,8 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void aboutDialog(Activity activity) {
-        final Dialog dialog = new Dialog(activity);
+    public void aboutDialog(Context context) {
+        final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.dialog_about);
@@ -515,6 +503,50 @@ public class HomeActivity extends AppCompatActivity {
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             inflater.inflate(R.menu.menu_contacts, menu);
             super.onCreateOptionsMenu(menu, inflater);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                // Home Menu
+                case R.id.action_my_profile:
+                    Intent profileIntent = new Intent(getActivity(), ProfileView.class);
+                    profileIntent.putExtra("openMyProfile", "MYPROFILE");
+                    startActivity(profileIntent);
+                    return true;
+                case R.id.action_reports:
+                    new Helper().comingSoonDialog(getActivity());
+                    return true;
+                case R.id.action_about:
+                    new HomeActivity().aboutDialog(mContext);
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+        @Override
+        public void onAttach(@NonNull Context context) {
+            super.onAttach(context);
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+        }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+        }
+
+        @Override
+        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
         }
     }
 

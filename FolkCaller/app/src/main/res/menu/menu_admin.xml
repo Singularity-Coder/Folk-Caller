@@ -17,5 +17,4 @@
         android:title="Filter Admins"
         app:showAsAction="always" />
 
-
 </menu>
