@@ -428,6 +428,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public static class ContactFragment extends Fragment {
         int color;
+        Context mContext;
 
         public ContactFragment() {
         }
@@ -527,6 +528,8 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onAttach(@NonNull Context context) {
             super.onAttach(context);
+            mContext = context;
+
         }
 
         @Override
