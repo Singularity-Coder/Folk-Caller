@@ -90,17 +90,18 @@ public class Helper extends AppCompatActivity {
     }
 
 
-    public void customDialog(Activity activity, int layoutId) {
-        final Dialog fingerPrintDialog = new Dialog(activity);
-        fingerPrintDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        fingerPrintDialog.setCancelable(true);
-        fingerPrintDialog.setContentView(layoutId);
+    public void generateCustomDialog(Activity activity, int layoutId, Dialog dialogName) {
+        dialogName = new Dialog(activity);
+        dialogName.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogName.setCancelable(true);
+        dialogName.setContentView(layoutId);
 
         Rect displayRectangle = new Rect();
         Window window = activity.getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
-        fingerPrintDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), fingerPrintDialog.getWindow().getAttributes().height);
+        dialogName.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialogName.getWindow().getAttributes().height);
 
-        fingerPrintDialog.show();
+        dialogName.show();
     }
+
 }

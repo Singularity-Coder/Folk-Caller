@@ -66,7 +66,7 @@ public class ProfileView extends AppCompatActivity {
         initToolBar();
         instantiations();
         showMoreActions();
-        setUpCalledByList();
+        setUpActivityOnContactList();
         setUpCommentsList();
         addComment();
         profileConditions();
@@ -183,7 +183,7 @@ public class ProfileView extends AppCompatActivity {
         });
     }
 
-    private void setUpCalledByList() {
+    private void setUpActivityOnContactList() {
         mArrayList = new ArrayList<>();
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
@@ -196,7 +196,7 @@ public class ProfileView extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recycler_activity_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
             @Override
-            public boolean canScrollVertically () {
+            public boolean canScrollVertically() {
                 return false;
             }
         };
