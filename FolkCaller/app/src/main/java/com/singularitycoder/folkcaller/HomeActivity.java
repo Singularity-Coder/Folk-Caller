@@ -47,11 +47,13 @@ public class HomeActivity extends AppCompatActivity {
     Toolbar toolbar;
     ViewPager viewPager;
     TabLayout tabLayout;
+    Context mContext;
 
     static ArrayList<ModelItemContactCallerAdminChatNotif> adminList;
     static ArrayList<ModelItemContactCallerAdminChatNotif> contactList;
     static ArrayList<ModelItemContactCallerAdminChatNotif> callerList;
     static AdapterContactCallerAdminChatNotif sAdapterContactCallerAdminChatNotif;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         initToolBar();
         initViewPager();
         initTabLayout();
+        mContext = this.getApplicationContext();
     }
 
     private void setUpStatusBar() {
@@ -122,6 +125,7 @@ public class HomeActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");     // they must be visible
+        adapter.addFrag(new DashboardFragment(), "DASHBOARD");
         adapter.addFrag(new ContactFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CONTACTS");
         adapter.addFrag(new CallerFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CALLERS");
         adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "ADMINS");
@@ -192,14 +196,14 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void aboutDialog(Context context) {
-        final Dialog dialog = new Dialog(context);
+    public void aboutDialog(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.dialog_about);
 
         Rect displayRectangle = new Rect();
-        Window window = this.getWindow();
+        Window window = activity.getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 
@@ -363,6 +367,144 @@ public class HomeActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    public static class DashModel {
+        int intDashImage;
+        String strDashTitle;
+        String strDashCount;
+//        String strDashHeaderCount;
+
+        public DashModel(String strDashCount) {
+            this.strDashCount = strDashCount;
+        }
+
+        public DashModel(int intDashImage, String strDashTitle, String strDashCount) {
+            this.intDashImage = intDashImage;
+            this.strDashTitle = strDashTitle;
+            this.strDashCount = strDashCount;
+        }
+
+        public int getIntDashImage() {
+            return intDashImage;
+        }
+
+        public void setIntDashImage(int intDashImage) {
+            this.intDashImage = intDashImage;
+        }
+
+        public String getStrDashTitle() {
+            return strDashTitle;
+        }
+
+        public void setStrDashTitle(String strDashTitle) {
+            this.strDashTitle = strDashTitle;
+        }
+
+        public String getStrDashCount() {
+            return strDashCount;
+        }
+
+        public void setStrDashCount(String strDashCount) {
+            this.strDashCount = strDashCount;
+        }
+    }
+
+    public static class DashboardFragment extends Fragment {
+        ArrayList<DashModel> dashList;
+        DashAdapter sDashAdapter;
+
+        public DashboardFragment() {
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_dash);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setItemViewCacheSize(20);
+            recyclerView.setDrawingCacheEnabled(true);
+            recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+            dashList = new ArrayList<>();
+            dashList.add(new DashModel("300"));
+            dashList.add(new DashModel(R.drawable.ic_rank_black_24dp, "This month's target", "6500"));
+            dashList.add(new DashModel(R.drawable.ic_tasks_finished_black_24dp, "Tasks finished", "24"));
+            dashList.add(new DashModel(R.drawable.ic_pending_black_24dp, "Tasks pending", "3"));
+            dashList.add(new DashModel(R.drawable.ic_contact_mail_black_24dp, "Contacts Called", "2404"));
+            dashList.add(new DashModel(R.drawable.ic_hourspent_black_24dp, "Hours spent", "54"));
+            dashList.add(new DashModel(R.drawable.ic_conversions_black_24dp, "Conversions", "1051"));
+            dashList.add(new DashModel(R.drawable.ic_starrank_black_24dp, "Caller Rank", "7"));
+
+
+            sDashAdapter = new DashAdapter(dashList, getContext());
+            sDashAdapter.setHasStableIds(true);
+            recyclerView.setAdapter(sDashAdapter);
+            sDashAdapter.notifyDataSetChanged();
+
+            return view;
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_dash, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                // Home Menu
+                case R.id.action_my_profile:
+                    Intent profileIntent = new Intent(getActivity(), ProfileView.class);
+                    profileIntent.putExtra("openMyProfile", "MYPROFILE");
+                    startActivity(profileIntent);
+                    return true;
+                case R.id.action_reports:
+                    new Helper().comingSoonDialog(getActivity());
+                    return true;
+                case R.id.action_about:
+                    new HomeActivity().aboutDialog(getActivity());
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+        @Override
+        public void onAttach(@NonNull Context context) {
+            super.onAttach(context);
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+        }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+        }
+
+        @Override
+        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+        }
+    }
+
+
     public static class AdminFragment extends Fragment {
         int color;
 
@@ -382,12 +524,12 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_home, container, false);
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
 
-            final FrameLayout frameLayout = view.findViewById(R.id.fragment_home);
+            final FrameLayout frameLayout = view.findViewById(R.id.frame_lay_person);
             frameLayout.setBackgroundColor(color);
 
-            RecyclerView recyclerView = view.findViewById(R.id.recycler_home);
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
             recyclerView.setLayoutManager(linearLayoutManager);
@@ -428,7 +570,6 @@ public class HomeActivity extends AppCompatActivity {
 
     public static class ContactFragment extends Fragment {
         int color;
-        Context mContext;
 
         public ContactFragment() {
         }
@@ -446,12 +587,12 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_home, container, false);
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
 
-            final FrameLayout frameLayout = view.findViewById(R.id.fragment_home);
+            final FrameLayout frameLayout = view.findViewById(R.id.frame_lay_person);
             frameLayout.setBackgroundColor(color);
 
-            RecyclerView recyclerView = view.findViewById(R.id.recycler_home);
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
             recyclerView.setLayoutManager(linearLayoutManager);
@@ -507,29 +648,8 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         @Override
-        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                // Home Menu
-                case R.id.action_my_profile:
-                    Intent profileIntent = new Intent(getActivity(), ProfileView.class);
-                    profileIntent.putExtra("openMyProfile", "MYPROFILE");
-                    startActivity(profileIntent);
-                    return true;
-                case R.id.action_reports:
-                    new Helper().comingSoonDialog(getActivity());
-                    return true;
-                case R.id.action_about:
-                    new HomeActivity().aboutDialog(mContext);
-                    return true;
-            }
-            return super.onOptionsItemSelected(item);
-        }
-
-        @Override
         public void onAttach(@NonNull Context context) {
             super.onAttach(context);
-            mContext = context;
-
         }
 
         @Override
@@ -573,12 +693,12 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_home, container, false);
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
 
-            final FrameLayout frameLayout = view.findViewById(R.id.fragment_home);
+            final FrameLayout frameLayout = view.findViewById(R.id.frame_lay_person);
             frameLayout.setBackgroundColor(color);
 
-            RecyclerView recyclerView = view.findViewById(R.id.recycler_home);
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
             recyclerView.setLayoutManager(linearLayoutManager);

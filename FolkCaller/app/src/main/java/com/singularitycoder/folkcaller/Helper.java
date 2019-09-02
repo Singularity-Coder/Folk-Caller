@@ -3,6 +3,7 @@ package com.singularitycoder.folkcaller;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.Rect;
@@ -19,6 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import static com.singularitycoder.folkcaller.HomeActivity.getActivity;
 
 public class Helper extends AppCompatActivity {
 
@@ -102,6 +105,13 @@ public class Helper extends AppCompatActivity {
         dialogName.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialogName.getWindow().getAttributes().height);
 
         dialogName.show();
+    }
+
+    public static Activity giveMeActivity(Context context) {
+        if (context == null) return null;
+        if (context instanceof Activity) return (Activity) context;
+        if (context instanceof ContextWrapper) return getActivity(((ContextWrapper)context).getBaseContext());
+        return null;
     }
 
 }

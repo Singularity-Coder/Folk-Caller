@@ -34,7 +34,7 @@ public class ProfileView extends AppCompatActivity {
 
     ConstraintLayout personActionsContainer;
     ConstraintLayout personInfoContainer;
-    ConstraintLayout enterCommentBoxContainer;
+//    ConstraintLayout enterCommentBoxContainer;
     ConstraintLayout contactInfoContainer;
     ConstraintLayout calledByContainer;
     ConstraintLayout commentsContainer;
@@ -48,8 +48,8 @@ public class ProfileView extends AppCompatActivity {
 
     Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnDownloadContacts, btnAssignCallingTask;
     TextView tvShowMoreActions, tvEditMyDetails, tvEditContactDetails;
-    EditText etEnterComment;
-    ImageView imgSendComment;
+//    EditText etEnterComment;
+//    ImageView imgSendComment;
 
     ImageView actionCall;
     ImageView actionWhatsApp;
@@ -68,7 +68,7 @@ public class ProfileView extends AppCompatActivity {
         showMoreActions();
         setUpActivityOnContactList();
         setUpCommentsList();
-        addComment();
+//        addComment();
         profileConditions();
     }
 
@@ -89,7 +89,7 @@ public class ProfileView extends AppCompatActivity {
         // Constraint Layouts
         personActionsContainer = findViewById(R.id.con_lay_admin_assign_task);
         personInfoContainer = findViewById(R.id.con_lay_caller_details);
-        enterCommentBoxContainer = findViewById(R.id.con_lay_contact_enter_comment);
+//        enterCommentBoxContainer = findViewById(R.id.con_lay_contact_enter_comment);
         contactInfoContainer = findViewById(R.id.con_lay_contact_details);
         calledByContainer = findViewById(R.id.con_lay_contact_activity);
         commentsContainer = findViewById(R.id.con_lay_contact_comments);
@@ -109,8 +109,8 @@ public class ProfileView extends AppCompatActivity {
                 editContactDetailsDialogFunc(ProfileView.this);
             }
         });
-        etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
-        imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
+//        etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
+//        imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
 
         actionCall = findViewById(R.id.img_call);
         actionCall.setOnClickListener(new View.OnClickListener() {
@@ -251,18 +251,18 @@ public class ProfileView extends AppCompatActivity {
         commentRecyclerView.setAdapter(commentAdapter);
     }
 
-    private void addComment() {
-        imgSendComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", etEnterComment.getText().toString()));
-                AdapterProfileViewComments adapterProfileViewComments = new AdapterProfileViewComments(commentList, getApplicationContext());
-                adapterProfileViewComments.notifyDataSetChanged();
-                etEnterComment.setText("");
-                new Helper().toast("Comment Added: " + etEnterComment.getText().toString(), getApplicationContext(), 1);
-            }
-        });
-    }
+//    private void addComment() {
+//        imgSendComment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", etEnterComment.getText().toString()));
+//                AdapterProfileViewComments adapterProfileViewComments = new AdapterProfileViewComments(commentList, getApplicationContext());
+//                adapterProfileViewComments.notifyDataSetChanged();
+//                etEnterComment.setText("");
+//                new Helper().toast("Comment Added: " + etEnterComment.getText().toString(), getApplicationContext(), 1);
+//            }
+//        });
+//    }
 
     private void profileConditions() {
         Intent catchIntent = getIntent();
@@ -273,7 +273,7 @@ public class ProfileView extends AppCompatActivity {
 
         if (keyAdmin != null) {
             if (keyAdmin.equals("ADMIN")) {
-                enterCommentBoxContainer.setVisibility(View.GONE);
+//                enterCommentBoxContainer.setVisibility(View.GONE);
                 contactInfoContainer.setVisibility(View.GONE);
                 calledByContainer.setVisibility(View.GONE);
                 commentsContainer.setVisibility(View.GONE);
@@ -284,7 +284,7 @@ public class ProfileView extends AppCompatActivity {
 
         if (keyCaller != null) {
             if (keyCaller.equals("CALLER")) {
-                enterCommentBoxContainer.setVisibility(View.GONE);
+//                enterCommentBoxContainer.setVisibility(View.GONE);
                 contactInfoContainer.setVisibility(View.GONE);
                 calledByContainer.setVisibility(View.GONE);
                 commentsContainer.setVisibility(View.GONE);
@@ -307,7 +307,7 @@ public class ProfileView extends AppCompatActivity {
 
         if (keyProfile != null) {
             if (keyProfile.equals("MYPROFILE")) {
-                enterCommentBoxContainer.setVisibility(View.GONE);
+//                enterCommentBoxContainer.setVisibility(View.GONE);
                 contactInfoContainer.setVisibility(View.GONE);
                 calledByContainer.setVisibility(View.GONE);
                 commentsContainer.setVisibility(View.GONE);
