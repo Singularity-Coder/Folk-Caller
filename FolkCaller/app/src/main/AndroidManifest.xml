@@ -31,9 +31,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".rankings.RankingsActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,8 +55,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".auth.MainActivity"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

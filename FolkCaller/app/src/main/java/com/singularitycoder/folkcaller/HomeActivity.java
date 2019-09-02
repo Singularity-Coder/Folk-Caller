@@ -38,6 +38,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.singularitycoder.folkcaller.profileview.ProfileView;
+import com.singularitycoder.folkcaller.rankings.RankingsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -463,6 +464,13 @@ public class HomeActivity extends AppCompatActivity {
         public boolean onOptionsItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 // Home Menu
+                case R.id.action_notifications:
+
+                    return true;
+                case R.id.action_rankings:
+                    Intent rankIntent = new Intent(getActivity(), RankingsActivity.class);
+                    startActivity(rankIntent);
+                    return true;
                 case R.id.action_my_profile:
                     Intent profileIntent = new Intent(getActivity(), ProfileView.class);
                     profileIntent.putExtra("openMyProfile", "MYPROFILE");
