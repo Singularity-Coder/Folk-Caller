@@ -26,35 +26,37 @@
             app:theme="@style/ToolbarTheme" />
 
         <TextView
-            android:id="@+id/tv_rank_text"
+            android:id="@+id/tv_rank_username_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Rank"
+            android:alpha="0.9"
+            android:text="Caller"
+            android:textAllCaps="true"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_rank" />
 
         <TextView
-            android:id="@+id/tv_rank_username_text"
+            android:id="@+id/tv_rank_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
-            android:text="Caller"
+            android:alpha="0.9"
+            android:text="Rank"
+            android:textAllCaps="true"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_rank_text"
+            app:layout_constraintEnd_toStartOf="@+id/tv_rank_conversions_count_text"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_rank" />
 
         <TextView
@@ -63,16 +65,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="5dp"
+            android:alpha="0.9"
             android:text="Conversions"
+            android:textAllCaps="true"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_rank" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,10 +7,10 @@ public class RankingsModel {
     String strUserName;
     String strConversions;
 
-    public RankingsModel(String strRank, int intRankUserPic, String strUserName, String strConversions) {
-        this.strRank = strRank;
+    public RankingsModel(int intRankUserPic, String strRank, String strUserName, String strConversions) {
         this.intRankUserPic = intRankUserPic;
         this.strUserName = strUserName;
+        this.strRank = strRank;
         this.strConversions = strConversions;
     }
 
