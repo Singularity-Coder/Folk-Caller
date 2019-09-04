@@ -1144,7 +1144,6 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_college_dialog" />
 
-
                 <TextView
                     android:id="@+id/tv_profile_company_dialog"
                     android:layout_width="0dp"
@@ -1157,6 +1156,32 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_company" />
 
+
+                <TextView
+                    android:id="@+id/tv_profile_created_acount_on"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Account created on"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company_dialog" />
+
+                <TextView
+                    android:id="@+id/tv_profile_created_acount_on_dialog"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="July 12, 1891 @ 2 PM"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_created_acount_on" />
+
+
                 <TextView
                     android:id="@+id/tv_profile_finger_print"
                     android:layout_width="0dp"
@@ -1167,7 +1192,7 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_company_dialog" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_created_acount_on_dialog" />
 
 
                 <TextView
