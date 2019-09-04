@@ -41,18 +41,27 @@ public class RankingsActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         rankingsList = new ArrayList<>();
-        rankingsList.add(new RankingsModel(R.drawable.face1, "1", "Maki Sawano", "6453"));
-        rankingsList.add(new RankingsModel(R.drawable.face2, "2", "Kizuna Kamika", "5453"));
-        rankingsList.add(new RankingsModel(R.drawable.face3, "3", "Allora Mayers", "4453"));
-        rankingsList.add(new RankingsModel(R.drawable.face1, "4", "Maki Sawano", "3453"));
-        rankingsList.add(new RankingsModel(R.drawable.face2, "5", "Kizuna Kamika", "2453"));
-        rankingsList.add(new RankingsModel(R.drawable.face3, "6", "Allora Mayers", "1453"));
-        rankingsList.add(new RankingsModel(R.drawable.face1, "7", "Maki Sawano", "953"));
-        rankingsList.add(new RankingsModel(R.drawable.face2, "8", "Kizuna Kamika", "853"));
-        rankingsList.add(new RankingsModel(R.drawable.face3, "9", "Allora Mayers", "753"));
-        rankingsList.add(new RankingsModel(R.drawable.face1, "10", "Maki Sawano", "653"));
-        rankingsList.add(new RankingsModel(R.drawable.face2, "11", "Kizuna Kamika", "553"));
-        rankingsList.add(new RankingsModel(R.drawable.face3, "12", "Allora Mayers", "453"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "1", "6453"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "2", "5453"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "3", "4453"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "4", "3453"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "5", "2453"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "6", "1453"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "7", "953"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "8", "853"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "9", "753"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "10", "653"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "11", "553"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "12", "453"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "13", "353"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "14", "303"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "15", "253"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "16", "213"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "17", "203"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "18", "200"));
+        rankingsList.add(new RankingsModel(R.drawable.face1, "Maki Sawano", "19", "199"));
+        rankingsList.add(new RankingsModel(R.drawable.face2, "Kizuna Kamika", "20", "190"));
+        rankingsList.add(new RankingsModel(R.drawable.face3, "Allora Mayers", "21", "150"));
 
 
         mRankingsAdapter = new RankingsAdapter(rankingsList, this);

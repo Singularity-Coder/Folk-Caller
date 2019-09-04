@@ -5,29 +5,11 @@
     android:layout_height="wrap_content"
     android:background="@color/colorWhite">
 
-    <TextView
-        android:id="@+id/tv_rank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="25dp"
-        android:ellipsize="end"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:maxLines="1"
-        android:padding="0dp"
-        android:text="1"
-        android:textColor="@color/colorBlack"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/img_rank_profile_pic"
-        app:layout_constraintEnd_toStartOf="@+id/img_rank_profile_pic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_rank_profile_pic" />
-
-
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/img_rank_profile_pic"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/face1"
@@ -39,7 +21,7 @@
         app:civ_shadow_radius="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tv_rank_name"
-        app:layout_constraintStart_toEndOf="@+id/tv_rank"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -59,14 +41,32 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/img_rank_profile_pic"
-        app:layout_constraintEnd_toStartOf="@+id/tv_rank_conversions"
+        app:layout_constraintEnd_toStartOf="@+id/tv_rank"
         app:layout_constraintStart_toEndOf="@+id/img_rank_profile_pic"
+        app:layout_constraintTop_toTopOf="@+id/img_rank_profile_pic" />
+
+    <TextView
+        android:id="@+id/tv_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="155dp"
+        android:ellipsize="end"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:padding="0dp"
+        android:text="1"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_rank_profile_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_rank_name"
         app:layout_constraintTop_toTopOf="@+id/img_rank_profile_pic" />
 
     <TextView
         android:id="@+id/tv_rank_conversions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:ellipsize="end"
@@ -77,18 +77,17 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_rank_profile_pic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_rank_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_rank"
         app:layout_constraintTop_toTopOf="@+id/img_rank_profile_pic" />
 
-    <!--<LinearLayout-->
-    <!--android:id="@+id/divider"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="0.5dp"-->
-    <!--android:background="@color/colorGrey"-->
-    <!--android:orientation="vertical"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="@+id/tv_subtitle_1"-->
-    <!--app:layout_constraintTop_toBottomOf="@+id/img_profile_pic" />-->
+    <LinearLayout
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGrey"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_rank_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

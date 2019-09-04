@@ -34,9 +34,9 @@ public class RankingsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         RankingsModel rankingsModel = rankingsList.get(position);
-        ((RankingsViewHolder) holder).rank.setText(rankingsModel.getStrRank());
         ((RankingsViewHolder) holder).userImage.setImageResource(rankingsModel.getIntRankUserPic());
         ((RankingsViewHolder) holder).userName.setText(rankingsModel.getStrUserName());
+        ((RankingsViewHolder) holder).rank.setText(rankingsModel.getStrRank());
         ((RankingsViewHolder) holder).conversionCount.setText(rankingsModel.getStrConversions());
     }
 
@@ -47,24 +47,28 @@ public class RankingsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        return super.getItemViewType(position);
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     public class RankingsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView rank;
         CircularImageView userImage;
         TextView userName;
+        TextView rank;
         TextView conversionCount;
 
         public RankingsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            rank = itemView.findViewById(R.id.tv_rank);
             userImage = itemView.findViewById(R.id.img_rank_profile_pic);
             userName = itemView.findViewById(R.id.tv_rank_name);
+            rank = itemView.findViewById(R.id.tv_rank);
             conversionCount = itemView.findViewById(R.id.tv_rank_conversions);
-
         }
     }
 
