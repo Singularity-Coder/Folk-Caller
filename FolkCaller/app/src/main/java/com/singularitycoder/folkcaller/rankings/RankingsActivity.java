@@ -86,7 +86,7 @@ public class RankingsActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_rank);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Rankings");
+        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Caller Ranks");
         // For back navigation button use this
         if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
