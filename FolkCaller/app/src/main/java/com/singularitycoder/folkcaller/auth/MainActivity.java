@@ -1,10 +1,12 @@
 package com.singularitycoder.folkcaller.auth;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -26,6 +28,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -286,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
             fingerPrintDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), fingerPrintDialog.getWindow().getAttributes().height);
 
 
-            tvUsePasswordToLogin =  fingerPrintDialog.findViewById(R.id.tv_use_password_login);
+            tvUsePasswordToLogin = fingerPrintDialog.findViewById(R.id.tv_use_password_login);
             tvUsePasswordToLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -301,6 +304,11 @@ public class MainActivity extends AppCompatActivity {
     public static class SignUpFragment extends Fragment {
         int color;
         TextView tvTermsPrivacy;
+        TextView tvMemberType;
+        TextView tvFolkIdLogin;
+        EditText etFolkIdLogin;
+        TextView tvAdminNumber;
+        EditText etAdminNumber;
 
         public SignUpFragment() {
         }
@@ -321,7 +329,55 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.iskconbangalore.org/privacy-policy/")));
                 }
             });
+
+            tvMemberType = view.findViewById(R.id.et_signup_member_type);
+            tvMemberType.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialogSignUpMemberType();
+                }
+            });
+
+            tvFolkIdLogin = view.findViewById(R.id.tv_login_folkid);
+            etFolkIdLogin = view.findViewById(R.id.et_login_folkid);
+            tvAdminNumber = view.findViewById(R.id.tv_signup_admin_number);
+            etAdminNumber = view.findViewById(R.id.et_signup_admin_number);
+
             return view;
+        }
+
+        public void dialogSignUpMemberType() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("I am a");
+            String[] selectArray = {"Folk Member", "Admin"};
+            builder.setItems(selectArray, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.d(TAG, " current year which value is--" + which);
+                    switch (which) {
+                        case 0:
+                            tvMemberType.setText("Folk Member");
+
+                            tvFolkIdLogin.setVisibility(View.VISIBLE);
+                            etFolkIdLogin.setVisibility(View.VISIBLE);
+
+                            tvAdminNumber.setVisibility(View.GONE);
+                            etAdminNumber.setVisibility(View.GONE);
+                            break;
+                        case 1:
+                            tvMemberType.setText("Admin");
+
+                            tvAdminNumber.setVisibility(View.VISIBLE);
+                            etAdminNumber.setVisibility(View.VISIBLE);
+
+                            tvFolkIdLogin.setVisibility(View.GONE);
+                            etFolkIdLogin.setVisibility(View.GONE);
+                            break;
+                    }
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
     }
 }

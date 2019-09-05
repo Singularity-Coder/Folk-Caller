@@ -4,15 +4,15 @@
     android:id="@+id/fragment_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:nestedScrollingEnabled="true"
-    android:background="@color/bg_light">
+    android:background="@color/bg_light"
+    android:nestedScrollingEnabled="true">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:nestedScrollingEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -47,9 +47,11 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:drawableTint="@color/colorAccent"
                 android:gravity="center_vertical"
                 android:hint="Select Member Type"
-                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,10 +67,11 @@
                 android:ellipsize="end"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:maxLines="1"
-                android:text="Folk ID"
+                android:text="FOLK ID"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_email"
                 app:layout_constraintStart_toStartOf="@+id/et_login_email"
                 app:layout_constraintTop_toBottomOf="@+id/et_signup_member_type" />
@@ -82,13 +85,53 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:drawablePadding="10dp"
-                android:hint="Enter Folk ID"
+                android:hint="Enter FOLK ID"
                 android:inputType="textCapCharacters"
                 android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_folkid" />
+
+            <TextView
+                android:id="@+id/tv_signup_admin_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Admin Number"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/et_login_email"
+                app:layout_constraintStart_toStartOf="@+id/et_login_email"
+                app:layout_constraintTop_toBottomOf="@+id/et_login_folkid" />
+
+            <EditText
+                android:id="@+id/et_signup_admin_number"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:hint="Enter Admin Number"
+                android:inputType="textCapCharacters"
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_signup_admin_number" />
 
             <TextView
                 android:id="@+id/tv_login_email"
@@ -106,7 +149,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_email"
                 app:layout_constraintStart_toStartOf="@+id/et_login_email"
-                app:layout_constraintTop_toBottomOf="@+id/et_login_folkid" />
+                app:layout_constraintTop_toBottomOf="@+id/et_signup_admin_number" />
 
             <EditText
                 android:id="@+id/et_login_email"
@@ -119,6 +162,7 @@
                 android:drawablePadding="10dp"
                 android:hint="Enter Email"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -153,6 +197,7 @@
                 android:drawablePadding="10dp"
                 android:hint="Enter Phone Number"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -220,6 +265,7 @@
                 android:drawablePadding="10dp"
                 android:hint="Enter Password"
                 android:inputType="textPassword"
+                android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

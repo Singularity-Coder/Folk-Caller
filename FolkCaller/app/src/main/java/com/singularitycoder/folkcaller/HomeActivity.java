@@ -333,8 +333,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imgWhatsApp = dialog.findViewById(R.id.img_quick_whatsapp);
-        imgWhatsApp.setOnClickListener(new View.OnClickListener() {
+        ImageView imgCall = dialog.findViewById(R.id.img_quick_call);
+        imgCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
@@ -349,15 +349,23 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imgCall = dialog.findViewById(R.id.img_quick_call);
-        imgCall.setOnClickListener(new View.OnClickListener() {
+        ImageView imgWhatsApp = dialog.findViewById(R.id.img_quick_whatsapp);
+        imgWhatsApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
 
-        ImageView imgInfo = dialog.findViewById(R.id.img_quick_info);
+        ImageView imgEmail = dialog.findViewById(R.id.img_quick_email);
+        imgEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        ImageView imgInfo = dialog.findViewById(R.id.img_quick_share);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
