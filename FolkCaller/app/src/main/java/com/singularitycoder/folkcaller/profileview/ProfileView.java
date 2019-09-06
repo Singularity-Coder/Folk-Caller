@@ -18,16 +18,12 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.singularitycoder.folkcaller.BulkSmsActivity;
 import com.singularitycoder.folkcaller.Helper;
 import com.singularitycoder.folkcaller.R;
 
@@ -49,7 +45,7 @@ public class ProfileView extends AppCompatActivity {
     ConstraintLayout finishContactContainer;
 
     RecyclerView mRecyclerView, commentRecyclerView;
-    AdapterProfileViewCalledBy mAdapterProfileViewCalledBy;
+    AdapterProfileViewActivities mAdapterProfileViewActivities;
     AdapterProfileViewComments commentAdapter;
     ArrayList<ModelProfileView> mArrayList;
     ArrayList<ModelProfileView> commentList;
@@ -192,16 +188,17 @@ public class ProfileView extends AppCompatActivity {
 
     private void setUpActivityOnContactList() {
         mArrayList = new ArrayList<>();
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
-        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM"));
+        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM", "Called", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face2, "Mulan Bennet", "12 July, 4819 @ 6:00 AM", "Edited", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM", "Called", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face3, "Kristen Mona", "12 July, 4819 @ 6:00 AM", "Called", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM", "Messaged", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face2, "Mulan Bennet", "12 July, 4819 @ 6:00 AM", "Edited", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face3, "Kristen Mona", "12 July, 4819 @ 6:00 AM", "Emailed", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM", "WhatsApp", ""));
+        mArrayList.add(new ModelProfileView(R.drawable.face2, "Mulan Bennet", "12 July, 4819 @ 6:00 AM", "Called", ""));
         mRecyclerView = findViewById(R.id.recycler_activity_list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -212,9 +209,9 @@ public class ProfileView extends AppCompatActivity {
         mRecyclerView.setItemViewCacheSize(20);
         mRecyclerView.setDrawingCacheEnabled(true);
         mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-        mAdapterProfileViewCalledBy = new AdapterProfileViewCalledBy(mArrayList, this);
-        mAdapterProfileViewCalledBy.setHasStableIds(true);
-        mRecyclerView.setAdapter(mAdapterProfileViewCalledBy);
+        mAdapterProfileViewActivities = new AdapterProfileViewActivities(mArrayList, this);
+        mAdapterProfileViewActivities.setHasStableIds(true);
+        mRecyclerView.setAdapter(mAdapterProfileViewActivities);
     }
 
     private void setUpCommentsList() {

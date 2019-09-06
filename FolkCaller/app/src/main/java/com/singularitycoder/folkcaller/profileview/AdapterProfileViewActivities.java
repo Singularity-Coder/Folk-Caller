@@ -14,12 +14,12 @@ import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
 
-public class AdapterProfileViewCalledBy extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AdapterProfileViewActivities extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<ModelProfileView> mArrayList;
     Context mContext;
 
-    public AdapterProfileViewCalledBy(ArrayList<ModelProfileView> arrayList, Context context) {
+    public AdapterProfileViewActivities(ArrayList<ModelProfileView> arrayList, Context context) {
         mArrayList = arrayList;
         mContext = context;
     }
@@ -38,6 +38,7 @@ public class AdapterProfileViewCalledBy extends RecyclerView.Adapter<RecyclerVie
         ((ViewHolderDetailViewCalledBy) holder).profilePic.setImageResource(modelProfileView.getProfileImage());
         ((ViewHolderDetailViewCalledBy) holder).name.setText(modelProfileView.getName());
         ((ViewHolderDetailViewCalledBy) holder).dateTime.setText(modelProfileView.getDateTime());
+        ((ViewHolderDetailViewCalledBy) holder).activityName.setText(modelProfileView.getActivityName());
     }
 
     @Override
@@ -55,6 +56,7 @@ public class AdapterProfileViewCalledBy extends RecyclerView.Adapter<RecyclerVie
         CircularImageView profilePic;
         TextView name;
         TextView dateTime;
+        TextView activityName;
 
         public ViewHolderDetailViewCalledBy(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +64,7 @@ public class AdapterProfileViewCalledBy extends RecyclerView.Adapter<RecyclerVie
             profilePic = itemView.findViewById(R.id.img_profile_pic);
             name = itemView.findViewById(R.id.tv_name);
             dateTime = itemView.findViewById(R.id.tv_subtitle_1);
+            activityName = itemView.findViewById(R.id.tv_activity_name);
 
         }
     }

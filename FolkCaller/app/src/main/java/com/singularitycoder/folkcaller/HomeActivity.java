@@ -416,10 +416,10 @@ public class HomeActivity extends AppCompatActivity {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
-        dialog.setContentView(R.layout.dialog_filter_contacts);
+        dialog.setContentView(R.layout.dialog_notifications);
 
         Rect displayRectangle = new Rect();
-        Window window = this.getWindow();
+        Window window = activity.getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 

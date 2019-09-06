@@ -6,6 +6,7 @@ public class ModelProfileView {
     private String name;
     private String dateTime;
     private String comment;
+    private String activityName;
 
     public ModelProfileView() {
     }
@@ -23,11 +24,14 @@ public class ModelProfileView {
     }
 
     // Called By
-    public ModelProfileView(int profileImage, String name, String dateTime) {
+    public ModelProfileView(int profileImage, String name, String dateTime, String activityName, String empty) {
         this.profileImage = profileImage;
         this.name = name;
         this.dateTime = dateTime;
+        this.activityName = activityName;
     }
+
+
 
     public int getProfileImage() {
         return profileImage;
@@ -59,5 +63,13 @@ public class ModelProfileView {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
     }
 }
