@@ -46,22 +46,21 @@ public class DashAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        if (holder.getItemViewType() == DASH_ITEM) {
-            HomeActivity.DashModel dashModel = dashList.get(position - 1);
+        HomeActivity.DashModel dashModel = dashList.get(position);
+        if (holder instanceof DashViewHolder) {
             ((DashViewHolder) holder).dashImage.setImageResource(dashModel.getIntDashImage());
             ((DashViewHolder) holder).dashTitle.setText(dashModel.getStrDashTitle());
             ((DashViewHolder) holder).dashCount.setText(dashModel.getStrDashCount());
         }
 
-        else if (holder.getItemViewType() == DASH_HEADER) {
-            HomeActivity.DashModel dashModel = dashList.get(0);
+        else if (holder instanceof DashHeaderViewHolder) {
             ((DashHeaderViewHolder) holder).dashHeaderCount.setText(dashModel.getStrDashCount());
         }
     }
 
     @Override
     public int getItemCount() {
-        return dashList.size() + 1;
+        return dashList.size();
     }
 
     @Override

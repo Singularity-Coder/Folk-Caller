@@ -42,6 +42,11 @@ public class ProfileView extends AppCompatActivity {
     ConstraintLayout calledByContainer;
     ConstraintLayout commentsContainer;
     ConstraintLayout profileActionsContainer;
+    ConstraintLayout selectProgramContainer;
+    ConstraintLayout reachOverviewContainer;
+    ConstraintLayout doNotDisturbContainer;
+    ConstraintLayout programDetailsContainer;
+    ConstraintLayout finishContactContainer;
 
     RecyclerView mRecyclerView, commentRecyclerView;
     AdapterProfileViewCalledBy mAdapterProfileViewCalledBy;
@@ -49,8 +54,7 @@ public class ProfileView extends AppCompatActivity {
     ArrayList<ModelProfileView> mArrayList;
     ArrayList<ModelProfileView> commentList;
 
-    Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnDownloadContacts, btnAssignCallingTask;
-    TextView tvShowMoreActions, tvEditMyDetails, tvEditContactDetails, tvSelectProgram;
+    TextView tvEditMyDetails, tvEditContactDetails, tvSelectProgram;
 //    EditText etEnterComment;
 //    ImageView imgSendComment;
 
@@ -68,7 +72,6 @@ public class ProfileView extends AppCompatActivity {
         setContentView(R.layout.activity_profile_view);
         initToolBar();
         instantiations();
-        showMoreActions();
         setUpActivityOnContactList();
         setUpCommentsList();
 //        addComment();
@@ -77,18 +80,6 @@ public class ProfileView extends AppCompatActivity {
     }
 
     private void instantiations() {
-        btnSendBulkSms = findViewById(R.id.btn_send_bulk_sms);
-        btnSendBulkSms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileView.this, BulkSmsActivity.class));
-            }
-        });
-        btnMakeBulkCalls = findViewById(R.id.btn_make_bulk_calls);
-        btnAddAdmins = findViewById(R.id.btn_admin_add_admins);
-        btnUploadContacts = findViewById(R.id.btn_profile_upload_contacts);
-        btnDownloadContacts = findViewById(R.id.btn_profile_download_contacts);
-        btnAssignCallingTask = findViewById(R.id.btn_admin_assign_calling_task);
 
         // Constraint Layouts
         personActionsContainer = findViewById(R.id.con_lay_admin_actions);
@@ -98,6 +89,11 @@ public class ProfileView extends AppCompatActivity {
         calledByContainer = findViewById(R.id.con_lay_contact_activity);
         commentsContainer = findViewById(R.id.con_lay_contact_comments);
         profileActionsContainer = findViewById(R.id.con_lay_profile_action_icons);
+        selectProgramContainer = findViewById(R.id.con_lay_select_program);
+        reachOverviewContainer = findViewById(R.id.con_lay_contact_overview);
+        doNotDisturbContainer = findViewById(R.id.con_lay_do_not_disturb);
+        programDetailsContainer = findViewById(R.id.con_lay_contact_program_details);
+        finishContactContainer = findViewById(R.id.con_lay_contact_finish_talking);
 
         tvEditMyDetails = findViewById(R.id.tv_profile_my_details_edit);
         tvEditMyDetails.setOnClickListener(new View.OnClickListener() {
@@ -278,15 +274,15 @@ public class ProfileView extends AppCompatActivity {
     private void setUpAdminActionsList() {
         ArrayList<ActionsModel> adminActionsList = new ArrayList<>();
         adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_call_black_24dp, "Make Bulk Calls"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_person_add__admins_black_24dp, "Add Admins"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_assign_task_black_24dp, "Assign Task"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_cloud_upload_black_24dp, "Upload Contacts"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_cloud_download_black_24dp, "Download Contacts"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_my_tasks_black_24dp, "My Tasks"));
 
         RecyclerView adminActionsRecycler = findViewById(R.id.recycler_admin_actions);
-        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -330,11 +326,6 @@ public class ProfileView extends AppCompatActivity {
                 commentsContainer.setVisibility(View.GONE);
                 personActionsContainer.setVisibility(View.GONE);
                 tvEditMyDetails.setVisibility(View.GONE);
-//                btnAddAdmins.setVisibility(View.GONE);
-//                btnUploadContacts.setVisibility(View.GONE);
-//                btnDownloadContacts.setVisibility(View.GONE);
-//                btnAssignCallingTask.setVisibility(View.GONE);
-//                tvShowMoreActions.setVisibility(View.GONE);
             }
         }
 
@@ -342,6 +333,11 @@ public class ProfileView extends AppCompatActivity {
             if (keyContact.equals("CONTACT")) {
                 personActionsContainer.setVisibility(View.GONE);
                 personInfoContainer.setVisibility(View.GONE);
+                selectProgramContainer.setVisibility(View.VISIBLE);
+                reachOverviewContainer.setVisibility(View.VISIBLE);
+                doNotDisturbContainer.setVisibility(View.VISIBLE);
+                programDetailsContainer.setVisibility(View.VISIBLE);
+                finishContactContainer.setVisibility(View.VISIBLE);
             }
         }
 
@@ -354,28 +350,6 @@ public class ProfileView extends AppCompatActivity {
                 profileActionsContainer.setVisibility(View.GONE);
             }
         }
-    }
-
-    private void showMoreActions() {
-        tvShowMoreActions = findViewById(R.id.tv_show_more_actions);
-        tvShowMoreActions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (tvShowMoreActions.getText().toString().toLowerCase().equals("show more")) {
-                    btnAddAdmins.setVisibility(View.VISIBLE);
-                    btnUploadContacts.setVisibility(View.VISIBLE);
-                    btnDownloadContacts.setVisibility(View.VISIBLE);
-                    btnAssignCallingTask.setVisibility(View.VISIBLE);
-                    tvShowMoreActions.setText("SHOW LESS");
-                } else if (tvShowMoreActions.getText().toString().toLowerCase().equals("show less")) {
-                    btnAddAdmins.setVisibility(View.GONE);
-                    btnUploadContacts.setVisibility(View.GONE);
-                    btnDownloadContacts.setVisibility(View.GONE);
-                    btnAssignCallingTask.setVisibility(View.GONE);
-                    tvShowMoreActions.setText("SHOW MORE");
-                }
-            }
-        });
     }
 
     private void setStatuBarColor() {

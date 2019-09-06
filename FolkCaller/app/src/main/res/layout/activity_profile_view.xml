@@ -85,7 +85,7 @@
                 android:id="@+id/con_lay_profile_action_icons"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="5dp"
+                android:paddingBottom="15dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -222,7 +222,7 @@
                 android:id="@+id/con_lay_admin_actions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -240,105 +240,10 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_admin_actions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scrollbars="none"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <Button
-                    android:id="@+id/btn_send_bulk_sms"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:backgroundTint="@color/colorLightBlue"
-                    android:text="Send Bulk SMS"
-                    android:textColor="@color/colorAccent"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_make_bulk_calls"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_admin_actions" />
-
-                <Button
-                    android:id="@+id/btn_make_bulk_calls"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:backgroundTint="@color/colorLightBlue"
-                    android:text="Make Bulk Calls"
-                    android:textColor="@color/colorAccent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btn_send_bulk_sms"
-                    app:layout_constraintTop_toBottomOf="@+id/recycler_admin_actions" />
-
-                <Button
-                    android:id="@+id/btn_profile_upload_contacts"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="15dp"
-                    android:backgroundTint="@color/colorLightBlue"
-                    android:text="Upload Contacts"
-                    android:textColor="@color/colorAccent"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_profile_download_contacts"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_make_bulk_calls" />
-
-                <Button
-                    android:id="@+id/btn_profile_download_contacts"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="15dp"
-                    android:backgroundTint="@color/colorLightBlue"
-                    android:text="Download Contacts"
-                    android:textColor="@color/colorAccent"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btn_profile_upload_contacts"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_make_bulk_calls" />
-
-                <Button
-                    android:id="@+id/btn_admin_assign_calling_task"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="15dp"
-                    android:backgroundTint="@color/colorLightBlue"
-                    android:text="Assign Calling Task"
-                    android:textColor="@color/colorAccent"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_admin_add_admins"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_profile_upload_contacts" />
-
-                <Button
-                    android:id="@+id/btn_admin_add_admins"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="15dp"
-                    android:backgroundTint="@color/colorLightBlue"
-                    android:text="Add Admins"
-                    android:textColor="@color/colorAccent"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btn_admin_assign_calling_task"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_profile_upload_contacts" />
-
-
-                <TextView
-                    android:id="@+id/tv_show_more_actions"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center_horizontal"
-                    android:text="Show More"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/btn_make_bulk_calls"
-                    app:layout_constraintStart_toStartOf="@+id/btn_send_bulk_sms"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_admin_assign_calling_task" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -347,7 +252,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/con_lay_admin_actions">
@@ -411,7 +316,7 @@
                 android:id="@+id/con_lay_contact_overview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider_div2">
@@ -781,7 +686,7 @@
                 android:id="@+id/con_lay_do_not_disturb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_overview">
@@ -1255,6 +1160,7 @@
                 android:id="@+id/con_lay_contact_program_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/con_lay_caller_details">
@@ -1881,7 +1787,7 @@
         android:elevation="10dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

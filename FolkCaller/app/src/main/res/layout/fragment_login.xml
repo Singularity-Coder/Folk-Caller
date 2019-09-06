@@ -42,11 +42,11 @@
             <Button
                 android:id="@+id/et_login_finger_print"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
-                android:backgroundTint="@color/colorLightBlue"
+                android:background="@drawable/bg_button"
                 android:text="Use Finger Print to Login"
                 android:textColor="@color/colorAccent"
                 android:textSize="15sp"
