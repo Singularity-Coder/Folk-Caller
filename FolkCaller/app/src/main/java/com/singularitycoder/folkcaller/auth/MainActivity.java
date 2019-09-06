@@ -353,7 +353,6 @@ public class MainActivity extends AppCompatActivity {
             builder.setItems(selectArray, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Log.d(TAG, " current year which value is--" + which);
                     switch (which) {
                         case 0:
                             tvMemberType.setText("Folk Member");

@@ -219,63 +219,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/con_lay_select_program"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_profile_action_icons">
-
-                <View
-                    android:id="@+id/divider_program_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_select_program"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@color/colorWhite"
-                    android:drawableStart="@drawable/ic_program_black_24dp"
-                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
-                    android:drawablePadding="10dp"
-                    android:drawableTint="@color/colorAccent"
-                    android:gravity="center_vertical"
-                    android:hint="Select Program"
-                    android:inputType="textEmailAddress"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_program_1" />
-
-                <!--<View-->
-                <!--android:id="@+id/divider_program_2"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="0.5dp"-->
-                <!--android:background="@color/colorGrey"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/tv_select_program" />-->
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/con_lay_admin_assign_task"
+                android:id="@+id/con_lay_admin_actions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_select_program">
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_profile_action_icons">
 
                 <!--<View-->
                 <!--android:id="@+id/divider_14"-->
@@ -285,6 +236,13 @@
                 <!--app:layout_constraintEnd_toEndOf="parent"-->
                 <!--app:layout_constraintStart_toStartOf="parent"-->
                 <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_admin_actions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <Button
                     android:id="@+id/btn_send_bulk_sms"
@@ -297,7 +255,7 @@
                     android:textColor="@color/colorAccent"
                     app:layout_constraintEnd_toStartOf="@+id/btn_make_bulk_calls"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_admin_actions" />
 
                 <Button
                     android:id="@+id/btn_make_bulk_calls"
@@ -310,8 +268,7 @@
                     android:textColor="@color/colorAccent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/btn_send_bulk_sms"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_admin_actions" />
 
                 <Button
                     android:id="@+id/btn_profile_upload_contacts"
@@ -385,12 +342,62 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_select_program"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_admin_actions">
+
+                <View
+                    android:id="@+id/divider_program_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_select_program"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:drawableStart="@drawable/ic_program_black_24dp"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:gravity="center_vertical"
+                    android:hint="Select Program"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_program_1" />
+
+                <!--<View-->
+                <!--android:id="@+id/divider_program_2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0.5dp"-->
+                <!--android:background="@color/colorGrey"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/tv_select_program" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <View
                 android:id="@+id/divider_div1"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@color/colorGrey"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_admin_assign_task" />
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_select_program" />
 
             <View
                 android:id="@+id/divider_div2"
@@ -769,7 +776,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider_contact_overview_9" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_do_not_disturb"
@@ -1156,7 +1162,6 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_company" />
 
-
                 <TextView
                     android:id="@+id/tv_profile_created_acount_on"
                     android:layout_width="0dp"
@@ -1181,7 +1186,6 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_created_acount_on" />
 
-
                 <TextView
                     android:id="@+id/tv_profile_finger_print"
                     android:layout_width="0dp"
@@ -1193,7 +1197,6 @@
                     app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_created_acount_on_dialog" />
-
 
                 <TextView
                     android:id="@+id/tv_profile_finger_print_text"
@@ -1218,7 +1221,6 @@
                     app:layout_constraintEnd_toEndOf="@+id/tv_profile_availability"
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_availability"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_finger_print_text" />
-
 
                 <TextView
                     android:id="@+id/tv_profile_password_text"

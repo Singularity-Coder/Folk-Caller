@@ -1,5 +1,6 @@
 package com.singularitycoder.folkcaller.profileview;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -16,6 +18,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -34,7 +37,7 @@ public class ProfileView extends AppCompatActivity {
 
     ConstraintLayout personActionsContainer;
     ConstraintLayout personInfoContainer;
-//    ConstraintLayout enterCommentBoxContainer;
+    //    ConstraintLayout enterCommentBoxContainer;
     ConstraintLayout contactInfoContainer;
     ConstraintLayout calledByContainer;
     ConstraintLayout commentsContainer;
@@ -47,7 +50,7 @@ public class ProfileView extends AppCompatActivity {
     ArrayList<ModelProfileView> commentList;
 
     Button btnSendBulkSms, btnMakeBulkCalls, btnAddAdmins, btnUploadContacts, btnDownloadContacts, btnAssignCallingTask;
-    TextView tvShowMoreActions, tvEditMyDetails, tvEditContactDetails;
+    TextView tvShowMoreActions, tvEditMyDetails, tvEditContactDetails, tvSelectProgram;
 //    EditText etEnterComment;
 //    ImageView imgSendComment;
 
@@ -70,6 +73,7 @@ public class ProfileView extends AppCompatActivity {
         setUpCommentsList();
 //        addComment();
         profileConditions();
+        setUpAdminActionsList();
     }
 
     private void instantiations() {
@@ -87,7 +91,7 @@ public class ProfileView extends AppCompatActivity {
         btnAssignCallingTask = findViewById(R.id.btn_admin_assign_calling_task);
 
         // Constraint Layouts
-        personActionsContainer = findViewById(R.id.con_lay_admin_assign_task);
+        personActionsContainer = findViewById(R.id.con_lay_admin_actions);
         personInfoContainer = findViewById(R.id.con_lay_caller_details);
 //        enterCommentBoxContainer = findViewById(R.id.con_lay_contact_enter_comment);
         contactInfoContainer = findViewById(R.id.con_lay_contact_details);
@@ -107,6 +111,13 @@ public class ProfileView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 editContactDetailsDialogFunc(ProfileView.this);
+            }
+        });
+        tvSelectProgram = findViewById(R.id.tv_select_program);
+        tvSelectProgram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogSelectProgram();
             }
         });
 //        etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
@@ -264,6 +275,35 @@ public class ProfileView extends AppCompatActivity {
 //        });
 //    }
 
+    private void setUpAdminActionsList() {
+        ArrayList<ActionsModel> adminActionsList = new ArrayList<>();
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
+
+        RecyclerView adminActionsRecycler = findViewById(R.id.recycler_admin_actions);
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        adminActionsRecycler.setLayoutManager(commentLayoutManager);
+        adminActionsRecycler.setHasFixedSize(true);
+        adminActionsRecycler.setItemViewCacheSize(20);
+        adminActionsRecycler.setDrawingCacheEnabled(true);
+        adminActionsRecycler.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+        ActionsAdapter actionsAdapter = new ActionsAdapter(adminActionsList, this);
+        actionsAdapter.setHasStableIds(true);
+        adminActionsRecycler.setAdapter(actionsAdapter);
+    }
+
+
     private void profileConditions() {
         Intent catchIntent = getIntent();
         String keyContact = catchIntent.getStringExtra("openContact");
@@ -389,5 +429,61 @@ public class ProfileView extends AppCompatActivity {
         editContactDetailsDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), editContactDetailsDialog.getWindow().getAttributes().height);
 
         editContactDetailsDialog.show();
+    }
+
+    public void dialogSelectProgram() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select Program");
+        String[] selectArray = {"Yoga For Happiness", "Zoga For Happiness", "Aoga For Happiness", "Boga For Happiness", "Coga For Happiness"};
+        builder.setItems(selectArray, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        tvSelectProgram.setText("Yoga For Happiness");
+                        break;
+                    case 1:
+                        tvSelectProgram.setText("Zoga For Happiness");
+                        break;
+                    case 2:
+                        tvSelectProgram.setText("Aoga For Happiness");
+                        break;
+                    case 3:
+                        tvSelectProgram.setText("Boga For Happiness");
+                        break;
+                    case 4:
+                        tvSelectProgram.setText("Coga For Happiness");
+                        break;
+                }
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    class ActionsModel {
+        private int intActionIcon;
+        private String strActionText;
+
+        public ActionsModel(int intActionIcon, String strActionText) {
+            this.intActionIcon = intActionIcon;
+            this.strActionText = strActionText;
+        }
+
+        public int getIntActionIcon() {
+            return intActionIcon;
+        }
+
+        public void setIntActionIcon(int intActionIcon) {
+            this.intActionIcon = intActionIcon;
+        }
+
+        public String getStrActionText() {
+            return strActionText;
+        }
+
+        public void setStrActionText(String strActionText) {
+            this.strActionText = strActionText;
+        }
     }
 }

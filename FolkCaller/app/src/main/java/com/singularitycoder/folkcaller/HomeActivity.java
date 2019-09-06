@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
@@ -39,6 +40,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.singularitycoder.folkcaller.profileview.ProfileView;
 import com.singularitycoder.folkcaller.rankings.RankingsActivity;
+import com.singularitycoder.folkcaller.reports.ReportsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -329,7 +331,7 @@ public class HomeActivity extends AppCompatActivity {
         imgProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+//                dialog.dismiss();
             }
         });
 
@@ -337,7 +339,10 @@ public class HomeActivity extends AppCompatActivity {
         imgCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                String phone = "9535509155";
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                callIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                startActivity(callIntent);
             }
         });
 
@@ -345,7 +350,15 @@ public class HomeActivity extends AppCompatActivity {
         imgSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                String phone = "9535509155";
+                Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                smsIntent.putExtra("address", phone);
+                smsIntent.putExtra("sms_body", "Message Body check");
+                smsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                if (smsIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(smsIntent);
+                }
             }
         });
 
@@ -353,7 +366,22 @@ public class HomeActivity extends AppCompatActivity {
         imgWhatsApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                PackageManager packageManager = getApplicationContext().getPackageManager();
+                try {
+                    // checks if such an app exists or not
+                    packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+                    String phone = "9535509155";
+                    Uri uri = Uri.parse("smsto:" + phone);
+                    Intent whatsAppIntent = new Intent(Intent.ACTION_SENDTO, uri);
+                    whatsAppIntent.setPackage("com.whatsapp");
+                    startActivity(Intent.createChooser(whatsAppIntent, "Dummy Title"));
+                } catch (PackageManager.NameNotFoundException e) {
+                    new Helper().toast("WhatsApp not found. Install from playstore.", getApplicationContext(), 1);
+                    Uri uri = Uri.parse("market://details?id=com.whatsapp");
+                    Intent openPlayStore = new Intent(Intent.ACTION_VIEW, uri);
+                    openPlayStore.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                    startActivity(openPlayStore);
+                }
             }
         });
 
@@ -361,17 +389,40 @@ public class HomeActivity extends AppCompatActivity {
         imgEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "name@emailaddress.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Follow Up");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Contact, this is telecaller...");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         });
 
-        ImageView imgInfo = dialog.findViewById(R.id.img_quick_share);
-        imgInfo.setOnClickListener(new View.OnClickListener() {
+        ImageView imgShare = dialog.findViewById(R.id.img_quick_share);
+        imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.singularitycoder.com");
+                shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                startActivity(Intent.createChooser(shareIntent, "Share to"));
             }
         });
+
+        dialog.show();
+    }
+
+    public void dialogNotifications(Activity activity) {
+        final Dialog dialog = new Dialog(activity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.dialog_filter_contacts);
+
+        Rect displayRectangle = new Rect();
+        Window window = this.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
+        dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
 
         dialog.show();
     }
@@ -473,7 +524,7 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 // Home Menu
                 case R.id.action_notifications:
-
+                    new HomeActivity().dialogNotifications(getActivity());
                     return true;
                 case R.id.action_rankings:
                     Intent rankIntent = new Intent(getActivity(), RankingsActivity.class);
@@ -485,7 +536,9 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(profileIntent);
                     return true;
                 case R.id.action_reports:
-                    new Helper().comingSoonDialog(getActivity());
+//                    new Helper().comingSoonDialog(getActivity());
+                    Intent reportIntent = new Intent(getActivity(), ReportsActivity.class);
+                    startActivity(reportIntent);
                     return true;
                 case R.id.action_about:
                     new HomeActivity().aboutDialog(getActivity());
