@@ -277,13 +277,14 @@ public class ProfileView extends AppCompatActivity {
 
     private void setUpAdminActionsList() {
         ArrayList<StatsOrActionsModel> adminActionsList = new ArrayList<>();
-        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS", "AdminAction"));
         adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_call_black_24dp, "Make Bulk Calls", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS", "AdminAction"));
         adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_person_add__admins_black_24dp, "Add Admins", "AdminAction"));
         adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_assign_task_black_24dp, "Assign Task", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_assigned_tasks_black_24dp, "Assigned Tasks", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_my_tasks_black_24dp, "My Tasks", "AdminAction"));
         adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_cloud_upload_black_24dp, "Upload Contacts", "AdminAction"));
         adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_cloud_download_black_24dp, "Download Contacts", "AdminAction"));
-        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_my_tasks_black_24dp, "My Tasks", "AdminAction"));
 
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
