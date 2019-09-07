@@ -50,7 +50,7 @@ public class StatsOrActionsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         if (viewType == VIEW_TYPE_REACH_OVERVIEW) {
             myViewType = VIEW_TYPE_REACH_OVERVIEW;
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_profile_reach_overview, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_profile_stats_or_actions, parent, false);
             return new ReachOverviewHolder(v);
         }
         return null;

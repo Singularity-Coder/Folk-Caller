@@ -43,6 +43,7 @@ public class ProfileView extends AppCompatActivity {
     ConstraintLayout profileActionsContainer;
     ConstraintLayout selectProgramContainer;
     ConstraintLayout reachOverviewContainer;
+    ConstraintLayout callerStatsContainer;
     ConstraintLayout doNotDisturbContainer;
     ConstraintLayout programDetailsContainer;
     ConstraintLayout finishContactContainer;
@@ -77,6 +78,7 @@ public class ProfileView extends AppCompatActivity {
         profileConditions();
         setUpAdminActionsList();
         setUpReachOverviewList();
+        setUpCallerStatsList();
     }
 
     private void instantiations() {
@@ -91,6 +93,7 @@ public class ProfileView extends AppCompatActivity {
         profileActionsContainer = findViewById(R.id.con_lay_profile_action_icons);
         selectProgramContainer = findViewById(R.id.con_lay_select_program);
         reachOverviewContainer = findViewById(R.id.con_lay_contact_overview);
+        callerStatsContainer = findViewById(R.id.con_lay_caller_stats);
         doNotDisturbContainer = findViewById(R.id.con_lay_do_not_disturb);
         programDetailsContainer = findViewById(R.id.con_lay_contact_program_details);
         finishContactContainer = findViewById(R.id.con_lay_contact_finish_talking);
@@ -330,6 +333,34 @@ public class ProfileView extends AppCompatActivity {
         reachOverviewRecycler.setAdapter(reachAdapter);
     }
 
+    private void setUpCallerStatsList() {
+        ArrayList<StatsOrActionsModel> callerStatsList = new ArrayList<>();
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_tasks_finished_black_24dp, "Tasks Finished", "24", "CallerStats"));
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_pending_black_24dp, "Tasks Pending", "3", "CallerStats"));
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_contact_mail_black_24dp, "Contacts Called", "2404", "CallerStats"));
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_hourspent_black_24dp, "Hours Spent", "54", "CallerStats"));
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_conversions_black_24dp, "Conversions", "1051", "CallerStats"));
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_starrank_black_24dp, "Caller Rank", "7", "CallerStats"));
+
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+
+        RecyclerView reachOverviewRecycler = findViewById(R.id.recycler_caller_stats);
+        reachOverviewRecycler.setLayoutManager(commentLayoutManager);
+        reachOverviewRecycler.setHasFixedSize(true);
+        reachOverviewRecycler.setItemViewCacheSize(20);
+        reachOverviewRecycler.setDrawingCacheEnabled(true);
+        reachOverviewRecycler.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+        CallerStatsAdapter callerStatsAdapter = new CallerStatsAdapter(callerStatsList, this, "");
+        callerStatsAdapter.setHasStableIds(true);
+        reachOverviewRecycler.setAdapter(callerStatsAdapter);
+    }
+
 
     private void profileConditions() {
         Intent catchIntent = getIntent();
@@ -357,6 +388,7 @@ public class ProfileView extends AppCompatActivity {
                 commentsContainer.setVisibility(View.GONE);
                 personActionsContainer.setVisibility(View.GONE);
                 tvEditMyDetails.setVisibility(View.GONE);
+                callerStatsContainer.setVisibility(View.VISIBLE);
             }
         }
 

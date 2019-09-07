@@ -1,8 +1,6 @@
 package com.singularitycoder.folkcaller.profileview;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.singularitycoder.folkcaller.BulkSmsActivity;
 import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
@@ -31,7 +28,7 @@ public class ReachAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_profile_reach_overview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_profile_stats_or_actions, parent, false);
         return new ReachOverviewHolder(v);
     }
 
