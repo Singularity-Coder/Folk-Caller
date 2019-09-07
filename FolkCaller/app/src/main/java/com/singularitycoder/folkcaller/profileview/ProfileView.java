@@ -73,6 +73,7 @@ public class ProfileView extends AppCompatActivity {
 //        addComment();
         profileConditions();
         setUpAdminActionsList();
+        setUpReachOverviewList();
     }
 
     private void instantiations() {
@@ -269,32 +270,64 @@ public class ProfileView extends AppCompatActivity {
 //    }
 
     private void setUpAdminActionsList() {
-        ArrayList<ActionsModel> adminActionsList = new ArrayList<>();
-        adminActionsList.add(new ActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_call_black_24dp, "Make Bulk Calls"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_person_add__admins_black_24dp, "Add Admins"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_assign_task_black_24dp, "Assign Task"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_cloud_upload_black_24dp, "Upload Contacts"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_cloud_download_black_24dp, "Download Contacts"));
-        adminActionsList.add(new ActionsModel(R.drawable.ic_my_tasks_black_24dp, "My Tasks"));
+        ArrayList<StatsOrActionsModel> adminActionsList = new ArrayList<>();
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "Send Bulk SMS", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_call_black_24dp, "Make Bulk Calls", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_person_add__admins_black_24dp, "Add Admins", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_assign_task_black_24dp, "Assign Task", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_cloud_upload_black_24dp, "Upload Contacts", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_cloud_download_black_24dp, "Download Contacts", "AdminAction"));
+        adminActionsList.add(new StatsOrActionsModel(R.drawable.ic_my_tasks_black_24dp, "My Tasks", "AdminAction"));
 
-        RecyclerView adminActionsRecycler = findViewById(R.id.recycler_admin_actions);
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         };
+
+        RecyclerView adminActionsRecycler = findViewById(R.id.recycler_admin_actions);
         adminActionsRecycler.setLayoutManager(commentLayoutManager);
         adminActionsRecycler.setHasFixedSize(true);
         adminActionsRecycler.setItemViewCacheSize(20);
         adminActionsRecycler.setDrawingCacheEnabled(true);
         adminActionsRecycler.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
-        ActionsAdapter actionsAdapter = new ActionsAdapter(adminActionsList, this);
-        actionsAdapter.setHasStableIds(true);
-        adminActionsRecycler.setAdapter(actionsAdapter);
+        StatsOrActionsAdapter statsOrActionsAdapter = new StatsOrActionsAdapter(adminActionsList, this);
+        statsOrActionsAdapter.setHasStableIds(true);
+        adminActionsRecycler.setAdapter(statsOrActionsAdapter);
     }
+
+    private void setUpReachOverviewList() {
+        ArrayList<StatsOrActionsModel> reachList = new ArrayList<>();
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_activity_black_24dp, "Activities", "54", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_comment_black_24dp, "Comments", "14", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_call_black_24dp, "Calls", "34", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "SMS", "27", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_whatsapp_logo_overview, "WhatsApp Messages", "44", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_email_black_24dp, "Emails", "4", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_share_black_24dp, "Shares", "3", "Reach"));
+
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+
+        RecyclerView reachOverviewRecycler = findViewById(R.id.recycler_reach_overview);
+        reachOverviewRecycler.setLayoutManager(commentLayoutManager);
+        reachOverviewRecycler.setHasFixedSize(true);
+        reachOverviewRecycler.setItemViewCacheSize(20);
+        reachOverviewRecycler.setDrawingCacheEnabled(true);
+        reachOverviewRecycler.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+        ReachAdapter reachAdapter = new ReachAdapter(reachList, this, "");
+        reachAdapter.setHasStableIds(true);
+        reachOverviewRecycler.setAdapter(reachAdapter);
+    }
+
+
 
 
     private void profileConditions() {
@@ -432,29 +465,55 @@ public class ProfileView extends AppCompatActivity {
         dialog.show();
     }
 
-    class ActionsModel {
-        private int intActionIcon;
-        private String strActionText;
+    class StatsOrActionsModel {
+        private int intIcon;
+        private String strLabel;
+        private String strCount;
+        private String strItemType;
 
-        public ActionsModel(int intActionIcon, String strActionText) {
-            this.intActionIcon = intActionIcon;
-            this.strActionText = strActionText;
+        public StatsOrActionsModel(int intIcon, String strLabel, String strItemType) {
+            this.intIcon = intIcon;
+            this.strLabel = strLabel;
+            this.strItemType = strItemType;
         }
 
-        public int getIntActionIcon() {
-            return intActionIcon;
+        public StatsOrActionsModel(int intIcon, String strLabel, String strCount, String strItemType) {
+            this.intIcon = intIcon;
+            this.strLabel = strLabel;
+            this.strCount = strCount;
+            this.strItemType = strItemType;
         }
 
-        public void setIntActionIcon(int intActionIcon) {
-            this.intActionIcon = intActionIcon;
+        public int getIntIcon() {
+            return intIcon;
         }
 
-        public String getStrActionText() {
-            return strActionText;
+        public void setIntIcon(int intIcon) {
+            this.intIcon = intIcon;
         }
 
-        public void setStrActionText(String strActionText) {
-            this.strActionText = strActionText;
+        public String getStrLabel() {
+            return strLabel;
+        }
+
+        public void setStrLabel(String strLabel) {
+            this.strLabel = strLabel;
+        }
+
+        public String getStrCount() {
+            return strCount;
+        }
+
+        public void setStrCount(String strCount) {
+            this.strCount = strCount;
+        }
+
+        public String getStrItemType() {
+            return strItemType;
+        }
+
+        public void setStrItemType(String strItemType) {
+            this.strItemType = strItemType;
         }
     }
 }

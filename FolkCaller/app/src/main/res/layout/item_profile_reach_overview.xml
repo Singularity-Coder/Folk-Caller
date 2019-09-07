@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_con_lay_reach_overview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:background="@color/colorWhite">
+
+    <View
+        android:id="@+id/divider_contact_overview_2"
+        android:layout_width="0dp"
+        android:layout_height="0.2dp"
+        android:background="@color/colorGrey"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_contact_overview_label"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:drawablePadding="15dp"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:text="Reach Item 1"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_contact_overview_activity_count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_contact_overview_2" />
+
+    <TextView
+        android:id="@+id/tv_contact_overview_activity_count"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="5dp"
+        android:text="56"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_contact_overview_label"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_contact_overview_label"
+        app:layout_constraintEnd_toStartOf="@+id/img_contact_overview_icon"
+        app:layout_constraintTop_toTopOf="@+id/tv_contact_overview_label" />
+
+    <ImageView
+        android:id="@+id/img_contact_overview_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_activity_black_24dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/tv_contact_overview_activity_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_contact_overview_label"
+        app:layout_constraintTop_toTopOf="@+id/tv_contact_overview_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
