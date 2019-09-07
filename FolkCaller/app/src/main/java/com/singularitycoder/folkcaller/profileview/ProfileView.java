@@ -18,9 +18,12 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,7 +36,7 @@ public class ProfileView extends AppCompatActivity {
 
     ConstraintLayout personActionsContainer;
     ConstraintLayout personInfoContainer;
-    //    ConstraintLayout enterCommentBoxContainer;
+    ConstraintLayout enterCommentBoxContainer;
     ConstraintLayout contactInfoContainer;
     ConstraintLayout calledByContainer;
     ConstraintLayout commentsContainer;
@@ -51,8 +54,8 @@ public class ProfileView extends AppCompatActivity {
     ArrayList<ModelProfileView> commentList;
 
     TextView tvEditMyDetails, tvEditContactDetails, tvSelectProgram;
-//    EditText etEnterComment;
-//    ImageView imgSendComment;
+    EditText etEnterComment;
+    ImageView imgSendComment;
 
     ImageView actionCall;
     ImageView actionWhatsApp;
@@ -70,7 +73,7 @@ public class ProfileView extends AppCompatActivity {
         instantiations();
         setUpActivityOnContactList();
         setUpCommentsList();
-//        addComment();
+        addComment();
         profileConditions();
         setUpAdminActionsList();
         setUpReachOverviewList();
@@ -81,7 +84,7 @@ public class ProfileView extends AppCompatActivity {
         // Constraint Layouts
         personActionsContainer = findViewById(R.id.con_lay_admin_actions);
         personInfoContainer = findViewById(R.id.con_lay_caller_details);
-//        enterCommentBoxContainer = findViewById(R.id.con_lay_contact_enter_comment);
+        enterCommentBoxContainer = findViewById(R.id.con_lay_contact_enter_comment);
         contactInfoContainer = findViewById(R.id.con_lay_contact_details);
         calledByContainer = findViewById(R.id.con_lay_contact_activity);
         commentsContainer = findViewById(R.id.con_lay_contact_comments);
@@ -113,8 +116,8 @@ public class ProfileView extends AppCompatActivity {
                 dialogSelectProgram();
             }
         });
-//        etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
-//        imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
+        etEnterComment = findViewById(R.id.et_profile_contact_enter_comment);
+        imgSendComment = findViewById(R.id.img_profile_contact_send_comment_btn);
 
         actionCall = findViewById(R.id.img_call);
         actionCall.setOnClickListener(new View.OnClickListener() {
@@ -199,7 +202,7 @@ public class ProfileView extends AppCompatActivity {
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM", "WhatsApp", ""));
         mArrayList.add(new ModelProfileView(R.drawable.face2, "Mulan Bennet", "12 July, 4819 @ 6:00 AM", "Called", ""));
         mRecyclerView = findViewById(R.id.recycler_activity_list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -217,27 +220,10 @@ public class ProfileView extends AppCompatActivity {
 
     private void setUpCommentsList() {
         commentList = new ArrayList<>();
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
-        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "1 July, 4819 @ 3:30 PM", "Contact did not respond to the call!"));
+        commentList.add(new ModelProfileView(R.drawable.face1, "Catherine Melty", "7 July, 4819 @ 3:30 PM", "Contact did not respond to the call! Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelProfileView(R.drawable.face2, "Raj Kelia", "9 July, 4819 @ 3:30 PM", "Tried 4 times in the afternoon and 2 times in the evening!"));
+        commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "No response. Out of station."));
 
         commentRecyclerView = findViewById(R.id.recycler_comments_list);
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
@@ -256,18 +242,35 @@ public class ProfileView extends AppCompatActivity {
         commentRecyclerView.setAdapter(commentAdapter);
     }
 
-//    private void addComment() {
-//        imgSendComment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", etEnterComment.getText().toString()));
-//                AdapterProfileViewComments adapterProfileViewComments = new AdapterProfileViewComments(commentList, getApplicationContext());
-//                adapterProfileViewComments.notifyDataSetChanged();
-//                etEnterComment.setText("");
-//                new Helper().toast("Comment Added: " + etEnterComment.getText().toString(), getApplicationContext(), 1);
-//            }
-//        });
-//    }
+    private void addComment() {
+        etEnterComment.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                imgSendComment.setImageResource(R.drawable.ic_send_grey_24dp);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                imgSendComment.setImageResource(R.drawable.ic_send_black_24dp);
+                imgSendComment.isEnabled();
+            }
+        });
+        imgSendComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", etEnterComment.getText().toString()));
+                AdapterProfileViewComments adapterProfileViewComments = new AdapterProfileViewComments(commentList, getApplicationContext());
+                adapterProfileViewComments.notifyDataSetChanged();
+                etEnterComment.setText("");
+                new Helper().toast("Comment Added: " + etEnterComment.getText().toString(), getApplicationContext(), 1);
+            }
+        });
+    }
 
     private void setUpAdminActionsList() {
         ArrayList<StatsOrActionsModel> adminActionsList = new ArrayList<>();
@@ -326,8 +329,6 @@ public class ProfileView extends AppCompatActivity {
         reachAdapter.setHasStableIds(true);
         reachOverviewRecycler.setAdapter(reachAdapter);
     }
-
-
 
 
     private void profileConditions() {
