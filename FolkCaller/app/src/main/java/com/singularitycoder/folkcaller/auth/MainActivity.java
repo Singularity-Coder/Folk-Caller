@@ -17,7 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.AppBarLayout;
-import com.singularitycoder.folkcaller.HomeActivity;
+import com.singularitycoder.folkcaller.home.HomeActivity;
 import com.singularitycoder.folkcaller.R;
 
 import android.content.pm.ActivityInfo;
@@ -49,14 +49,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
     private static final String TAG = MainActivity.class.getSimpleName();
     private CoordinatorLayout mCoordinatorLayout;
+    private ViewPager viewPager;
     private TabLayout tabLayout;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStatuBarColor();
+        setContentView(R.layout.activity_main);
+        inits();
+        setUpViewPager();
+        setUpTabLayout();
+        setUpToolbar();
+        setUpAppbarLayout();
+        setUpCollapsingToolbar();
+    }
 
+
+    private void setStatuBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = this.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);  // clear FLAG_TRANSLUCENT_STATUS flag:
@@ -66,89 +81,28 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
 
-        setContentView(R.layout.activity_main);
 
+    private void inits() {
         mCoordinatorLayout = findViewById(R.id.coordinator_main);
+    }
 
-        // Set Toolbar
-        final Toolbar toolbar = findViewById(R.id.toolbar_main);
-        setSupportActionBar(toolbar);
-//        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
 
+    private void setUpViewPager() {
         // Set ViewPager
-        final ViewPager viewPager = findViewById(R.id.viewpager_main);
-        setupViewPager(viewPager);
+        viewPager = findViewById(R.id.viewpager_main);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new SignUpFragment(ContextCompat.getColor(this, R.color.colorWhite)), "SIGN UP");
+        adapter.addFrag(new LoginFragment(ContextCompat.getColor(this, R.color.colorWhite)), "LOGIN");
+        viewPager.setAdapter(adapter);
+    }
 
+
+    private void setUpTabLayout() {
         // Set TabLayout
         tabLayout = findViewById(R.id.tablayout_main);
         tabLayout.setupWithViewPager(viewPager);
-
-        AppBarLayout appBarLayout = findViewById(R.id.appbar_main);
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = true;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    if (getSupportActionBar() != null)
-                        getSupportActionBar().setTitle("FOLK Caller");
-                    isShow = true;
-                } else if (isShow) {
-                    if (getSupportActionBar() != null) getSupportActionBar().setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
-
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-
-                if (Math.abs(verticalOffset) - appBarLayout.getTotalScrollRange() == 0) {
-                    //  Collapsed
-//                    Toast.makeText(getApplicationContext(), "Collapsed", Toast.LENGTH_LONG).show();
-//                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-//                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorBlack));
-                    toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                    tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                    toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
-                } else {
-                    //Expanded
-//                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhite));
-//                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorWhite));
-                    toolbar.setBackgroundColor(Color.TRANSPARENT);
-                    tabLayout.setBackgroundColor(Color.TRANSPARENT);
-//                    toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
-                }
-            }
-        });
-
-        // Set CollapsingToolbar
-        final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_main);
-
-        // Set color of CollaspongToolbar when collapsing
-        try {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.header);
-            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-                @SuppressWarnings("ResourceType")
-                @Override
-                public void onGenerated(Palette palette) {
-//                    int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
-//                    int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimaryDark);
-                    collapsingToolbarLayout.setContentScrimColor(R.color.colorPrimary);
-                    collapsingToolbarLayout.setStatusBarScrimColor(R.color.colorTransparent);
-                }
-            });
-        } catch (Exception e) {
-            // if Bitmap fetch fails, fallback to primary colors
-            collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(this, R.color.colorPrimary));
-            collapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-        }
 
         // Do something on selecting each tab of tab layout
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -195,13 +149,83 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFrag(new SignUpFragment(ContextCompat.getColor(this, R.color.colorWhite)), "SIGN UP");
-        adapter.addFrag(new LoginFragment(ContextCompat.getColor(this, R.color.colorWhite)), "LOGIN");
-        viewPager.setAdapter(adapter);
+    private void setUpToolbar() {
+        // Set Toolbar
+        toolbar = findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
+//        if (getSupportActionBar() != null) getSupportActionBar().setTitle("Folk Caller");
     }
+
+
+    private void setUpAppbarLayout() {
+        AppBarLayout appBarLayout = findViewById(R.id.appbar_main);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = true;
+            int scrollRange = -1;
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    if (getSupportActionBar() != null)
+                        getSupportActionBar().setTitle("FOLK Caller");
+                    isShow = true;
+                } else if (isShow) {
+                    if (getSupportActionBar() != null) getSupportActionBar().setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (Math.abs(verticalOffset) - appBarLayout.getTotalScrollRange() == 0) {
+                    //  Collapsed
+//                    Toast.makeText(getApplicationContext(), "Collapsed", Toast.LENGTH_LONG).show();
+//                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+//                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorBlack));
+                    toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    tabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+                } else {
+                    //Expanded
+//                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhite));
+//                    tabLayout.setTabTextColors(ContextCompat.getColorStateList(getApplicationContext(), R.color.colorWhite));
+                    toolbar.setBackgroundColor(Color.TRANSPARENT);
+                    tabLayout.setBackgroundColor(Color.TRANSPARENT);
+//                    toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+                }
+            }
+        });
+    }
+
+
+    private void setUpCollapsingToolbar() {
+        // Set CollapsingToolbar
+        final CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_main);
+
+        // Set color of CollaspongToolbar when collapsing
+        try {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.header);
+            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                @SuppressWarnings("ResourceType")
+                @Override
+                public void onGenerated(Palette palette) {
+//                    int vibrantColor = palette.getVibrantColor(R.color.colorPrimary);
+//                    int vibrantDarkColor = palette.getDarkVibrantColor(R.color.colorPrimaryDark);
+                    collapsingToolbarLayout.setContentScrimColor(R.color.colorPrimary);
+                    collapsingToolbarLayout.setStatusBarScrimColor(R.color.colorTransparent);
+                }
+            });
+        } catch (Exception e) {
+            // if Bitmap fetch fails, fallback to primary colors
+            collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(this, R.color.colorPrimary));
+            collapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+        }
+    }
+
 
     private static class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -287,7 +311,6 @@ public class MainActivity extends AppCompatActivity {
             Window window = activity.getWindow();
             window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
             fingerPrintDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), fingerPrintDialog.getWindow().getAttributes().height);
-
 
             tvUsePasswordToLogin = fingerPrintDialog.findViewById(R.id.tv_use_password_login);
             tvUsePasswordToLogin.setOnClickListener(new View.OnClickListener() {

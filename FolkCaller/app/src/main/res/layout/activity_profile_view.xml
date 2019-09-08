@@ -76,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="Folk Guide"
                 android:textAlignment="center"
+                android:textColor="@color/colorSubtitle"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@+id/tv_view_event_title"
                 app:layout_constraintStart_toStartOf="@+id/tv_view_event_title"
@@ -222,7 +223,6 @@
                 android:id="@+id/con_lay_admin_actions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -244,6 +244,13 @@
                     android:scrollbars="none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider_admin_actions_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_admin_actions" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -353,8 +360,8 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toTopOf="@+id/recycler_reach_overview"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/img_profile_contact_overview_icon"
                     app:layout_constraintTop_toBottomOf="@+id/divider_contact_overview_1" />
 
@@ -362,9 +369,9 @@
                     android:id="@+id/recycler_reach_overview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
                     android:layout_marginTop="15dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_overview_details"/>
+                    android:scrollbars="none"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_overview_details" />
 
                 <View
                     android:id="@+id/divider_contact_overview_9"
@@ -423,8 +430,8 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toTopOf="@+id/recycler_caller_stats"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/img_profile_caller_stats_icon"
                     app:layout_constraintTop_toBottomOf="@+id/divider_caller_stats_1" />
 
@@ -432,9 +439,9 @@
                     android:id="@+id/recycler_caller_stats"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
                     android:layout_marginTop="15dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_caller_stats_details"/>
+                    android:scrollbars="none"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_caller_stats_details" />
 
                 <View
                     android:id="@+id/divider_caller_stats_9"
@@ -1465,10 +1472,10 @@
                     android:id="@+id/con_lay_contact_enter_comment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:background="@color/colorWhite"
                     android:descendantFocusability="beforeDescendants"
                     android:focusable="true"
-                    android:layout_marginTop="15dp"
                     android:focusableInTouchMode="true"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1514,7 +1521,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:background="@color/colorGrey"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1584,6 +1591,7 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/recycler_activity_list"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/img_profile_activity_icon"
                     app:layout_constraintTop_toBottomOf="@+id/divider_7" />
@@ -1592,6 +1600,7 @@
                     android:id="@+id/recycler_activity_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:nestedScrollingEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1601,14 +1610,13 @@
                     android:id="@+id/divider_8"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:layout_marginTop="15dp"
                     android:background="@color/colorGrey"
                     app:layout_constraintTop_toBottomOf="@+id/recycler_activity_list" />
 
                 <View
                     android:id="@+id/divider_9"
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_height="60dp"
                     android:background="@color/bg_light"
                     app:layout_constraintTop_toBottomOf="@+id/divider_8" />
 
@@ -1628,6 +1636,17 @@
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/DetailToolbarTheme" />
+
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+        <!--android:id="@+id/appbar_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/con_lay_contact_finish_talking"

@@ -4,7 +4,7 @@
     android:id="@+id/fragment_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light"
+    android:background="@color/colorWhite"
     android:nestedScrollingEnabled="true">
 
     <ScrollView
@@ -286,8 +286,10 @@
                 android:background="@drawable/bg_button_action"
                 android:elevation="0dp"
                 android:text="Set Up Finger Print to Login"
+                android:textAllCaps="false"
                 android:textColor="@color/colorAccent"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_finger_print" />
@@ -357,6 +359,7 @@
                 android:background="@drawable/bg_button"
                 android:textColor="@color/colorLightBlue"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_email"
                 app:layout_constraintStart_toStartOf="@+id/et_login_email"

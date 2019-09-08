@@ -1,4 +1,4 @@
-package com.singularitycoder.folkcaller;
+package com.singularitycoder.folkcaller.home;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -38,6 +38,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.singularitycoder.folkcaller.DashAdapter;
+import com.singularitycoder.folkcaller.Helper;
+import com.singularitycoder.folkcaller.R;
 import com.singularitycoder.folkcaller.profileview.ProfileView;
 import com.singularitycoder.folkcaller.rankings.RankingsActivity;
 import com.singularitycoder.folkcaller.reports.ReportsActivity;

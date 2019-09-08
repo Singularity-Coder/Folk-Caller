@@ -1,4 +1,4 @@
-package com.singularitycoder.folkcaller;
+package com.singularitycoder.folkcaller.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
 

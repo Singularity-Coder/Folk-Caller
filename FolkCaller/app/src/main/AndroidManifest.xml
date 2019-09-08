@@ -33,33 +33,36 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".reports.ReportsActivity"
-            android:parentActivityName=".HomeActivity"
-            android:theme="@style/AppTheme"/>
+            android:parentActivityName=".home.HomeActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".rankings.RankingsActivity"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".home.HomeActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".profileview.ProfileView"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".home.HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".BulkSmsActivity"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".home.HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".home.HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".auth.MainActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Helper"
+            android:parentActivityName=".home.HomeActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

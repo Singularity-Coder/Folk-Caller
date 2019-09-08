@@ -1,4 +1,4 @@
-package com.singularitycoder.folkcaller;
+package com.singularitycoder.folkcaller.home;
 
 public class ModelItemContactCallerAdminChatNotif {
 

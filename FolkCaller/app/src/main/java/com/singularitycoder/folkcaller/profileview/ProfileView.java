@@ -204,22 +204,26 @@ public class ProfileView extends AppCompatActivity {
         mArrayList.add(new ModelProfileView(R.drawable.face3, "Kristen Mona", "12 July, 4819 @ 6:00 AM", "Emailed", ""));
         mArrayList.add(new ModelProfileView(R.drawable.face1, "Catherine Bennet", "12 July, 4819 @ 6:00 AM", "WhatsApp", ""));
         mArrayList.add(new ModelProfileView(R.drawable.face2, "Mulan Bennet", "12 July, 4819 @ 6:00 AM", "Called", ""));
-        mRecyclerView = findViewById(R.id.recycler_activity_list);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         };
+
+        mRecyclerView = findViewById(R.id.recycler_activity_list);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemViewCacheSize(20);
         mRecyclerView.setDrawingCacheEnabled(true);
         mRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
         mAdapterProfileViewActivities = new AdapterProfileViewActivities(mArrayList, this);
         mAdapterProfileViewActivities.setHasStableIds(true);
         mRecyclerView.setAdapter(mAdapterProfileViewActivities);
     }
+
 
     private void setUpCommentsList() {
         commentList = new ArrayList<>();
@@ -228,22 +232,26 @@ public class ProfileView extends AppCompatActivity {
         commentList.add(new ModelProfileView(R.drawable.face2, "Raj Kelia", "9 July, 4819 @ 3:30 PM", "Tried 4 times in the afternoon and 2 times in the evening!"));
         commentList.add(new ModelProfileView(R.drawable.face3, "Sylvia Motan", "12 July, 4819 @ 3:30 PM", "No response. Out of station."));
 
-        commentRecyclerView = findViewById(R.id.recycler_comments_list);
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, true) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         };
+
+        commentRecyclerView = findViewById(R.id.recycler_comments_list);
         commentRecyclerView.setLayoutManager(commentLayoutManager);
         commentRecyclerView.setHasFixedSize(true);
         commentRecyclerView.setItemViewCacheSize(20);
         commentRecyclerView.setDrawingCacheEnabled(true);
         commentRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
         commentAdapter = new AdapterProfileViewComments(commentList, this);
         commentAdapter.setHasStableIds(true);
+
         commentRecyclerView.setAdapter(commentAdapter);
     }
+
 
     private void addComment() {
         etEnterComment.addTextChangedListener(new TextWatcher() {
@@ -254,7 +262,6 @@ public class ProfileView extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -302,6 +309,7 @@ public class ProfileView extends AppCompatActivity {
 
         StatsOrActionsAdapter statsOrActionsAdapter = new StatsOrActionsAdapter(adminActionsList, this);
         statsOrActionsAdapter.setHasStableIds(true);
+
         adminActionsRecycler.setAdapter(statsOrActionsAdapter);
     }
 
@@ -331,6 +339,7 @@ public class ProfileView extends AppCompatActivity {
 
         ReachAdapter reachAdapter = new ReachAdapter(reachList, this, "");
         reachAdapter.setHasStableIds(true);
+
         reachOverviewRecycler.setAdapter(reachAdapter);
     }
 
@@ -359,6 +368,7 @@ public class ProfileView extends AppCompatActivity {
 
         CallerStatsAdapter callerStatsAdapter = new CallerStatsAdapter(callerStatsList, this, "");
         callerStatsAdapter.setHasStableIds(true);
+
         reachOverviewRecycler.setAdapter(callerStatsAdapter);
     }
 

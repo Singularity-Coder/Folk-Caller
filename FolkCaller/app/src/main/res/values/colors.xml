@@ -30,7 +30,8 @@
     <color name="cyan">#00BCD4</color>
 
     <color name="blue_grey">#455A64</color>
-    <color name="bg_light">#FAFAFA</color>
+    <color name="bg_light">#E5E5E5</color>
+    <color name="bg_lighter">#FAFAFA</color>
     <color name="bg_light_grey">#F5F5F5</color>
 
     <!-- DEEP PURPLE -->

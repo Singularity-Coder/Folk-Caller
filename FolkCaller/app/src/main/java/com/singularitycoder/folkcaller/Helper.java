@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -21,9 +20,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import static com.singularitycoder.folkcaller.HomeActivity.getActivity;
+import static com.singularitycoder.folkcaller.home.HomeActivity.getActivity;
 
 public class Helper extends AppCompatActivity {
+
+    // Different Toasts n Snackbars
+    // Image Viewing Libraries
+    // Take picture or select from gallery
+    // Different Dialog boiler plates
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +54,6 @@ public class Helper extends AppCompatActivity {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Continue with delete operation
-
                     }
                 })
                 .show();
@@ -107,10 +110,12 @@ public class Helper extends AppCompatActivity {
         dialogName.show();
     }
 
+
     public static Activity giveMeActivity(Context context) {
         if (context == null) return null;
         if (context instanceof Activity) return (Activity) context;
-        if (context instanceof ContextWrapper) return getActivity(((ContextWrapper)context).getBaseContext());
+        if (context instanceof ContextWrapper)
+            return getActivity(((ContextWrapper) context).getBaseContext());
         return null;
     }
 
