@@ -334,6 +334,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:ellipsize="end"
                 android:gravity="center_horizontal"
                 android:marqueeRepeatLimit="marquee_forever"
@@ -343,8 +344,9 @@
                 android:paddingEnd="10dp"
                 android:text="By creating an account you accept to our Terms and Conditions!"
                 android:textColor="@color/colorAccent"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/btn_create_event_invite_people"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
                 app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
                 app:layout_constraintTop_toBottomOf="@+id/et_login_password" />

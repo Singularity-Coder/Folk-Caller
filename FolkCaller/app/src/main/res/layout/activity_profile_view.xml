@@ -460,139 +460,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/con_lay_do_not_disturb"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_caller_stats">
-
-                <View
-                    android:id="@+id/divider_do_not_disturb"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/img_profile_do_not_disturb_icon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="15dp"
-                    android:src="@drawable/ic_alarm_black_24dp"
-                    android:tint="@color/colorBlack"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile_do_not_disturb"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_do_not_disturb"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_profile_do_not_disturb" />
-
-                <TextView
-                    android:id="@+id/tv_profile_do_not_disturb"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Do Not Disturb"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_do_not_disturb_edit"
-                    app:layout_constraintStart_toEndOf="@+id/img_profile_do_not_disturb_icon"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_do_not_disturb" />
-
-                <TextView
-                    android:id="@+id/tv_profile_do_not_disturb_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:text="SET"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_profile_do_not_disturb_from"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:text="From"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb" />
-
-                <TextView
-                    android:id="@+id/tv_profile_do_not_disturb_from_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="Set Date and Time"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_do_not_disturb_from"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_do_not_disturb_from"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_from" />
-
-                <TextView
-                    android:id="@+id/tv_profile_do_not_disturb_to"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:text="To"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_from_text" />
-
-                <TextView
-                    android:id="@+id/tv_profile_do_not_disturb_to_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="Set Date and Time"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_do_not_disturb_to"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_do_not_disturb_to"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_to" />
-
-                <View
-                    android:id="@+id/divider_do_not_disturb_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_to_text" />
-
-                <View
-                    android:id="@+id/divider_do_not_disturb_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:background="@color/bg_light"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_do_not_disturb_2" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_caller_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_do_not_disturb">
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_caller_stats">
 
                 <View
                     android:id="@+id/divider_0"
@@ -1350,6 +1224,132 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_do_not_disturb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_details">
+
+                <View
+                    android:id="@+id/divider_do_not_disturb"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_profile_do_not_disturb_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_alarm_black_24dp"
+                    android:tint="@color/colorBlack"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile_do_not_disturb"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_do_not_disturb"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_profile_do_not_disturb" />
+
+                <TextView
+                    android:id="@+id/tv_profile_do_not_disturb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Do Not Disturb"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_do_not_disturb_edit"
+                    app:layout_constraintStart_toEndOf="@+id/img_profile_do_not_disturb_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_do_not_disturb" />
+
+                <TextView
+                    android:id="@+id/tv_profile_do_not_disturb_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="SET"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_profile_do_not_disturb_from"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="From"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb" />
+
+                <TextView
+                    android:id="@+id/tv_profile_do_not_disturb_from_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Set Date and Time"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_do_not_disturb_from"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_do_not_disturb_from"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_from" />
+
+                <TextView
+                    android:id="@+id/tv_profile_do_not_disturb_to"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="To"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_from_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_do_not_disturb_to_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Set Date and Time"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_do_not_disturb_to"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_do_not_disturb_to"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_to" />
+
+                <View
+                    android:id="@+id/divider_do_not_disturb_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_to_text" />
+
+                <View
+                    android:id="@+id/divider_do_not_disturb_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_do_not_disturb_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <!--<androidx.constraintlayout.widget.ConstraintLayout-->
             <!--android:id="@+id/con_lay_contact_program_status"-->
             <!--android:layout_width="0dp"-->
@@ -1431,7 +1431,7 @@
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_details">
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_do_not_disturb">
 
                 <View
                     android:id="@+id/divider_10"

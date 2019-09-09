@@ -44,7 +44,7 @@
         android:gravity="center_vertical"
         android:layout_marginEnd="5dp"
         android:text="56"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorSubtitle"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/tv_contact_overview_label"
         app:layout_constraintBottom_toBottomOf="@+id/tv_contact_overview_label"

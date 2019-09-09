@@ -132,9 +132,9 @@ public class HomeActivity extends AppCompatActivity {
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");     // they must be visible
         adapter.addFrag(new DashboardFragment(), "DASHBOARD");
-        adapter.addFrag(new ContactFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CONTACTS");
-        adapter.addFrag(new CallerFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CALLERS");
-        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "ADMINS");
+        adapter.addFrag(new ContactFragment(ContextCompat.getColor(this, R.color.bg_light)), "CONTACTS");
+        adapter.addFrag(new CallerFragment(ContextCompat.getColor(this, R.color.bg_light)), "CALLERS");
+        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light)), "ADMINS");
         viewPager.setAdapter(adapter);
     }
 

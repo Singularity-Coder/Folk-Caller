@@ -73,6 +73,7 @@
         android:ellipsize="end"
         android:marqueeRepeatLimit="marquee_forever"
         android:maxLines="2"
+        android:textColor="@color/colorSubtitle"
         android:text="Called at 9:45 PM"
         app:layout_constraintEnd_toStartOf="@+id/img_arrow"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
