@@ -43,7 +43,6 @@ import com.singularitycoder.folkcaller.Helper;
 import com.singularitycoder.folkcaller.R;
 import com.singularitycoder.folkcaller.profileview.ProfileView;
 import com.singularitycoder.folkcaller.rankings.RankingsActivity;
-import com.singularitycoder.folkcaller.reports.ReportsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,13 +127,18 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
+        // All of them will have their own respective actions for uploading n downloading etc.
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");     // they must be visible
         adapter.addFrag(new DashboardFragment(), "DASHBOARD");
-        adapter.addFrag(new ContactFragment(ContextCompat.getColor(this, R.color.bg_light)), "CONTACTS");
-        adapter.addFrag(new CallerFragment(ContextCompat.getColor(this, R.color.bg_light)), "CALLERS");
-        adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light)), "ADMINS");
+        adapter.addFrag(new ContactFragment(), "CONTACTS");
+        adapter.addFrag(new CallerFragment(), "CALLERS");
+        adapter.addFrag(new AdminFragment(), "ADMINS");
+        adapter.addFrag(new AdminFragment(), "CALL HISTORY");
+        adapter.addFrag(new AdminFragment(), "SMS HISTORY");
+        adapter.addFrag(new AdminFragment(), "ASSIGNED TASKS");
+        adapter.addFrag(new AdminFragment(), "MY TASKS"); // For caller
         viewPager.setAdapter(adapter);
     }
 
@@ -538,13 +542,14 @@ public class HomeActivity extends AppCompatActivity {
                     profileIntent.putExtra("openMyProfile", "MYPROFILE");
                     startActivity(profileIntent);
                     return true;
-                case R.id.action_reports:
-//                    new Helper().comingSoonDialog(getActivity());
-                    Intent reportIntent = new Intent(getActivity(), ReportsActivity.class);
-                    startActivity(reportIntent);
-                    return true;
                 case R.id.action_about:
                     new HomeActivity().aboutDialog(getActivity());
+                    return true;
+                case R.id.action_change_password:
+                    return true;
+                case R.id.action_delete_account:
+                    return true;
+                case R.id.action_log_out:
                     return true;
             }
             return super.onOptionsItemSelected(item);

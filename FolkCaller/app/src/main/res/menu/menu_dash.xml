@@ -24,11 +24,11 @@
         android:title="Caller Ranks"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_reports"
-        android:orderInCategory="3"
-        android:title="Reports"
-        app:showAsAction="never" />
+    <!--<item-->
+    <!--android:id="@+id/action_reports"-->
+    <!--android:orderInCategory="3"-->
+    <!--android:title="Reports"-->
+    <!--app:showAsAction="never" />-->
 
     <item
         android:id="@+id/action_about"
@@ -36,55 +36,31 @@
         android:title="About"
         app:showAsAction="never" />
 
-    <!--<item-->
-    <!--android:id="@+id/action_add_admin"-->
-    <!--android:orderInCategory="3"-->
-    <!--android:title="Add Admins"-->
-    <!--app:showAsAction="never" />-->
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="5"
+        android:title="Settings"
+        app:showAsAction="never">
 
-    <!--<item-->
-    <!--android:id="@+id/action_bulk_sms"-->
-    <!--android:orderInCategory="4"-->
-    <!--android:title="Send Bulk SMS"-->
-    <!--app:showAsAction="never" />-->
+        <menu>
+            <item
+                android:id="@+id/action_change_password"
+                android:orderInCategory="6"
+                android:title="Change Password"
+                app:showAsAction="never" />
 
-    <!--<item-->
-    <!--android:id="@+id/action_bulk_calls"-->
-    <!--android:orderInCategory="5"-->
-    <!--android:title="Make Bulk Calls"-->
-    <!--app:showAsAction="never" />-->
+            <item
+                android:id="@+id/action_delete_account"
+                android:orderInCategory="7"
+                android:title="Delete Account"
+                app:showAsAction="never" />
 
-    <!--<item-->
-    <!--android:id="@+id/action_assign_calling_task"-->
-    <!--android:orderInCategory="6"-->
-    <!--android:title="Assign Calling Task"-->
-    <!--app:showAsAction="never" />-->
-
-    <!--<item-->
-    <!--android:id="@+id/action_upload_contacts"-->
-    <!--android:orderInCategory="7"-->
-    <!--android:title="Upload Contacts"-->
-    <!--app:showAsAction="never" />-->
-
-    <!--<item-->
-    <!--android:id="@+id/action_settings"-->
-    <!--android:orderInCategory="8"-->
-    <!--android:title="Settings"-->
-    <!--app:showAsAction="never">-->
-
-    <!--<menu>-->
-    <!--<item-->
-    <!--android:id="@+id/action_my_profile"-->
-    <!--android:orderInCategory="9"-->
-    <!--android:title="My Profile"-->
-    <!--app:showAsAction="never" />-->
-
-    <!--<item-->
-    <!--android:id="@+id/action_about"-->
-    <!--android:orderInCategory="10"-->
-    <!--android:title="About"-->
-    <!--app:showAsAction="never" />-->
-    <!--</menu>-->
-    <!--</item>-->
+            <item
+                android:id="@+id/action_log_out"
+                android:orderInCategory="8"
+                android:title="Log Out"
+                app:showAsAction="never" />
+        </menu>
+    </item>
 
 </menu>
