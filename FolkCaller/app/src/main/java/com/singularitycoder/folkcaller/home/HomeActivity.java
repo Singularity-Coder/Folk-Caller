@@ -116,7 +116,9 @@ public class HomeActivity extends AppCompatActivity {
                         fab1.hide();
                         break;
                     case CONTACTS:
+                        fab1.hide();
                         fab1.show();
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_black_24dp));
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -125,7 +127,9 @@ public class HomeActivity extends AppCompatActivity {
                         });
                         break;
                     case CALLERS:
+                        fab1.hide();
                         fab1.show();
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -134,7 +138,9 @@ public class HomeActivity extends AppCompatActivity {
                         });
                         break;
                     case ADMINS:
+                        fab1.hide();
                         fab1.show();
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -146,7 +152,9 @@ public class HomeActivity extends AppCompatActivity {
                         fab1.hide();
                         break;
                     case ASSIGNED_TASKS:
+                        fab1.hide();
                         fab1.show();
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
