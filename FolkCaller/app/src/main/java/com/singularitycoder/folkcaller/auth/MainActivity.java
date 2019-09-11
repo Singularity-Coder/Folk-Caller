@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
+    private ImageView headerImage;
 
 
     @Override
@@ -86,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void inits() {
         mCoordinatorLayout = findViewById(R.id.coordinator_main);
+        headerImage = findViewById(R.id.img_main_header);
+        headerImage.setImageDrawable(getResources().getDrawable( R.drawable.blink));
+        AnimationDrawable frameAnimation = (AnimationDrawable) headerImage.getDrawable();
+        frameAnimation.start();
     }
 
 
