@@ -37,6 +37,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.singularitycoder.folkcaller.DashAdapter;
 import com.singularitycoder.folkcaller.Helper;
@@ -53,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     Context mContext;
+    FloatingActionButton fab1;
 
     static ArrayList<ModelItemContactCallerAdminChatNotif> adminList;
     static ArrayList<ModelItemContactCallerAdminChatNotif> contactList;
@@ -69,6 +71,9 @@ public class HomeActivity extends AppCompatActivity {
         initViewPager();
         initTabLayout();
         mContext = this.getApplicationContext();
+
+        fab1 = findViewById(R.id.floating_button);
+
     }
 
     private void setUpStatusBar() {
@@ -92,8 +97,72 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initViewPager() {
+        final int DASHBOARD = 0;
+        final int CONTACTS = 1;
+        final int CALLERS = 2;
+        final int ADMINS = 3;
+        final int MY_TASKS = 4;
+        final int ASSIGNED_TASKS = 5;
+        final int CALL_HISTORY = 6;
+        final int SMS_HISTORY = 7;
+
         viewPager = findViewById(R.id.viewpager_home);
         setupViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case DASHBOARD:
+                        fab1.hide();
+                        break;
+                    case CONTACTS:
+                        fab1.show();
+                        fab1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "111111", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+                    case CALLERS:
+                        fab1.show();
+                        fab1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "222222", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+                    case ADMINS:
+                        fab1.show();
+                        fab1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "333333", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+                    case MY_TASKS:
+                        fab1.hide();
+                        break;
+                    case ASSIGNED_TASKS:
+                        fab1.show();
+                        fab1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "444444", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+                    case CALL_HISTORY:
+                        fab1.hide();
+                        break;
+                    case SMS_HISTORY:
+                        fab1.hide();
+                        break;
+                }
+            }
+        });
     }
 
     private void initTabLayout() {
@@ -135,10 +204,10 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFrag(new ContactFragment(), "CONTACTS");
         adapter.addFrag(new CallerFragment(), "CALLERS");
         adapter.addFrag(new AdminFragment(), "ADMINS");
+        adapter.addFrag(new AdminFragment(), "MY TASKS"); // For caller
+        adapter.addFrag(new AdminFragment(), "ASSIGNED TASKS");
         adapter.addFrag(new AdminFragment(), "CALL HISTORY");
         adapter.addFrag(new AdminFragment(), "SMS HISTORY");
-        adapter.addFrag(new AdminFragment(), "ASSIGNED TASKS");
-        adapter.addFrag(new AdminFragment(), "MY TASKS"); // For caller
         viewPager.setAdapter(adapter);
     }
 
