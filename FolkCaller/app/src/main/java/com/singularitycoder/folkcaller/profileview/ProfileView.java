@@ -43,6 +43,7 @@ public class ProfileView extends AppCompatActivity {
     ConstraintLayout profileActionsContainer;
     ConstraintLayout selectProgramContainer;
     ConstraintLayout reachOverviewContainer;
+    ConstraintLayout programReachOverviewContainer;
     ConstraintLayout callerStatsContainer;
     ConstraintLayout doNotDisturbContainer;
     ConstraintLayout programDetailsContainer;
@@ -78,6 +79,7 @@ public class ProfileView extends AppCompatActivity {
         profileConditions();
         setUpAdminActionsList();
         setUpReachOverviewList();
+        setUpProgramReachOverviewList();
         setUpCallerStatsList();
     }
 
@@ -93,6 +95,7 @@ public class ProfileView extends AppCompatActivity {
         profileActionsContainer = findViewById(R.id.con_lay_profile_action_icons);
         selectProgramContainer = findViewById(R.id.con_lay_select_program);
         reachOverviewContainer = findViewById(R.id.con_lay_contact_overview);
+        programReachOverviewContainer = findViewById(R.id.con_lay_contact_program_overview);
         callerStatsContainer = findViewById(R.id.con_lay_caller_stats);
         doNotDisturbContainer = findViewById(R.id.con_lay_do_not_disturb);
         programDetailsContainer = findViewById(R.id.con_lay_contact_program_details);
@@ -317,13 +320,14 @@ public class ProfileView extends AppCompatActivity {
 
     private void setUpReachOverviewList() {
         ArrayList<StatsOrActionsModel> reachList = new ArrayList<>();
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_activity_black_24dp, "Activities", "54", "Reach"));
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_comment_black_24dp, "Comments", "14", "Reach"));
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_call_black_24dp, "Calls", "34", "Reach"));
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "SMS", "27", "Reach"));
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_whatsapp_logo_overview, "WhatsApp Messages", "44", "Reach"));
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_email_black_24dp, "Emails", "4", "Reach"));
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_share_black_24dp, "Shares", "3", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_activity_black_24dp, "Activities", "1270", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_comment_black_24dp, "Comments", "144", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_call_black_24dp, "Calls", "344", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "SMS", "227", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_whatsapp_logo_overview, "WhatsApp Messages", "144", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_email_black_24dp, "Emails", "400", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_share_black_24dp, "Shares", "93", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_conversion_level_black_24dp, "Conversion Level", "Folk Member", "TotalReach"));
 
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
@@ -343,6 +347,36 @@ public class ProfileView extends AppCompatActivity {
         reachAdapter.setHasStableIds(true);
 
         reachOverviewRecycler.setAdapter(reachAdapter);
+    }
+
+    private void setUpProgramReachOverviewList() {
+        ArrayList<StatsOrActionsModel> reachList = new ArrayList<>();
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_activity_black_24dp, "Activities", "54", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_comment_black_24dp, "Comments", "14", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_call_black_24dp, "Calls", "34", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "SMS", "27", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_whatsapp_logo_overview, "WhatsApp Messages", "44", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_email_black_24dp, "Emails", "4", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_share_black_24dp, "Shares", "3", "Reach"));
+
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+
+        RecyclerView reachOverviewRecycler = findViewById(R.id.recycler_reach_program_overview);
+        reachOverviewRecycler.setLayoutManager(commentLayoutManager);
+        reachOverviewRecycler.setHasFixedSize(true);
+        reachOverviewRecycler.setItemViewCacheSize(20);
+        reachOverviewRecycler.setDrawingCacheEnabled(true);
+        reachOverviewRecycler.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+        ProgramReachAdapter programReachAdapter = new ProgramReachAdapter(reachList, this, "");
+        programReachAdapter.setHasStableIds(true);
+
+        reachOverviewRecycler.setAdapter(programReachAdapter);
     }
 
     private void setUpCallerStatsList() {
@@ -411,6 +445,7 @@ public class ProfileView extends AppCompatActivity {
                 personInfoContainer.setVisibility(View.GONE);
                 selectProgramContainer.setVisibility(View.VISIBLE);
                 reachOverviewContainer.setVisibility(View.VISIBLE);
+                programReachOverviewContainer.setVisibility(View.VISIBLE);
                 doNotDisturbContainer.setVisibility(View.VISIBLE);
                 programDetailsContainer.setVisibility(View.VISIBLE);
                 finishContactContainer.setVisibility(View.VISIBLE);

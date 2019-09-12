@@ -4,15 +4,15 @@
     android:id="@+id/fragment_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:nestedScrollingEnabled="true"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:nestedScrollingEnabled="true">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:nestedScrollingEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -48,10 +48,10 @@
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/bg_button_action"
                 android:text="Use Finger Print to Login"
-                android:textColor="@color/colorAccent"
                 android:textAllCaps="false"
-                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_finger_print" />
@@ -74,6 +74,42 @@
                 app:layout_constraintTop_toBottomOf="@+id/et_login_finger_print" />
 
             <TextView
+                android:id="@+id/tv_login_member_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Member Type"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
+                app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_placeholder_1" />
+
+            <TextView
+                android:id="@+id/et_login_member_type"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:drawableTint="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:hint="Select Member Type"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_member_type" />
+
+            <TextView
                 android:id="@+id/tv_login_folkid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -87,9 +123,10 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
                 app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
-                app:layout_constraintTop_toBottomOf="@+id/tv_login_placeholder_1" />
+                app:layout_constraintTop_toBottomOf="@+id/et_login_member_type" />
 
             <EditText
                 android:id="@+id/et_login_folkid"
@@ -103,9 +140,49 @@
                 android:hint="Enter Folk ID"
                 android:inputType="textEmailAddress"
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_folkid" />
+
+
+            <TextView
+                android:id="@+id/tv_login_admin_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Admin Number"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/et_login_member_type"
+                app:layout_constraintStart_toStartOf="@+id/et_login_member_type"
+                app:layout_constraintTop_toBottomOf="@+id/et_login_folkid" />
+
+            <EditText
+                android:id="@+id/et_login_admin_number"
+                style="@style/StyleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="15dp"
+                android:drawablePadding="10dp"
+                android:hint="Enter Admin Number"
+                android:inputType="textCapCharacters"
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_admin_number" />
 
             <TextView
                 android:id="@+id/tv_login_password"
@@ -121,9 +198,9 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
-                app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
-                app:layout_constraintTop_toBottomOf="@+id/et_login_folkid" />
+                app:layout_constraintEnd_toEndOf="@+id/et_login_member_type"
+                app:layout_constraintStart_toStartOf="@+id/et_login_member_type"
+                app:layout_constraintTop_toBottomOf="@+id/et_login_admin_number" />
 
             <EditText
                 android:id="@+id/et_login_password"
@@ -141,26 +218,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_login_password" />
 
-            <Button
-                android:id="@+id/btn_create_event_invite_people"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="LOGIN"
-                android:background="@drawable/bg_button"
-                android:textColor="@color/colorLightBlue"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
-                app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
-                app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
-
             <TextView
                 android:id="@+id/tv_login_forgot_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="end"
                 android:paddingStart="10dp"
                 android:paddingLeft="10dp"
                 android:paddingEnd="10dp"
@@ -168,15 +231,30 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
-                app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
-                app:layout_constraintTop_toBottomOf="@+id/btn_create_event_invite_people" />
+                app:layout_constraintEnd_toEndOf="@+id/et_login_member_type"
+                app:layout_constraintStart_toStartOf="@+id/et_login_member_type"
+                app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
+
+
+            <Button
+                android:id="@+id/btn_create_event_invite_people"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_button"
+                android:text="LOGIN"
+                android:textColor="@color/colorLightBlue"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_login_member_type"
+                app:layout_constraintStart_toStartOf="@+id/et_login_member_type"
+                app:layout_constraintTop_toBottomOf="@+id/tv_login_forgot_password" />
 
             <TextView
                 android:id="@+id/tv_login_create_account"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="40dp"
                 android:gravity="center_horizontal"
                 android:paddingStart="10dp"
@@ -189,7 +267,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_folkid"
                 app:layout_constraintStart_toStartOf="@+id/et_login_folkid"
-                app:layout_constraintTop_toBottomOf="@+id/tv_login_forgot_password" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_create_event_invite_people" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

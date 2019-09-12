@@ -268,7 +268,12 @@ public class MainActivity extends AppCompatActivity {
         int color;
         Button btnUseFingerPrint;
         TextView tvUsePasswordToLogin;
+        TextView tvLoginMemberType;
         TextView tvNotAMember;
+        TextView tvFolkIdLogin;
+        EditText etFolkIdLogin;
+        TextView tvAdminNumber;
+        EditText etAdminNumber;
 
         public LoginFragment() {
         }
@@ -290,6 +295,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            tvLoginMemberType = view.findViewById(R.id.et_login_member_type);
+            tvLoginMemberType.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialogSignUpMemberType();
+                }
+            });
+
+            tvFolkIdLogin = view.findViewById(R.id.tv_login_folkid);
+            etFolkIdLogin = view.findViewById(R.id.et_login_folkid);
+            tvAdminNumber = view.findViewById(R.id.tv_login_admin_number);
+            etAdminNumber = view.findViewById(R.id.et_login_admin_number);
+
+
             btnUseFingerPrint = view.findViewById(R.id.et_login_finger_print);
             btnUseFingerPrint.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -306,6 +325,39 @@ public class MainActivity extends AppCompatActivity {
             });
 
             return view;
+        }
+
+        public void dialogSignUpMemberType() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("I am a");
+            String[] selectArray = {"Folk Member", "Admin"};
+            builder.setItems(selectArray, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which) {
+                        case 0:
+                            tvLoginMemberType.setText("Folk Member");
+
+                            tvFolkIdLogin.setVisibility(View.VISIBLE);
+                            etFolkIdLogin.setVisibility(View.VISIBLE);
+
+                            tvAdminNumber.setVisibility(View.GONE);
+                            etAdminNumber.setVisibility(View.GONE);
+                            break;
+                        case 1:
+                            tvLoginMemberType.setText("Admin");
+
+                            tvAdminNumber.setVisibility(View.VISIBLE);
+                            etAdminNumber.setVisibility(View.VISIBLE);
+
+                            tvFolkIdLogin.setVisibility(View.GONE);
+                            etFolkIdLogin.setVisibility(View.GONE);
+                            break;
+                    }
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
 
         public void fingerPrintDialogFunc(Activity activity) {
