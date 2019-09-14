@@ -1157,6 +1157,111 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_name" />
 
                 <TextView
+                    android:id="@+id/tv_profile_contact_phone_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Primary Phone Number"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_name_text" />
+
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_phone_1_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="+91 98482 27291"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_contact_phone_1"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_phone_1"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_phone_1" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_phone_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Secondary Phone Number"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_phone_1_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_phone_2_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="+91 98482 27799"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_contact_phone_2"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_phone_2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_phone_2" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_hometown_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Home Town Address"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_phone_2_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_hometown_address_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Area: Kormangala \nCity: Bangalore \nState: Karnataka \nCountry: India"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_contact_hometown_address"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_hometown_address"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_hometown_address" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_current_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Current Address"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_hometown_address_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_current_address_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Area: Whitefield \nCity: Bangalore \nState: Karnataka \nCountry: India"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_contact_current_address"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_current_address"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_current_address" />
+
+                <TextView
                     android:id="@+id/tv_profile_contact_college"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1168,7 +1273,7 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_name_text" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_current_address_text" />
 
 
                 <TextView
