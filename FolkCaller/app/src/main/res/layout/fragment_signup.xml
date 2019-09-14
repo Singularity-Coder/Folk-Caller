@@ -140,7 +140,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:drawablePadding="10dp"
-                android:hint="Enter FOLK ID"
+                android:hint="Type FOLK ID"
                 android:inputType="textCapCharacters"
                 android:textAllCaps="true"
                 android:textColor="@color/colorBlack"
@@ -178,7 +178,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:drawablePadding="10dp"
-                android:hint="Enter Admin Number"
+                android:hint="Type Admin Number"
                 android:inputType="textCapCharacters"
                 android:textAllCaps="true"
                 android:textColor="@color/colorBlack"
@@ -187,6 +187,75 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_signup_admin_number" />
+
+            <TextView
+                android:id="@+id/tv_signup_first_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="First Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/et_signup_first_name"
+                app:layout_constraintStart_toStartOf="@+id/et_login_email"
+                app:layout_constraintTop_toBottomOf="@+id/et_signup_admin_number" />
+
+            <EditText
+                android:id="@+id/et_signup_first_name"
+                style="@style/StyleEditText"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="7dp"
+                android:drawablePadding="10dp"
+                android:hint="Type First Name"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/et_signup_last_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_signup_first_name" />
+
+            <TextView
+                android:id="@+id/tv_signup_last_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:text="Last Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/et_signup_last_name"
+                app:layout_constraintEnd_toEndOf="@+id/et_login_email"
+                app:layout_constraintTop_toBottomOf="@+id/et_signup_admin_number" />
+
+            <EditText
+                android:id="@+id/et_signup_last_name"
+                style="@style/StyleEditText"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="10dp"
+                android:hint="Type Last Name"
+                app:layout_constraintStart_toEndOf="@+id/et_signup_first_name"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_login_email"
+                app:layout_constraintTop_toBottomOf="@+id/tv_signup_first_name" />
 
             <TextView
                 android:id="@+id/tv_login_email"
@@ -204,7 +273,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/et_login_email"
                 app:layout_constraintStart_toStartOf="@+id/et_login_email"
-                app:layout_constraintTop_toBottomOf="@+id/et_signup_admin_number" />
+                app:layout_constraintTop_toBottomOf="@+id/et_signup_first_name" />
 
             <EditText
                 android:id="@+id/et_login_email"
@@ -215,7 +284,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:drawablePadding="10dp"
-                android:hint="Enter Email"
+                android:hint="Type Email"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
@@ -250,7 +319,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:drawablePadding="10dp"
-                android:hint="Enter Phone Number"
+                android:hint="Type Phone Number"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"
@@ -321,7 +390,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:drawablePadding="10dp"
-                android:hint="Enter Password"
+                android:hint="Type Password"
                 android:inputType="textPassword"
                 android:textColor="@color/colorBlack"
                 android:textSize="16sp"

@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -370,6 +371,8 @@ public class MainActivity extends AppCompatActivity {
             Window window = activity.getWindow();
             window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
             fingerPrintDialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), fingerPrintDialog.getWindow().getAttributes().height);
+
+            fingerPrintDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
             tvUsePasswordToLogin = fingerPrintDialog.findViewById(R.id.tv_use_password_login);
             tvUsePasswordToLogin.setOnClickListener(new View.OnClickListener() {

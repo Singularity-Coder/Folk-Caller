@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@drawable/round_dialog_bg"
     android:clipToPadding="false"
     android:fillViewport="true"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
     android:nestedScrollingEnabled="true">
 
     <ImageView

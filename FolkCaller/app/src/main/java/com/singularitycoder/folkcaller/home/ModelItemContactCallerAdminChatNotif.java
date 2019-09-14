@@ -37,6 +37,14 @@ public class ModelItemContactCallerAdminChatNotif {
         this.strChatCount = strChatCount;
     }
 
+    // Notifications
+    public ModelItemContactCallerAdminChatNotif(String strName, int imgProfileImage, String strSubTitle2, String strDate) {
+        this.strName = strName;
+        this.imgProfileImage = imgProfileImage;
+        this.strSubTitle2 = strSubTitle2;
+        this.strDate = strDate;
+    }
+
     public int getImgProfileImage() {
         return imgProfileImage;
     }

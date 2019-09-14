@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:clipToPadding="false"
-    android:background="@color/colorWhite"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    android:background="@drawable/round_dialog_bg"
     android:nestedScrollingEnabled="true">
 
     <ScrollView

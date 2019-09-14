@@ -8,7 +8,9 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,6 +45,7 @@ import com.singularitycoder.folkcaller.DashAdapter;
 import com.singularitycoder.folkcaller.Helper;
 import com.singularitycoder.folkcaller.R;
 import com.singularitycoder.folkcaller.profileview.ProfileView;
+import com.singularitycoder.folkcaller.profileview.ReachAdapter;
 import com.singularitycoder.folkcaller.rankings.RankingsActivity;
 
 import java.util.ArrayList;
@@ -294,6 +297,8 @@ public class HomeActivity extends AppCompatActivity {
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         TextView tvContactUs = dialog.findViewById(R.id.tv_contact_us);
         tvContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -358,6 +363,8 @@ public class HomeActivity extends AppCompatActivity {
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         dialog.show();
     }
 
@@ -372,6 +379,8 @@ public class HomeActivity extends AppCompatActivity {
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         dialog.show();
     }
 
@@ -385,6 +394,8 @@ public class HomeActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         dialog.show();
     }
@@ -410,6 +421,8 @@ public class HomeActivity extends AppCompatActivity {
         Window window = ((Activity) context).getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         ImageView imgProfilePic = dialog.findViewById(R.id.img_profile_image);
         imgProfilePic.setOnClickListener(new View.OnClickListener() {
@@ -507,6 +520,50 @@ public class HomeActivity extends AppCompatActivity {
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        ImageView imgCloseBtn = dialog.findViewById(R.id.img_dialog_close);
+        imgCloseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        ArrayList<ModelItemContactCallerAdminChatNotif> notificationList = new ArrayList<>();
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+
+        LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+
+        RecyclerView notificationsRecycler = dialog.findViewById(R.id.dialog_notif_recycler);
+        notificationsRecycler.setLayoutManager(commentLayoutManager);
+        notificationsRecycler.setHasFixedSize(true);
+        notificationsRecycler.setItemViewCacheSize(20);
+        notificationsRecycler.setDrawingCacheEnabled(true);
+        notificationsRecycler.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+        NotificationAdapter notificationAdapter = new NotificationAdapter(notificationList, this);
+        notificationAdapter.setHasStableIds(true);
+
+        notificationsRecycler.setAdapter(notificationAdapter);
+
 
         dialog.show();
     }
@@ -551,6 +608,10 @@ public class HomeActivity extends AppCompatActivity {
             this.strDashCount = strDashCount;
         }
     }
+
+
+
+
 
     public static class DashboardFragment extends Fragment {
         ArrayList<DashModel> dashList;
