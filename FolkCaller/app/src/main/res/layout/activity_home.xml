@@ -25,6 +25,8 @@
             android:id="@+id/tabs_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabIndicator="@drawable/bg_tab_indicator"
+            app:tabIndicatorHeight="4dp"
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>

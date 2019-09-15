@@ -427,10 +427,10 @@
                 <Button
                     android:id="@+id/btn_apply_filters"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="70dp"
-                    android:backgroundTint="@color/colorAccent"
+                    android:background="@drawable/bg_button"
                     android:text="APPLY"
                     android:textColor="@color/colorLightBlue"
                     android:textStyle="bold" />

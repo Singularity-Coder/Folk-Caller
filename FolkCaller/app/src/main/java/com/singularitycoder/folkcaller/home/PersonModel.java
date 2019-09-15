@@ -1,6 +1,6 @@
 package com.singularitycoder.folkcaller.home;
 
-public class ModelItemContactCallerAdminChatNotif {
+public class PersonModel {
 
     int imgProfileImage;
     int imgGroupProfileImage;
@@ -11,7 +11,7 @@ public class ModelItemContactCallerAdminChatNotif {
     String strChatCount;
 
     // Contact, Caller, Admin
-    public ModelItemContactCallerAdminChatNotif(int imgProfileImage, String strName, String strSubTitle1, String strSubTitle2) {
+    public PersonModel(int imgProfileImage, String strName, String strSubTitle1, String strSubTitle2) {
         this.imgProfileImage = imgProfileImage;
         this.strName = strName;
         this.strSubTitle1 = strSubTitle1;
@@ -19,7 +19,7 @@ public class ModelItemContactCallerAdminChatNotif {
     }
 
     // Group Chat
-    public ModelItemContactCallerAdminChatNotif(int imgGroupProfileImage, String strName, String strSubTitle1, String strSubTitle2, String strDate, String strChatCount) {
+    public PersonModel(int imgGroupProfileImage, String strName, String strSubTitle1, String strSubTitle2, String strDate, String strChatCount) {
         this.imgGroupProfileImage = imgGroupProfileImage;
         this.strName = strName;
         this.strSubTitle1 = strSubTitle1;
@@ -29,7 +29,7 @@ public class ModelItemContactCallerAdminChatNotif {
     }
 
     // Chat
-    public ModelItemContactCallerAdminChatNotif(int imgProfileImage, String strName, String strSubTitle1, String strDate, String strChatCount) {
+    public PersonModel(int imgProfileImage, String strName, String strSubTitle1, String strDate, String strChatCount) {
         this.imgProfileImage = imgProfileImage;
         this.strName = strName;
         this.strSubTitle1 = strSubTitle1;
@@ -38,11 +38,20 @@ public class ModelItemContactCallerAdminChatNotif {
     }
 
     // Notifications
-    public ModelItemContactCallerAdminChatNotif(String strName, int imgProfileImage, String strSubTitle2, String strDate) {
+    public PersonModel(String strName, int imgProfileImage, String strSubTitle2, String strDate) {
         this.strName = strName;
         this.imgProfileImage = imgProfileImage;
         this.strSubTitle2 = strSubTitle2;
         this.strDate = strDate;
+    }
+
+    // Notifications
+    public PersonModel(String strName, int imgProfileImage, String strSubTitle2, String strDate, String strChatCount) {
+        this.strName = strName;
+        this.imgProfileImage = imgProfileImage;
+        this.strSubTitle2 = strSubTitle2;
+        this.strDate = strDate;
+        this.strChatCount = strChatCount;
     }
 
     public int getImgProfileImage() {

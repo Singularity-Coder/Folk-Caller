@@ -45,7 +45,6 @@ import com.singularitycoder.folkcaller.DashAdapter;
 import com.singularitycoder.folkcaller.Helper;
 import com.singularitycoder.folkcaller.R;
 import com.singularitycoder.folkcaller.profileview.ProfileView;
-import com.singularitycoder.folkcaller.profileview.ReachAdapter;
 import com.singularitycoder.folkcaller.rankings.RankingsActivity;
 
 import java.util.ArrayList;
@@ -59,9 +58,9 @@ public class HomeActivity extends AppCompatActivity {
     Context mContext;
     FloatingActionButton fab1;
 
-    static ArrayList<ModelItemContactCallerAdminChatNotif> adminList;
-    static ArrayList<ModelItemContactCallerAdminChatNotif> contactList;
-    static ArrayList<ModelItemContactCallerAdminChatNotif> callerList;
+    static ArrayList<PersonModel> adminList;
+    static ArrayList<PersonModel> contactList;
+    static ArrayList<PersonModel> callerList;
     static AdapterContactCallerAdminChatNotif sAdapterContactCallerAdminChatNotif;
 
 
@@ -125,29 +124,29 @@ public class HomeActivity extends AppCompatActivity {
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(getApplicationContext(), "111111", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Upload or Download Contacts", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
                     case CALLERS:
                         fab1.hide();
                         fab1.show();
-                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_person_add_black_24dp));
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(getApplicationContext(), "222222", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Add Caller", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
                     case ADMINS:
                         fab1.hide();
                         fab1.show();
-                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_person_add_black_24dp));
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(getApplicationContext(), "333333", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Add Admin", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
@@ -161,15 +160,31 @@ public class HomeActivity extends AppCompatActivity {
                         fab1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(getApplicationContext(), "444444", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Assing a Task", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
                     case CALL_HISTORY:
                         fab1.hide();
+                        fab1.show();
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_dialpad_black_24dp));
+                        fab1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "Dial a Number", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         break;
                     case SMS_HISTORY:
                         fab1.hide();
+                        fab1.show();
+                        fab1.setImageDrawable(getResources().getDrawable(R.drawable.ic_sms_black_24dp));
+                        fab1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplicationContext(), "Send SMS", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         break;
                 }
             }
@@ -218,7 +233,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFrag(new AdminFragment(), "MY TASKS"); // For caller
         adapter.addFrag(new AdminFragment(), "ASSIGNED TASKS");
         adapter.addFrag(new AdminFragment(), "CALL HISTORY");
-        adapter.addFrag(new AdminFragment(), "SMS HISTORY");
+        adapter.addFrag(new SmsFragment(), "SMS HISTORY");
         viewPager.setAdapter(adapter);
     }
 
@@ -530,25 +545,25 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ArrayList<ModelItemContactCallerAdminChatNotif> notificationList = new ArrayList<>();
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
-        notificationList.add(new ModelItemContactCallerAdminChatNotif("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        ArrayList<PersonModel> notificationList = new ArrayList<>();
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
+        notificationList.add(new PersonModel("Michael Marvin", R.drawable.face3, "Call 300 contacts by today! Take extra care of contact 4 and 5! Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/20"));
 
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
 
@@ -754,9 +769,9 @@ public class HomeActivity extends AppCompatActivity {
             recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
             adminList = new ArrayList<>();
-            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face2, "Gauranga Das", "Position: Folk Guide", "Availability: 9 AM to 3 PM"));
-            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face2, "Gauranga Das", "Position: Folk Guide", "Availability: 9 AM to 3 PM"));
-            adminList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face2, "Gauranga Das", "Position: Folk Guide", "Availability: 9 AM to 3 PM"));
+            adminList.add(new PersonModel(R.drawable.face2, "Gauranga Das", "Position: Folk Guide", "Availability: 9 AM to 3 PM"));
+            adminList.add(new PersonModel(R.drawable.face2, "Gauranga Das", "Position: Folk Guide", "Availability: 9 AM to 3 PM"));
+            adminList.add(new PersonModel(R.drawable.face2, "Gauranga Das", "Position: Folk Guide", "Availability: 9 AM to 3 PM"));
 
 
             sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), adminList);
@@ -817,27 +832,27 @@ public class HomeActivity extends AppCompatActivity {
             recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
             contactList = new ArrayList<>();
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
-            contactList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
+            contactList.add(new PersonModel(R.drawable.face1, "Catherine Millers", "Program: Yoga for Happiness", "Registered Date: July 15, 4019 - 10:15 AM"));
 
             sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), contactList);
             sAdapterContactCallerAdminChatNotif.setHasStableIds(true);
@@ -923,26 +938,26 @@ public class HomeActivity extends AppCompatActivity {
             recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
             callerList = new ArrayList<>();
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
-            callerList.add(new ModelItemContactCallerAdminChatNotif(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
 
             sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), callerList);
             sAdapterContactCallerAdminChatNotif.setHasStableIds(true);
@@ -957,6 +972,300 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
             recyclerView.setAdapter(sAdapterContactCallerAdminChatNotif);
+
+            return view;
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_callers, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+    }
+
+    public static class MyTasksFragment extends Fragment {
+        int color;
+
+        public MyTasksFragment() {
+        }
+
+        @SuppressLint("ValidFragment")
+        public MyTasksFragment(int color) {
+            this.color = color;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
+
+            final FrameLayout frameLayout = view.findViewById(R.id.frame_lay_person);
+            frameLayout.setBackgroundColor(color);
+
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setItemViewCacheSize(20);
+            recyclerView.setDrawingCacheEnabled(true);
+            recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+            callerList = new ArrayList<>();
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+
+            sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), callerList);
+            sAdapterContactCallerAdminChatNotif.setHasStableIds(true);
+            sAdapterContactCallerAdminChatNotif.setOnItemClickListener(new AdapterContactCallerAdminChatNotif.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Toast.makeText(getContext(), position + " got clicked", Toast.LENGTH_LONG).show();
+                    // Start activity
+                    Intent callerIntent = new Intent(getContext(), ProfileView.class);
+                    callerIntent.putExtra("openCaller", "CALLER");
+                    startActivity(callerIntent);
+                }
+            });
+            recyclerView.setAdapter(sAdapterContactCallerAdminChatNotif);
+
+            return view;
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_callers, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+    }
+
+    public static class AssignedTasksFragment extends Fragment {
+        int color;
+
+        public AssignedTasksFragment() {
+        }
+
+        @SuppressLint("ValidFragment")
+        public AssignedTasksFragment(int color) {
+            this.color = color;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
+
+            final FrameLayout frameLayout = view.findViewById(R.id.frame_lay_person);
+            frameLayout.setBackgroundColor(color);
+
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setItemViewCacheSize(20);
+            recyclerView.setDrawingCacheEnabled(true);
+            recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+            callerList = new ArrayList<>();
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+
+            sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), callerList);
+            sAdapterContactCallerAdminChatNotif.setHasStableIds(true);
+            sAdapterContactCallerAdminChatNotif.setOnItemClickListener(new AdapterContactCallerAdminChatNotif.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Toast.makeText(getContext(), position + " got clicked", Toast.LENGTH_LONG).show();
+                    // Start activity
+                    Intent callerIntent = new Intent(getContext(), ProfileView.class);
+                    callerIntent.putExtra("openCaller", "CALLER");
+                    startActivity(callerIntent);
+                }
+            });
+            recyclerView.setAdapter(sAdapterContactCallerAdminChatNotif);
+
+            return view;
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_callers, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+    }
+
+    public static class CallHistoryFragment extends Fragment {
+        int color;
+
+        public CallHistoryFragment() {
+        }
+
+        @SuppressLint("ValidFragment")
+        public CallHistoryFragment(int color) {
+            this.color = color;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
+
+            final FrameLayout frameLayout = view.findViewById(R.id.frame_lay_person);
+            frameLayout.setBackgroundColor(color);
+
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setItemViewCacheSize(20);
+            recyclerView.setDrawingCacheEnabled(true);
+            recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+            callerList = new ArrayList<>();
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+            callerList.add(new PersonModel(R.drawable.face3, "Miki Mathews", "Position: Folk Member", "Availability: 9 AM to 3 PM"));
+
+            sAdapterContactCallerAdminChatNotif = new AdapterContactCallerAdminChatNotif(getContext(), callerList);
+            sAdapterContactCallerAdminChatNotif.setHasStableIds(true);
+            sAdapterContactCallerAdminChatNotif.setOnItemClickListener(new AdapterContactCallerAdminChatNotif.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Toast.makeText(getContext(), position + " got clicked", Toast.LENGTH_LONG).show();
+                    // Start activity
+                    Intent callerIntent = new Intent(getContext(), ProfileView.class);
+                    callerIntent.putExtra("openCaller", "CALLER");
+                    startActivity(callerIntent);
+                }
+            });
+            recyclerView.setAdapter(sAdapterContactCallerAdminChatNotif);
+
+            return view;
+        }
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_callers, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+    }
+
+    public static class SmsFragment extends Fragment {
+        ArrayList<PersonModel> smsList;
+        SmsAdapter smsAdapter;
+
+        public SmsFragment() {
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_person, container, false);
+
+            RecyclerView recyclerView = view.findViewById(R.id.recycler_person);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setItemViewCacheSize(20);
+            recyclerView.setDrawingCacheEnabled(true);
+            recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+            smsList = new ArrayList<>();
+            smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
+            smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
+            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
+            smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
+            smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
+            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
+            smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
+            smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
+            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
+            smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
+            smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
+            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
+
+
+
+            smsAdapter = new SmsAdapter(smsList, getContext());
+            smsAdapter.setHasStableIds(true);
+
+            recyclerView.setAdapter(smsAdapter);
 
             return view;
         }

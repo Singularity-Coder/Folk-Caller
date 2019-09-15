@@ -17,13 +17,13 @@ import java.util.ArrayList;
 public class AdapterContactCallerAdminChatNotif extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
-    private ArrayList<ModelItemContactCallerAdminChatNotif> mAdminList;
+    private ArrayList<PersonModel> mAdminList;
     private OnItemClickListener clickListener;
 
     public AdapterContactCallerAdminChatNotif() {
     }
 
-    public AdapterContactCallerAdminChatNotif(Context context, ArrayList<ModelItemContactCallerAdminChatNotif> adminList) {
+    public AdapterContactCallerAdminChatNotif(Context context, ArrayList<PersonModel> adminList) {
         mContext = context;
         mAdminList = adminList;
     }
@@ -31,15 +31,15 @@ public class AdapterContactCallerAdminChatNotif extends RecyclerView.Adapter<Rec
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contact_caller_admin_chat_notif, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
         return new AdminViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ModelItemContactCallerAdminChatNotif modelItemContactCallerAdminChatNotif = mAdminList.get(position);
+        PersonModel personModel = mAdminList.get(position);
 
-        ((AdminViewHolder) holder).imgProfileImage.setImageResource(modelItemContactCallerAdminChatNotif.getImgProfileImage());
+        ((AdminViewHolder) holder).imgProfileImage.setImageResource(personModel.getImgProfileImage());
         ((AdminViewHolder) holder).imgProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,11 +48,11 @@ public class AdapterContactCallerAdminChatNotif extends RecyclerView.Adapter<Rec
             }
         });
 
-        ((AdminViewHolder) holder).tvName.setText(modelItemContactCallerAdminChatNotif.getStrName());
-        ((AdminViewHolder) holder).tvSubTitle1.setText(modelItemContactCallerAdminChatNotif.getStrSubTitle1());
-        ((AdminViewHolder) holder).tvSubTitle2.setText(modelItemContactCallerAdminChatNotif.getStrSubTitle2());
-        ((AdminViewHolder) holder).tvDate.setText(modelItemContactCallerAdminChatNotif.getStrDate());
-        ((AdminViewHolder) holder).tvChatCount.setText(modelItemContactCallerAdminChatNotif.getStrChatCount());
+        ((AdminViewHolder) holder).tvName.setText(personModel.getStrName());
+        ((AdminViewHolder) holder).tvSubTitle1.setText(personModel.getStrSubTitle1());
+        ((AdminViewHolder) holder).tvSubTitle2.setText(personModel.getStrSubTitle2());
+        ((AdminViewHolder) holder).tvDate.setText(personModel.getStrDate());
+        ((AdminViewHolder) holder).tvChatCount.setText(personModel.getStrChatCount());
     }
 
 

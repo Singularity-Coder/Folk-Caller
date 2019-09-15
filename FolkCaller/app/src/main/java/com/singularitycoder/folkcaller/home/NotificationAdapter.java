@@ -18,10 +18,10 @@ import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    ArrayList<ModelItemContactCallerAdminChatNotif> notifList;
+    ArrayList<PersonModel> notifList;
     Context context;
 
-    public NotificationAdapter(ArrayList<ModelItemContactCallerAdminChatNotif> notifList, Context context) {
+    public NotificationAdapter(ArrayList<PersonModel> notifList, Context context) {
         this.notifList = notifList;
         this.context = context;
     }
@@ -29,31 +29,31 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contact_caller_admin_chat_notif, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_person, parent, false);
         return new NotificationViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
-        ModelItemContactCallerAdminChatNotif modelItemContactCallerAdminChatNotif = notifList.get(position);
+        PersonModel personModel = notifList.get(position);
 
-        ((NotificationViewHolder) holder).imgProfileImage.setImageResource(modelItemContactCallerAdminChatNotif.getImgProfileImage());
+        ((NotificationViewHolder) holder).imgProfileImage.setImageResource(personModel.getImgProfileImage());
         ((NotificationViewHolder) holder).imgProfileImage.requestLayout();
         ((NotificationViewHolder) holder).imgProfileImage.getLayoutParams().width = 100;
         ((NotificationViewHolder) holder).imgProfileImage.getLayoutParams().height = 100;
 
-        ((NotificationViewHolder) holder).tvName.setText(modelItemContactCallerAdminChatNotif.getStrName());
+        ((NotificationViewHolder) holder).tvName.setText(personModel.getStrName());
         ((NotificationViewHolder) holder).tvName.setTextSize(16);
 
         ((NotificationViewHolder) holder).tvSubTitle1.setVisibility(View.GONE);
-        ((NotificationViewHolder) holder).tvSubTitle1.setText(modelItemContactCallerAdminChatNotif.getStrSubTitle1());
+        ((NotificationViewHolder) holder).tvSubTitle1.setText(personModel.getStrSubTitle1());
 
         ((NotificationViewHolder) holder).tvSubTitle2.setVisibility(View.VISIBLE);
-        ((NotificationViewHolder) holder).tvSubTitle2.setText(modelItemContactCallerAdminChatNotif.getStrSubTitle2());
+        ((NotificationViewHolder) holder).tvSubTitle2.setText(personModel.getStrSubTitle2());
         ((NotificationViewHolder) holder).tvSubTitle2.setMaxLines(10);
 
         ((NotificationViewHolder) holder).tvDate.setVisibility(View.VISIBLE);
-        ((NotificationViewHolder) holder).tvDate.setText(modelItemContactCallerAdminChatNotif.getStrDate());
+        ((NotificationViewHolder) holder).tvDate.setText(personModel.getStrDate());
 //        ((NotificationViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorPrimaryDark));
 
         ((NotificationViewHolder) holder).arrow.setVisibility(View.GONE);
