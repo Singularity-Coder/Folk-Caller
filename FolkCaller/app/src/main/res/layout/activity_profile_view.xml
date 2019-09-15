@@ -1282,8 +1282,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:hint="Area: Kormangala \nCity: Bangalore \nState: Karnataka \nCountry: India"
-                    android:textColor="@color/colorBlack"
+                    android:text="Area: Kormangala \nCity: Bangalore \nState: Karnataka \nCountry: India \nPlanet: Earth \nSolar System: Bhuu System \nGalexy: Milky Way \nRealm: Jambudviipa \nUniverse: Vaivasvata Manu \nYuga: Kali"
+                    android:textColor="@color/colorSubtitle"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@+id/tv_profile_contact_hometown_address"
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_hometown_address"
@@ -1308,8 +1308,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:hint="Area: Whitefield \nCity: Bangalore \nState: Karnataka \nCountry: India"
-                    android:textColor="@color/colorBlack"
+                    android:text="Area: Whitefield \nCity: Bangalore \nState: Karnataka \nCountry: India \nPlanet: Earth \nSolar System: Bhuu System \nGalexy: Milky Way \nRealm: Jambudviipa \nUniverse: Vaivasvata Manu \nYuga: Kali"
+                    android:textColor="@color/colorSubtitle"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@+id/tv_profile_contact_current_address"
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_current_address"
@@ -1505,13 +1505,317 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/con_lay_do_not_disturb"
+                android:id="@+id/con_lay_persona_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_details">
+
+                <View
+                    android:id="@+id/divider_persona_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_profile_persona_type_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_person_black_24dp"
+                    android:tint="@color/colorBlack"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile_persona_type"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_persona_type"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_profile_persona_type" />
+
+                <TextView
+                    android:id="@+id/tv_profile_persona_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Persona Type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_persona_type_edit"
+                    app:layout_constraintStart_toEndOf="@+id/img_profile_persona_type_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_persona_type" />
+
+                <TextView
+                    android:id="@+id/tv_profile_persona_type_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="EDIT"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_profile_social_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Social Status"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_persona_type" />
+
+                <TextView
+                    android:id="@+id/tv_profile_social_status_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Senior"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_social_status"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_social_status"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_social_status" />
+
+                <TextView
+                    android:id="@+id/tv_profile_financial_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Financial Status"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_social_status_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_financial_status_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Rich (> 10 Lakh)"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_financial_status"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_financial_status"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_financial_status" />
+
+                <TextView
+                    android:id="@+id/tv_profile_behaviour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Behaviour"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_financial_status_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_behaviour_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Arrogant"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_behaviour"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_behaviour"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_behaviour" />
+
+                <TextView
+                    android:id="@+id/tv_profile_mental_disposition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Mental Disposition"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_behaviour_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_mental_disposition_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Unreasonable"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_mental_disposition"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_mental_disposition"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_mental_disposition" />
+
+                <TextView
+                    android:id="@+id/tv_profile_relationship_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Relationship Status"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_mental_disposition_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_relationship_status_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="In a relationship"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_relationship_status"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_relationship_status"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_relationship_status" />
+
+                <View
+                    android:id="@+id/divider_persona_type_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_relationship_status_text" />
+
+                <View
+                    android:id="@+id/divider_persona_type_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_persona_type_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_follow_up"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_persona_type">
+
+                <View
+                    android:id="@+id/divider_followup"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_profile_followup_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_date_range_black_24dp"
+                    android:tint="@color/colorBlack"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile_followup"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_followup"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_profile_followup" />
+
+                <TextView
+                    android:id="@+id/tv_profile_followup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Follow Up"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_followup_edit"
+                    app:layout_constraintStart_toEndOf="@+id/img_profile_followup_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_followup" />
+
+                <TextView
+                    android:id="@+id/tv_profile_followup_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="SET"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_profile_followup_date_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Date &amp; Time"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup" />
+
+                <TextView
+                    android:id="@+id/tv_profile_followup_date_time_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Set Date and Time"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_followup_date_time"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_followup_date_time"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_date_time" />
+
+                <View
+                    android:id="@+id/divider_followup_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_date_time_text" />
+
+                <View
+                    android:id="@+id/divider_followup_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_followup_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_do_not_disturb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_follow_up">
 
                 <View
                     android:id="@+id/divider_do_not_disturb"

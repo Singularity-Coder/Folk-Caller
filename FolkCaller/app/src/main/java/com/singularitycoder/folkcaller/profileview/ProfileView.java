@@ -45,7 +45,9 @@ public class ProfileView extends AppCompatActivity {
     ConstraintLayout reachOverviewContainer;
     ConstraintLayout programReachOverviewContainer;
     ConstraintLayout callerStatsContainer;
+    ConstraintLayout personaTypeContainer;
     ConstraintLayout doNotDisturbContainer;
+    ConstraintLayout followupContainer;
     ConstraintLayout programDetailsContainer;
     ConstraintLayout finishContactContainer;
 
@@ -97,7 +99,9 @@ public class ProfileView extends AppCompatActivity {
         reachOverviewContainer = findViewById(R.id.con_lay_contact_overview);
         programReachOverviewContainer = findViewById(R.id.con_lay_contact_program_overview);
         callerStatsContainer = findViewById(R.id.con_lay_caller_stats);
+        personaTypeContainer = findViewById(R.id.con_lay_persona_type);
         doNotDisturbContainer = findViewById(R.id.con_lay_do_not_disturb);
+        followupContainer = findViewById(R.id.con_lay_follow_up);
         programDetailsContainer = findViewById(R.id.con_lay_contact_program_details);
         finishContactContainer = findViewById(R.id.con_lay_contact_finish_talking);
 
@@ -358,6 +362,7 @@ public class ProfileView extends AppCompatActivity {
         reachList.add(new StatsOrActionsModel(R.drawable.ic_whatsapp_logo_overview, "WhatsApp Messages", "44", "Reach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_email_black_24dp, "Emails", "4", "Reach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_share_black_24dp, "Shares", "3", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_conversion_level_black_24dp, "Attendance Status", "Coming", "Reach"));
 
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override
@@ -446,7 +451,9 @@ public class ProfileView extends AppCompatActivity {
                 selectProgramContainer.setVisibility(View.VISIBLE);
                 reachOverviewContainer.setVisibility(View.VISIBLE);
                 programReachOverviewContainer.setVisibility(View.VISIBLE);
+                personaTypeContainer.setVisibility(View.VISIBLE);
                 doNotDisturbContainer.setVisibility(View.VISIBLE);
+                followupContainer.setVisibility(View.VISIBLE);
                 programDetailsContainer.setVisibility(View.VISIBLE);
                 finishContactContainer.setVisibility(View.VISIBLE);
             }
