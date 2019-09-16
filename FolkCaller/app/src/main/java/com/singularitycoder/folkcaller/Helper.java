@@ -1,7 +1,9 @@
 package com.singularitycoder.folkcaller;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
@@ -18,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import static com.singularitycoder.folkcaller.home.HomeActivity.getActivity;
 
@@ -38,6 +45,56 @@ public class Helper extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    public void showDatePicker(final TextView datefield, Context context) {
+// Get Current Date
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        new DatePickerDialog(
+                context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                        txtDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                        c.set(Calendar.YEAR, year);
+                        c.set(Calendar.MONTH, monthOfYear);
+                        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        String myFormat = "dd/MM/yy";
+                        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                        datefield.setText(sdf.format(c.getTime()));
+                    }
+                },
+                mYear,
+                mMonth,
+                mDay).show();
+    }
+
+    public void showTimePicker(final TextView timeField) {
+// Get Current Time
+        final Calendar c = Calendar.getInstance();
+        int mHour = c.get(Calendar.HOUR_OF_DAY);
+        int mMinute = c.get(Calendar.MINUTE);
+
+        // Launch Time Picker Dialog
+        new TimePickerDialog(
+                this,
+                (view, hourOfDay, minute) -> {
+//                        txtTime.setText(hourOfDay + ":" + minute);
+                    c.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                    c.set(Calendar.MINUTE, minute);
+
+                    String myFormat = "hh:mm aa";
+                    SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                    timeField.setText(sdf.format(c.getTime()));
+                },
+                mHour,
+                mMinute,
+                false).show();
     }
 
     public void statusBarStuff(Activity activity, int color) {
