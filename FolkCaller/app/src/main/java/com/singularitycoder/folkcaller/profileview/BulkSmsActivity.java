@@ -1,4 +1,4 @@
-package com.singularitycoder.folkcaller;
+package com.singularitycoder.folkcaller.profileview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.singularitycoder.folkcaller.R;
 
 public class BulkSmsActivity extends AppCompatActivity {
 

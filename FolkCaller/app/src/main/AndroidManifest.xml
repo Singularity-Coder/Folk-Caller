@@ -46,7 +46,7 @@
             android:parentActivityName=".home.HomeActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".BulkSmsActivity"
+            android:name=".profileview.BulkSmsActivity"
             android:parentActivityName=".home.HomeActivity"
             android:theme="@style/AppTheme" />
         <activity

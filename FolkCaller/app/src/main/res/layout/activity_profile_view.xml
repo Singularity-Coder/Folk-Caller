@@ -1818,13 +1818,39 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_profile_followup_date_time"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_date_time" />
 
+                <TextView
+                    android:id="@+id/tv_profile_followup_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_date_time_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_followup_type_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Call, Email, SMS"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_followup_type"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_followup_type"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_type" />
+
                 <View
                     android:id="@+id/divider_followup_2"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="15dp"
                     android:background="@color/colorGrey"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_date_time_text" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_type_text" />
 
                 <View
                     android:id="@+id/divider_followup_3"
@@ -2227,9 +2253,52 @@
                 <View
                     android:id="@+id/divider_9"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="15dp"
                     android:background="@color/bg_light"
                     app:layout_constraintTop_toBottomOf="@+id/divider_8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_contact_finish_talking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:descendantFocusability="beforeDescendants"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_activity">
+
+                <!--<View-->
+                <!--android:id="@+id/divider_13"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0.5dp"-->
+                <!--android:background="@color/colorGrey"-->
+                <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_done"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:maxHeight="200dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="Done"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorLightBlue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -2259,48 +2328,48 @@
     <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
     <!--</com.google.android.material.appbar.AppBarLayout>-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/con_lay_contact_finish_talking"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:descendantFocusability="beforeDescendants"
-        android:elevation="10dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <!--<View-->
-        <!--android:id="@+id/divider_13"-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--android:id="@+id/con_lay_contact_finish_talking"-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0.5dp"-->
-        <!--android:background="@color/colorGrey"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:descendantFocusability="beforeDescendants"-->
+        <!--android:elevation="10dp"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:visibility="gone"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent">-->
 
-        <TextView
-            android:id="@+id/tv_profile_contact_done"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:gravity="center"
-            android:maxHeight="200dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:text="Done"
-            android:textAllCaps="true"
-            android:textColor="@color/colorLightBlue"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!--&lt;!&ndash;<View&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/divider_13"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="0.5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="@color/colorGrey"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/tv_profile_contact_done"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="12dp"-->
+            <!--android:layout_marginBottom="12dp"-->
+            <!--android:gravity="center"-->
+            <!--android:maxHeight="200dp"-->
+            <!--android:paddingStart="15dp"-->
+            <!--android:paddingEnd="15dp"-->
+            <!--android:text="Done"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/colorLightBlue"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textStyle="bold"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
     <!--<androidx.constraintlayout.widget.ConstraintLayout-->

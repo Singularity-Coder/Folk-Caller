@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.singularitycoder.folkcaller.BulkSmsActivity;
 import com.singularitycoder.folkcaller.R;
 
 import java.util.ArrayList;
