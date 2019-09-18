@@ -25,6 +25,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.singularitycoder.folkcaller.Helper;
@@ -67,6 +68,12 @@ public class ProfileView extends AppCompatActivity {
     ImageView actionEmail;
     ImageView actionShare;
 
+    ScrollView scrollViewPorfile;
+    Toolbar profileToolbar;
+
+    TextView userName;
+    TextView userMemberType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +111,36 @@ public class ProfileView extends AppCompatActivity {
         followupContainer = findViewById(R.id.con_lay_follow_up);
         programDetailsContainer = findViewById(R.id.con_lay_contact_program_details);
         finishContactContainer = findViewById(R.id.con_lay_contact_finish_talking);
+        userName = findViewById(R.id.tv_main_title);
+        userMemberType = findViewById(R.id.tv_main_subtitle);
+
+        scrollViewPorfile = findViewById(R.id.scrollview_profile);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            scrollViewPorfile.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View view, int x, int y, int oldx, int oldy) {
+
+                    System.out.println("--x: " + x);
+                    System.out.println("--y: " + y);
+                    System.out.println("--oldx: " + oldx);
+                    System.out.println("--oldy: " + oldy);
+
+                    if (y > 300) {
+                        profileToolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                        profileToolbar.setTitle(userName.getText().toString());
+                        profileToolbar.setSubtitle(userMemberType.getText().toString());
+                        profileToolbar.setTitleTextColor(getResources().getColor(R.color.colorBlack));
+                        profileToolbar.setSubtitleTextColor(getResources().getColor(R.color.colorBlack));
+                    }
+
+                    if (y < 300) {
+                        profileToolbar.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+                        profileToolbar.setTitle("");
+                        profileToolbar.setSubtitle("");
+                    }
+                }
+            });
+        }
 
         tvEditMyDetails = findViewById(R.id.tv_profile_my_details_edit);
         tvEditMyDetails.setOnClickListener(new View.OnClickListener() {
@@ -166,7 +203,7 @@ public class ProfileView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String phone = "9535509155";
-                Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
                 smsIntent.setType("vnd.android-dir/mms-sms");
                 smsIntent.putExtra("address", phone);
                 smsIntent.putExtra("sms_body", "Message Body check");
@@ -483,12 +520,12 @@ public class ProfileView extends AppCompatActivity {
     }
 
     private void initToolBar() {
-        Toolbar viewEventToolbar = findViewById(R.id.toolbar_create_event);
-        viewEventToolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+        profileToolbar = findViewById(R.id.toolbar_create_event);
+        profileToolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            viewEventToolbar.setElevation(10);
+            profileToolbar.setElevation(10);
         }
-        setSupportActionBar(viewEventToolbar);
+        setSupportActionBar(profileToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
