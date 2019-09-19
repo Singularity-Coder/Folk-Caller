@@ -1249,12 +1249,12 @@ public class HomeActivity extends AppCompatActivity {
             recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
             smsList = new ArrayList<>();
+            smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", ""));
+            smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
+            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", ""));
             smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
             smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
-            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
-            smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
-            smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
-            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
+            smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", ""));
             smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
             smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
             smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));

@@ -1,6 +1,7 @@
 package com.singularitycoder.folkcaller.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,11 +50,22 @@ public class SmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         ((SmsAdapter.SmsViewHolder) holder).tvDate.setVisibility(View.VISIBLE);
         ((SmsAdapter.SmsViewHolder) holder).tvDate.setText(personModel.getStrDate());
-//        ((NotificationViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorPrimaryDark));
 
-        ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.VISIBLE);
-        ((SmsViewHolder) holder).tvChatCount.setVisibility(View.VISIBLE);
-        ((SmsViewHolder) holder).tvChatCount.setText(personModel.getStrChatCount());
+
+        if (!((SmsViewHolder) holder).tvChatCount.getText().toString().equals("")) {
+            if (Integer.valueOf(((SmsViewHolder) holder).tvChatCount.getText().toString()) > 0) {
+                ((SmsViewHolder) holder).tvChatCount.setVisibility(View.VISIBLE);
+                ((SmsViewHolder) holder).tvChatCount.setText(personModel.getStrChatCount());
+                ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.GONE);
+                ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorAccent));
+            }
+        } else {
+            ((SmsViewHolder) holder).tvChatCount.setText("0");
+            ((SmsViewHolder) holder).tvChatCount.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+            ((SmsViewHolder) holder).tvChatCount.setVisibility(View.GONE);
+            ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.VISIBLE);
+            ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorBlack));
+        }
 
         ((SmsAdapter.SmsViewHolder) holder).personLayout.setOnClickListener(new View.OnClickListener() {
             @Override

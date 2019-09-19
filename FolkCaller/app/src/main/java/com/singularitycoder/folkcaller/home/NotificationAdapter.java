@@ -86,6 +86,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     class NotificationViewHolder extends RecyclerView.ViewHolder {
 
         CircularImageView imgProfileImage;
+        CircularImageView imgProfileImageTop;
         TextView tvName, tvSubTitle1, tvSubTitle2, tvDate;
         ImageView arrow, accept, stopper;
         ConstraintLayout personLayout;

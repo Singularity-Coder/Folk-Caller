@@ -120,10 +120,10 @@ public class ProfileView extends AppCompatActivity {
                 @Override
                 public void onScrollChange(View view, int x, int y, int oldx, int oldy) {
 
-                    System.out.println("--x: " + x);
-                    System.out.println("--y: " + y);
-                    System.out.println("--oldx: " + oldx);
-                    System.out.println("--oldy: " + oldy);
+//                    System.out.println("--x: " + x);
+//                    System.out.println("--y: " + y);
+//                    System.out.println("--oldx: " + oldx);
+//                    System.out.println("--oldy: " + oldy);
 
                     if (y > 300) {
                         profileToolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
