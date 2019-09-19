@@ -15,12 +15,12 @@
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         android:layout_marginEnd="15dp"
-        android:layout_marginStart="15dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--        android:paddingStart="15dp"-->
     <TextView
         android:id="@+id/tv_contact_overview_label"
         android:layout_width="0dp"
@@ -28,7 +28,6 @@
         android:layout_marginEnd="10dp"
         android:drawablePadding="15dp"
         android:gravity="center_vertical"
-        android:paddingStart="15dp"
         android:text="Reach Item 1"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"

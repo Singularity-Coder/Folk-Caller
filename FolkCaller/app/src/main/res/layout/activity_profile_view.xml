@@ -368,10 +368,12 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_reach_overview"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_overview_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_overview_details" />
 
                 <View
@@ -438,10 +440,12 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_reach_program_overview"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_program_overview_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_program_overview_details" />
 
                 <View
@@ -508,10 +512,12 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_caller_stats"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_caller_stats_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_caller_stats_details" />
 
                 <View
@@ -591,14 +597,13 @@
                     android:id="@+id/tv_profile_member_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Member Type"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_my_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_my_details" />
 
                 <TextView
@@ -617,14 +622,13 @@
                     android:id="@+id/tv_profile_folk_id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Folk ID"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_my_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_member_type_text" />
 
                 <TextView
@@ -643,14 +647,13 @@
                     android:id="@+id/tv_profile_email"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Email"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_my_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_folk_id_text" />
 
                 <TextView
@@ -669,14 +672,13 @@
                     android:id="@+id/tv_profile_phone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Phone"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_my_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_email_text" />
 
                 <TextView
@@ -695,14 +697,13 @@
                     android:id="@+id/tv_profile_availability"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Availability"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_my_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_phone_text" />
 
                 <TextView
@@ -939,14 +940,13 @@
                     android:id="@+id/tv_profile_program"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Program"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_program_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_program_details" />
 
                 <TextView
@@ -1134,16 +1134,14 @@
                     android:id="@+id/tv_profile_contact_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Name"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_details_edit" />
-
 
                 <TextView
                     android:id="@+id/tv_profile_contact_name_text"
@@ -1161,16 +1159,14 @@
                     android:id="@+id/tv_profile_contact_position"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Position"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_name_text" />
-
 
                 <TextView
                     android:id="@+id/tv_profile_contact_position_text"
@@ -1188,16 +1184,14 @@
                     android:id="@+id/tv_profile_contact_email_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Primary Email"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_position_text" />
-
 
                 <TextView
                     android:id="@+id/tv_profile_contact_email_1_text"
@@ -1215,14 +1209,13 @@
                     android:id="@+id/tv_profile_contact_email_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Secondary Email"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_email_1_text" />
 
 
@@ -1242,14 +1235,13 @@
                     android:id="@+id/tv_profile_contact_phone_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Primary Phone Number"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_email_2_text" />
 
 
@@ -1269,14 +1261,13 @@
                     android:id="@+id/tv_profile_contact_phone_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Secondary Phone Number"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_phone_1_text" />
 
                 <TextView
@@ -1295,14 +1286,13 @@
                     android:id="@+id/tv_profile_contact_hometown_address"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Home Town Address"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_phone_2_text" />
 
                 <TextView
@@ -1321,14 +1311,13 @@
                     android:id="@+id/tv_profile_contact_current_address"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Current Address"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_hometown_address_text" />
 
                 <TextView
@@ -1347,16 +1336,14 @@
                     android:id="@+id/tv_profile_contact_college"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="College"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_details"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_current_address_text" />
-
 
                 <TextView
                     android:id="@+id/tv_profile_contact_college_text"
@@ -1593,14 +1580,13 @@
                     android:id="@+id/tv_profile_social_status"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Social Status"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_persona_type"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_persona_type" />
 
                 <TextView
@@ -1619,14 +1605,13 @@
                     android:id="@+id/tv_profile_financial_status"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Financial Status"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_persona_type"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_social_status_text" />
 
                 <TextView
@@ -1645,14 +1630,13 @@
                     android:id="@+id/tv_profile_behaviour"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Behaviour"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_persona_type"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_financial_status_text" />
 
                 <TextView
@@ -1671,14 +1655,13 @@
                     android:id="@+id/tv_profile_mental_disposition"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Mental Disposition"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_persona_type"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_behaviour_text" />
 
                 <TextView
@@ -1697,14 +1680,13 @@
                     android:id="@+id/tv_profile_relationship_status"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Relationship Status"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_persona_type"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_mental_disposition_text" />
 
                 <TextView
@@ -1797,14 +1779,13 @@
                     android:id="@+id/tv_profile_followup_date_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Date &amp; Time"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_followup"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup" />
 
                 <TextView
@@ -1823,14 +1804,13 @@
                     android:id="@+id/tv_profile_followup_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="Type"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_followup"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_followup_date_time_text" />
 
                 <TextView
@@ -1923,14 +1903,13 @@
                     android:id="@+id/tv_profile_do_not_disturb_from"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="From"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_do_not_disturb"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb" />
 
                 <TextView
@@ -1949,14 +1928,13 @@
                     android:id="@+id/tv_profile_do_not_disturb_to"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:text="To"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_do_not_disturb"
                     app:layout_constraintTop_toBottomOf="@+id/tv_profile_do_not_disturb_from_text" />
 
                 <TextView
@@ -2330,45 +2308,45 @@
     <!--</com.google.android.material.appbar.AppBarLayout>-->
 
     <!--<androidx.constraintlayout.widget.ConstraintLayout-->
-        <!--android:id="@+id/con_lay_contact_finish_talking"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@color/colorAccent"-->
-        <!--android:descendantFocusability="beforeDescendants"-->
-        <!--android:elevation="10dp"-->
-        <!--android:focusable="true"-->
-        <!--android:focusableInTouchMode="true"-->
-        <!--android:visibility="gone"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent">-->
+    <!--android:id="@+id/con_lay_contact_finish_talking"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/colorAccent"-->
+    <!--android:descendantFocusability="beforeDescendants"-->
+    <!--android:elevation="10dp"-->
+    <!--android:focusable="true"-->
+    <!--android:focusableInTouchMode="true"-->
+    <!--android:visibility="gone"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent">-->
 
-        <!--&lt;!&ndash;<View&ndash;&gt;-->
-        <!--&lt;!&ndash;android:id="@+id/divider_13"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="0.5dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:background="@color/colorGrey"&ndash;&gt;-->
-        <!--&lt;!&ndash;app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<View&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/divider_13"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="0.5dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="@color/colorGrey"&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/tv_profile_contact_done"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="12dp"-->
-            <!--android:layout_marginBottom="12dp"-->
-            <!--android:gravity="center"-->
-            <!--android:maxHeight="200dp"-->
-            <!--android:paddingStart="15dp"-->
-            <!--android:paddingEnd="15dp"-->
-            <!--android:text="Done"-->
-            <!--android:textAllCaps="true"-->
-            <!--android:textColor="@color/colorLightBlue"-->
-            <!--android:textSize="16sp"-->
-            <!--android:textStyle="bold"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/tv_profile_contact_done"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="12dp"-->
+    <!--android:layout_marginBottom="12dp"-->
+    <!--android:gravity="center"-->
+    <!--android:maxHeight="200dp"-->
+    <!--android:paddingStart="15dp"-->
+    <!--android:paddingEnd="15dp"-->
+    <!--android:text="Done"-->
+    <!--android:textAllCaps="true"-->
+    <!--android:textColor="@color/colorLightBlue"-->
+    <!--android:textSize="16sp"-->
+    <!--android:textStyle="bold"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
     <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 

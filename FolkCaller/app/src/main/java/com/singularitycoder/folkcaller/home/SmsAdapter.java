@@ -60,9 +60,9 @@ public class SmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorAccent));
             }
         } else {
-            ((SmsViewHolder) holder).tvChatCount.setText("0");
-            ((SmsViewHolder) holder).tvChatCount.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
             ((SmsViewHolder) holder).tvChatCount.setVisibility(View.GONE);
+            ((SmsViewHolder) holder).tvChatCount.setText("0");
+//            ((SmsViewHolder) holder).tvChatCount.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
             ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.VISIBLE);
             ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorBlack));
         }
