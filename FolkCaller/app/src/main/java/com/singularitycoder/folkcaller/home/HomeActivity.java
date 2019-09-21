@@ -311,7 +311,7 @@ public class HomeActivity extends AppCompatActivity {
         window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
         dialog.getWindow().setLayout((int) (displayRectangle.width() * 0.8f), dialog.getWindow().getAttributes().height);
 
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // for rounded corners
 
         TextView tvContactUs = dialog.findViewById(R.id.tv_contact_us);
         tvContactUs.setOnClickListener(new View.OnClickListener() {
@@ -320,28 +320,28 @@ public class HomeActivity extends AppCompatActivity {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "name@emailaddress.com", null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Contact Us");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Feedback, Help, Report Bugs etc.");
-                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                activity.startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         });
         TextView tvRateUs = dialog.findViewById(R.id.tv_rate_us);
         tvRateUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.srilaprabhupadalila&hl=en")));
+                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.srilaprabhupadalila&hl=en")));
             }
         });
         TextView tvVolunteer = dialog.findViewById(R.id.tv_volunteer_appdev);
         tvVolunteer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/WCBV2q4b1ZBgDf3B9")));
+                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/WCBV2q4b1ZBgDf3B9")));
             }
         });
         TextView tvDedicated = dialog.findViewById(R.id.tv_dedicated_to);
         tvDedicated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.srilaprabhupadalila.org/who-is-srila-prabhupada")));
+                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.srilaprabhupadalila.org/who-is-srila-prabhupada")));
             }
         });
         TextView tvShareApk = dialog.findViewById(R.id.tv_share_app_apk);
@@ -360,7 +360,7 @@ public class HomeActivity extends AppCompatActivity {
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "https://www.singularitycoder.com");
                 shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-                startActivity(Intent.createChooser(shareIntent, "Share to"));
+                activity.startActivity(Intent.createChooser(shareIntent, "Share to"));
             }
         });
         dialog.show();
@@ -624,9 +624,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
-
-
     public static class DashboardFragment extends Fragment {
         ArrayList<DashModel> dashList;
         DashAdapter sDashAdapter;
@@ -786,8 +783,6 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
             recyclerView.setAdapter(sAdapterContactCallerAdminChatNotif);
-
-
 
 
             return view;
@@ -1261,7 +1256,6 @@ public class HomeActivity extends AppCompatActivity {
             smsList.add(new PersonModel("Jasmin Jamon", R.drawable.face3, "Hey Jasmin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "19/2/19", "3"));
             smsList.add(new PersonModel("Marvin Michael", R.drawable.face2, "Hey Marvin, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "21/6/20", "7"));
             smsList.add(new PersonModel("Juniper Jupiter", R.drawable.face1, "Hey Juniper, what happened to the 2 million contacts i told u to call in 3 minutes? Huhahahahah huahahaha huahahahahahahahaaaaaaaaa!", "7/2/20", "1"));
-
 
 
             smsAdapter = new SmsAdapter(smsList, getContext());

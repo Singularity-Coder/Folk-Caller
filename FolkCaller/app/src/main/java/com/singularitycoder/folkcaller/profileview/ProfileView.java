@@ -130,7 +130,7 @@ public class ProfileView extends AppCompatActivity {
                         profileToolbar.setTitle(userName.getText().toString());
                         profileToolbar.setSubtitle(userMemberType.getText().toString());
                         profileToolbar.setTitleTextColor(getResources().getColor(R.color.colorBlack));
-                        profileToolbar.setSubtitleTextColor(getResources().getColor(R.color.colorBlack));
+                        profileToolbar.setSubtitleTextColor(getResources().getColor(R.color.colorSubtitle));
                     }
 
                     if (y < 300) {
