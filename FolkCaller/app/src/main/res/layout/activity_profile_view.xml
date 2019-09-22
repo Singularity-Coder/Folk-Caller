@@ -589,10 +589,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:text="EDIT"
+                    android:text="Edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -932,10 +931,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:text="UPDATE"
+                    android:text="Update"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1126,10 +1124,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:text="EDIT"
+                    android:text="Edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1572,10 +1569,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:text="EDIT"
+                    android:text="Edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1771,10 +1767,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:text="SET"
+                    android:text="Set"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1895,10 +1890,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:text="SET"
+                    android:text="Set"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

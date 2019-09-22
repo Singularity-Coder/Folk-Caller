@@ -522,6 +522,7 @@ public class ProfileView extends AppCompatActivity {
     private void initToolBar() {
         profileToolbar = findViewById(R.id.toolbar_create_event);
         profileToolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
+        profileToolbar.setNavigationIcon(R.drawable.ic_back);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             profileToolbar.setElevation(10);
         }

@@ -45,11 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:text="RESET"
-        android:textAllCaps="true"
+        android:text="Reset"
         android:textColor="@color/colorAccent"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img_event_filter_dialog_close" />
 

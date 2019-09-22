@@ -99,13 +99,13 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initViewPager() {
         final int DASHBOARD = 0;
-        final int CONTACTS = 1;
-        final int CALLERS = 2;
-        final int ADMINS = 3;
-        final int MY_TASKS = 4;
-        final int ASSIGNED_TASKS = 5;
-        final int CALL_HISTORY = 6;
-        final int SMS_HISTORY = 7;
+        final int CALL_HISTORY = 1;
+        final int SMS_HISTORY = 2;
+        final int MY_TASKS = 3;
+        final int ASSIGNED_TASKS = 4;
+        final int CONTACTS = 5;
+        final int CALLERS = 6;
+        final int ADMINS = 7;
 
         viewPager = findViewById(R.id.viewpager_home);
         setupViewPager(viewPager);
@@ -226,13 +226,14 @@ public class HomeActivity extends AppCompatActivity {
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "CHATS");
         // adapter.addFrag(new AdminFragment(ContextCompat.getColor(this, R.color.bg_light_grey)), "NOTIFICATIONS");     // they must be visible
         adapter.addFrag(new DashboardFragment(), "DASHBOARD");
+        adapter.addFrag(new AdminFragment(), "CALL HISTORY");
+        adapter.addFrag(new SmsFragment(), "SMS HISTORY");
+        adapter.addFrag(new AdminFragment(), "MY TASKS"); // For caller
+        adapter.addFrag(new AdminFragment(), "ASSIGNED TASKS");
         adapter.addFrag(new ContactFragment(), "CONTACTS");
         adapter.addFrag(new CallerFragment(), "CALLERS");
         adapter.addFrag(new AdminFragment(), "ADMINS");
-        adapter.addFrag(new AdminFragment(), "MY TASKS"); // For caller
-        adapter.addFrag(new AdminFragment(), "ASSIGNED TASKS");
-        adapter.addFrag(new AdminFragment(), "CALL HISTORY");
-        adapter.addFrag(new SmsFragment(), "SMS HISTORY");
+
         viewPager.setAdapter(adapter);
     }
 
@@ -652,7 +653,7 @@ public class HomeActivity extends AppCompatActivity {
 
             dashList = new ArrayList<>();
             dashList.add(new DashModel("300"));
-            dashList.add(new DashModel(R.drawable.ic_rank_black_24dp, "This month's target", "6500"));
+            dashList.add(new DashModel(R.drawable.ic_target_black_24dp, "This month's target", "6500"));
             dashList.add(new DashModel(R.drawable.ic_tasks_finished_black_24dp, "Tasks finished", "24"));
             dashList.add(new DashModel(R.drawable.ic_pending_black_24dp, "Tasks pending", "3"));
             dashList.add(new DashModel(R.drawable.ic_contact_mail_black_24dp, "Contacts Called", "2404"));

@@ -99,8 +99,7 @@
                     android:layout_marginTop="5dp"
                     android:text="FOLK Caller"
                     android:textColor="@color/colorBlack"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
+                    android:textSize="23sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,8 +129,7 @@
                     android:gravity="center_vertical"
                     android:text="Contact Us"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -152,8 +150,7 @@
                     android:gravity="center_vertical"
                     android:text="Rate on Google Play"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -174,8 +171,7 @@
                     android:gravity="center_vertical"
                     android:text="Volunteer to App Development"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -196,8 +192,7 @@
                     android:gravity="center_vertical"
                     android:text="Dedicated to"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -211,15 +206,13 @@
                     android:id="@+id/tv_share_app_apk"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:drawableStart="@drawable/ic_apk_share_setup_black_24dp"
-                    android:drawableLeft="@drawable/ic_apk_share_setup_black_24dp"
+                    android:drawableStart="@drawable/ic_adb_black_24dp"
                     android:drawablePadding="15dp"
                     android:drawableTint="@color/colorAccent"
                     android:gravity="center_vertical"
                     android:text="Share App APK file"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -240,8 +233,7 @@
                     android:gravity="center_vertical"
                     android:text="Share App Link"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="match_parent"

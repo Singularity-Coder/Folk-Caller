@@ -37,7 +37,6 @@
         android:text="Admin Action"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/img_admin_action_icon"
         app:layout_constraintEnd_toStartOf="@+id/img_admin_action_arrow"
         app:layout_constraintStart_toEndOf="@+id/img_admin_action_icon"
