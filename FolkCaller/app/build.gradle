@@ -36,16 +36,24 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    // Support
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.mikhaellopez:circularimageview:4.0.1'
-    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     implementation 'androidx.palette:palette:1.0.0'
-    implementation 'com.karumi:dexter:5.0.0'
+
+    // Image Loader
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // Circular Image
+    implementation 'com.mikhaellopez:circularimageview:4.0.1'
+
+    // Text Drawable
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
+    // Permissions
+    implementation 'com.karumi:dexter:5.0.0'
 
     // Charts
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
