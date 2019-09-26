@@ -52,19 +52,15 @@ public class SmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ((SmsAdapter.SmsViewHolder) holder).tvDate.setText(personModel.getStrDate());
 
 
-        if (!((SmsViewHolder) holder).tvChatCount.getText().toString().equals("")) {
-            if (Integer.valueOf(((SmsViewHolder) holder).tvChatCount.getText().toString()) > 0) {
-                ((SmsViewHolder) holder).tvChatCount.setVisibility(View.VISIBLE);
-                ((SmsViewHolder) holder).tvChatCount.setText(personModel.getStrChatCount());
-                ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.GONE);
-                ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorAccent));
-            }
-        } else {
+        if (((SmsViewHolder) holder).tvChatCount.getText().toString().isEmpty()) {
             ((SmsViewHolder) holder).tvChatCount.setVisibility(View.GONE);
-            ((SmsViewHolder) holder).tvChatCount.setText("0");
-//            ((SmsViewHolder) holder).tvChatCount.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
             ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.VISIBLE);
             ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorBlack));
+        } else {
+            ((SmsAdapter.SmsViewHolder) holder).arrow.setVisibility(View.GONE);
+            ((SmsViewHolder) holder).tvChatCount.setVisibility(View.VISIBLE);
+            ((SmsViewHolder) holder).tvChatCount.setText(personModel.getStrChatCount());
+            ((SmsAdapter.SmsViewHolder) holder).tvDate.setTextColor(context.getResources().getColor(R.color.colorAccent));
         }
 
         ((SmsAdapter.SmsViewHolder) holder).personLayout.setOnClickListener(new View.OnClickListener() {
