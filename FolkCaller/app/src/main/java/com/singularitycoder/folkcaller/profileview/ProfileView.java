@@ -361,7 +361,7 @@ public class ProfileView extends AppCompatActivity {
 
     private void setUpReachOverviewList() {
         ArrayList<StatsOrActionsModel> reachList = new ArrayList<>();
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_activity_black_24dp, "Activities", "1270", "TotalReach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_flash_on_24px, "Activities", "1270", "TotalReach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_comment_black_24dp, "Comments", "144", "TotalReach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_call_black_24dp, "Calls", "344", "TotalReach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "SMS", "227", "TotalReach"));
@@ -392,7 +392,7 @@ public class ProfileView extends AppCompatActivity {
 
     private void setUpProgramReachOverviewList() {
         ArrayList<StatsOrActionsModel> reachList = new ArrayList<>();
-        reachList.add(new StatsOrActionsModel(R.drawable.ic_activity_black_24dp, "Activities", "54", "Reach"));
+        reachList.add(new StatsOrActionsModel(R.drawable.ic_flash_on_24px, "Activities", "54", "Reach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_comment_black_24dp, "Comments", "14", "Reach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_overview_call_black_24dp, "Calls", "34", "Reach"));
         reachList.add(new StatsOrActionsModel(R.drawable.ic_sms_black_24dp, "SMS", "27", "Reach"));
@@ -428,7 +428,7 @@ public class ProfileView extends AppCompatActivity {
         callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_contact_mail_black_24dp, "Contacts Called", "2404", "CallerStats"));
         callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_hourspent_black_24dp, "Hours Spent", "54", "CallerStats"));
         callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_conversions_black_24dp, "Conversions", "1051", "CallerStats"));
-        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_starrank_black_24dp, "Caller Rank", "7", "CallerStats"));
+        callerStatsList.add(new StatsOrActionsModel(R.drawable.ic_emoji_events_24px, "Caller Rank", "7", "CallerStats"));
 
         LinearLayoutManager commentLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false) {
             @Override

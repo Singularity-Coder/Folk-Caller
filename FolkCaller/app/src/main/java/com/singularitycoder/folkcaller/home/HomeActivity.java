@@ -659,7 +659,7 @@ public class HomeActivity extends AppCompatActivity {
             dashList.add(new DashModel(R.drawable.ic_contact_mail_black_24dp, "Contacts Called", "2404"));
             dashList.add(new DashModel(R.drawable.ic_hourspent_black_24dp, "Hours spent", "54"));
             dashList.add(new DashModel(R.drawable.ic_conversions_black_24dp, "Conversions", "1051"));
-            dashList.add(new DashModel(R.drawable.ic_starrank_black_24dp, "Caller Rank", "7"));
+            dashList.add(new DashModel(R.drawable.ic_emoji_events_24px, "Caller Rank", "7"));
 
 
             sDashAdapter = new DashAdapter(dashList, getContext());
