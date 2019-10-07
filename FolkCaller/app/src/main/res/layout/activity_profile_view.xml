@@ -318,6 +318,200 @@
                 android:background="@color/bg_light"
                 app:layout_constraintTop_toBottomOf="@+id/divider_div1" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_lay_contact_program_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_div2">
+
+                <View
+                    android:id="@+id/divider_program_details_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_contact_program_details_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_program_black_24dp"
+                    android:tint="@color/colorBlack"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile_contact_program_details"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_contact_program_details"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_profile_contact_program_details" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_program_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Program Details"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_contact_program_details_edit"
+                    app:layout_constraintStart_toEndOf="@+id/img_contact_program_details_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_program_details_1" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_program_details_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Update"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_profile_program"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Program"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_program_details"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_program_details" />
+
+                <TextView
+                    android:id="@+id/tv_profile_program_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Yoga For Happiness"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_attendance_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Attendance Status"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_attendance_status_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Coming"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_attendance_status" />
+
+                <TextView
+                    android:id="@+id/tv_profile_registered_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Registered Date"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_attendance_status_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_registered_date_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="July 15, 4019 - 10:15 AM"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_registered_date" />
+
+                <TextView
+                    android:id="@+id/tv_profile_program_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Program Date"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_registered_date_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_program_date_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Aug 13, 5019 - 9 AM"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program_date" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_campaigned_by"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Campaigned by"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program_date_text" />
+
+                <TextView
+                    android:id="@+id/tv_profile_contact_campaigned_by_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Sudarshana Das"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
+                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_campaigned_by" />
+
+                <View
+                    android:id="@+id/divider_program_details_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_campaigned_by_text" />
+
+                <View
+                    android:id="@+id/divider_program_details_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/bg_light"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_program_details_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_contact_overview"
@@ -326,7 +520,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_div2">
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_program_details">
 
                 <View
                     android:id="@+id/divider_contact_overview_1"
@@ -588,6 +782,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="Edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
@@ -881,206 +1076,12 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/con_lay_contact_program_details"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_caller_details">
-
-                <View
-                    android:id="@+id/divider_program_details_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/img_contact_program_details_icon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="15dp"
-                    android:src="@drawable/ic_program_black_24dp"
-                    android:tint="@color/colorBlack"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_profile_contact_program_details"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_contact_program_details"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_profile_contact_program_details" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_program_details"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Program Details"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_profile_contact_program_details_edit"
-                    app:layout_constraintStart_toEndOf="@+id/img_contact_program_details_icon"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_program_details_1" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_program_details_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:text="Update"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_profile_program"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:text="Program"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_contact_program_details"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_program_details" />
-
-                <TextView
-                    android:id="@+id/tv_profile_program_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="Yoga For Happiness"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_attendance_status"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Attendance Status"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program_text" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_attendance_status_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="Coming"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_attendance_status" />
-
-                <TextView
-                    android:id="@+id/tv_profile_registered_date"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Registered Date"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_attendance_status_text" />
-
-                <TextView
-                    android:id="@+id/tv_profile_registered_date_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="July 15, 4019 - 10:15 AM"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_registered_date" />
-
-                <TextView
-                    android:id="@+id/tv_profile_program_date"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Program Date"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_registered_date_text" />
-
-                <TextView
-                    android:id="@+id/tv_profile_program_date_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="Aug 13, 5019 - 9 AM"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program_date" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_campaigned_by"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Campaigned by"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_program_date_text" />
-
-                <TextView
-                    android:id="@+id/tv_profile_contact_campaigned_by_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:hint="Sudarshana Das"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_profile_program"
-                    app:layout_constraintStart_toStartOf="@+id/tv_profile_program"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_campaigned_by" />
-
-                <View
-                    android:id="@+id/divider_program_details_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/colorGrey"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_contact_campaigned_by_text" />
-
-                <View
-                    android:id="@+id/divider_program_details_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:background="@color/bg_light"
-                    app:layout_constraintTop_toBottomOf="@+id/divider_program_details_2" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/con_lay_contact_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/con_lay_contact_program_details">
+                app:layout_constraintTop_toBottomOf="@+id/con_lay_caller_details">
 
                 <View
                     android:id="@+id/divider_4"
@@ -1123,6 +1124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="Edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
@@ -1568,6 +1570,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="Edit"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
@@ -1766,6 +1769,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="Set"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
@@ -1889,6 +1893,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="Set"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"

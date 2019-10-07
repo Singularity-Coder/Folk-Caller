@@ -92,7 +92,9 @@ public class HomeActivity extends AppCompatActivity {
     private void initToolBar() {
         toolbar = findViewById(R.id.toolbar_home);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) getSupportActionBar().setTitle("FOLK Caller");
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("FOLK Caller");
+        }
         // For back navigation button use this
         // if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
