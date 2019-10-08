@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "487787185917",
+    "firebase_url": "https://folk-caller.firebaseio.com",
+    "project_id": "folk-caller",
+    "storage_bucket": "folk-caller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487787185917:android:a85822fb2323821fae6094",
+        "android_client_info": {
+          "package_name": "com.singularitycoder.folkcaller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487787185917-99hh16losibleqlfo9hro7h7k4l8v1nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFJuA3-vin-Y6Q5WNZgzcFTTNyImHSTBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487787185917-99hh16losibleqlfo9hro7h7k4l8v1nm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

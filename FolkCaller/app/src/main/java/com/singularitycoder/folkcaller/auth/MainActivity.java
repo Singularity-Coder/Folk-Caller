@@ -19,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.singularitycoder.folkcaller.home.HomeActivity;
 import com.singularitycoder.folkcaller.R;
 
@@ -395,6 +396,8 @@ public class MainActivity extends AppCompatActivity {
         TextView tvAdminNumber;
         EditText etAdminNumber;
 
+        private FirebaseAuth fireAuth;
+
         public SignUpFragment() {
         }
 
@@ -406,6 +409,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_signup, container, false);
+
+            fireAuth = FirebaseAuth.getInstance();
 
             tvTermsPrivacy = view.findViewById(R.id.tv_signup_terms);
             tvTermsPrivacy.setOnClickListener(new View.OnClickListener() {
