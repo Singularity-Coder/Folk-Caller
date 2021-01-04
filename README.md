@@ -1,2 +1,28 @@
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/logo192.png)
 # Tele-Caller
 Its a Tele Caller App!
+
+# Screenshots
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/1.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/2.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/3.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/4.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/5.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/6.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/7.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/8.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/9.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/10.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/11.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/12.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/13.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/14.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/15.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/16.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/17.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/18.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/19.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/20.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/21.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/22.jpg)
+![alt text](https://github.com/Singularity-Coder/Tele-Caller-App-UI/blob/master/screenshots/23.jpg)
